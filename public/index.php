@@ -2,7 +2,7 @@
 
 require __DIR__."/../init/web.php";
 
-session_start();
+sess_start();
 
 if (isset($_SESSION["user"])) {
 	require __DIR__."/home.php";

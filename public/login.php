@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__."/../init/web.php";
+require_once __DIR__."/../init/web.php";
 
-session_start();
+sess_start();
 
 if (isset($_SESSION["user"])) {
 	header("Location: home.php");
@@ -20,8 +20,13 @@ if (isset($_SESSION["user"])) {
 <body>
 	<div class="login-cage">
 		<form method="POST" action="javascript:void(0);">
-			<div>Username:</div>
-			<div><input type="text" name="username"/></div>
+			<h2>GNUWeeb Mail Login</h2>
+			<div class="ilabel">Email or Username:</div>
+			<div class="iinput"><input type="text" name="username" required="1"/></div>
+			<div class="ilabel">Password:</div>
+			<div class="iinput"><input type="password" name="password" required="1"></div>
+			<div class="isubmit"><button type="submit">Login</button></div>
+			<div class="ireg">Don't have an account? <a href="register.php?ref=login">Register</a></div>
 		</form>
 	</div>
 </body>
