@@ -2,52 +2,52 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id jDJtHD5+qmBnngAAav/0+A
+	id vnLcOu87q2B7tAAAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Sun, 23 May 2021 16:09:34 +0000
+	for <sprite@gnuweeb.org>; Mon, 24 May 2021 05:38:55 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 569B7C0055
-	for <sprite@gnuweeb.org>; Sun, 23 May 2021 16:09:34 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id C7846C0055
+	for <sprite@gnuweeb.org>; Mon, 24 May 2021 05:38:55 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20161025 header.b=ahSStAf8;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20161025 header.b=vI8Oh5Gh;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com
- [209.85.208.48]) by gnuweeb.org (Postfix) with ESMTPS id CC59BBE801
- for <gwml@gnuweeb.org>; Sun, 23 May 2021 16:09:30 +0000 (UTC)
-Received: by mail-ed1-f48.google.com with SMTP id g7so16877985edm.4
- for <gwml@gnuweeb.org>; Sun, 23 May 2021 09:09:30 -0700 (PDT)
+Received: from mail-io1-f43.google.com (mail-io1-f43.google.com
+ [209.85.166.43]) by gnuweeb.org (Postfix) with ESMTPS id D7D30BE66A
+ for <gwml@gnuweeb.org>; Mon, 24 May 2021 05:38:53 +0000 (UTC)
+Received: by mail-io1-f43.google.com with SMTP id a8so18537193ioa.12
+ for <gwml@gnuweeb.org>; Sun, 23 May 2021 22:38:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:from:date:message-id:subject:to;
- bh=i77AqfkADXV2vVKh1L0SMulz3bLazG9zHXIgEH+/fv0=;
- b=ahSStAf82I4VzUbvhedzh40r6MQbONh1F08pQ6YuyH9tigWA4J8DxnDqTa9ESYeEhV
- iLgOzmIaae16IRsVqh1JPs//9qwSQwCGGqlfMJZr6fY9H7PEhRVEvgXWAuC6/+lngdh4
- XVJsNQ6CjdHceOIXooU9LdAHWINMj51qjYh3LDBgiqF79hmejijnbXKh6jzqcaWmGIi7
- KXfG0bddN8XiRgG5LODf8QP/731DCWl+PGfg2CNsBzMhpRjWVr+30aJyi3IjhncgsN+i
- f4ZI5MqRXekIkYN5xnHWW25NXY/CDXjz5UZeY3TQSh3WJdGeETbRP3sBTDX7Mh6bqLhM
- xtlg==
+ bh=cWd6kvYcL3zgGIBAuLaCW02rB2ewDbJCIzIrilPZzfQ=;
+ b=vI8Oh5Ghx4ZY5IX+CJNFOU22AR2095Ev7WiuhOp9uYutf8Bl2h/DiPeintfkKP+Hp2
+ nf4eAlMVS0dBCWB3utTOdTYr3JQVFUqU6DpLyGHlKFTwtiynWfRmfxxa1AZFVkWo+1s9
+ AZTNoX7LSOfKJEIEK0dkL/JVZwUZXXJoyLnYyz31sFKhn/A1ea7BgGsZ7tVv5vrdJzfH
+ 4yVvSocQd8XPKFkBZQmWjyXHHwXvsA7jyCU6a0fzz1cQaYU1Ox7/UNHYNxEN8jfDJnm4
+ SBEwzsATgvrGAerZc1vcIIPkWuDJSpuWt4m9A1pqC9A2o5hMA5U8O4VwAPDkrcjgCw6U
+ pmvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=i77AqfkADXV2vVKh1L0SMulz3bLazG9zHXIgEH+/fv0=;
- b=tZFcO2difAAIYEy9HAuACxAJ4N9kSFIUayID1Dnddml31uPfpSIYZVZ760zGcCB1KB
- ShS6mBZeAccXDFnXGUZCK6aQRsw8V/mhwNJLIBzN4FQR93U5lk6Ch4zWyMNuBam/Wd6u
- bMk9wA24VVC4Wq/4KD5Y5foN5SztnZajkA5DxIXCHSZOf6w4TioSHQlBVkjLtj4OA6rG
- E9etYsUxy+VRmGa2n7vUG0fuzvEPwRNzGg9Uv2seoNCSWDEkFztwjfFjBqNyIdvX973H
- P4qQtBjKC655553nlTeLmeq1vl/52eBsAisS2tcfwg1tyS8UztCcSYGAmue1JYGpvXoR
- 24lg==
-X-Gm-Message-State: AOAM530z7Ihk0PgvRuQL04DYw6Y0Dbtg2ixgmbhU+SXnqS9how3YKqxt
- TYMkMFmrDErn5KrXxV87YfEyjWJk79ZqoLPd12jrDasG
-X-Google-Smtp-Source: ABdhPJxTdQTmnKdyM4/ys3WEcxzigTuNEuuCvXyi3+TktIfV/6dsdExTwmY7IBstqG+l+j8fL79ECnBEMUWGhvRYbr4=
-X-Received: by 2002:a50:fd0d:: with SMTP id i13mr21376763eds.163.1621786164868; 
- Sun, 23 May 2021 09:09:24 -0700 (PDT)
+ bh=cWd6kvYcL3zgGIBAuLaCW02rB2ewDbJCIzIrilPZzfQ=;
+ b=SY4HgCENdEjZOJHJ3FarcWak0F78rx+eYjvmJgLWEbgWrZVJnYXXiDRJIMBYmI2fJo
+ gMvXG8xizSTxydVeHaLxEJ3uxLOTXW+ll3rB47vhk20dSTdMlnRwInq0edy4cXsToD15
+ yjG/BZ1AasWZRLaGtf1oRf4nWtL/gdP9jp7+jig+ArdsgDG6Nij82C16rRoMm38WRryL
+ hT2t4QTbwEOD3IZEBd7SYybl37HT6g8wFmcctTbMcZiAQ8J9zell7teGI/Tmw+aakTZL
+ WbX1WFriNROVHKtDy+zPyC1DttVrxg6ptADOsV/VoY3rtuZpidvAO4Id3HIGMNexNTso
+ ZpyQ==
+X-Gm-Message-State: AOAM531kuBMiqLaY0fwKCx5oV7jQpaALp3vQ1vngJU9JSZ5ESabIUWwh
+ soM6VJ9vuzQOkQfeV68GvIt0atw77dWm+ZnRYn7vrBNIXXk=
+X-Google-Smtp-Source: ABdhPJx1SyQsHUCqFvbHQ0i1k+byKEwgBq0rQgJ3iE/Nq9HCGLowSwzl3OS1NVRC59SXksDLJ/x5mVdgK2dENFqOoLE=
+X-Received: by 2002:a5d:9916:: with SMTP id x22mr13160182iol.160.1621834731308; 
+ Sun, 23 May 2021 22:38:51 -0700 (PDT)
 MIME-Version: 1.0
-From: Sprite <sprtcrnbry@gmail.com>
-Date: Sun, 23 May 2021 23:09:14 +0700
-Message-ID: <CAJenrjTVxEg_JcrLAf89SfMdookV=1Kf6=VNnLEfFajQqX2kzQ@mail.gmail.com>
+From: Ammar Faizi <ammarfaizi2@gmail.com>
+Date: Mon, 24 May 2021 12:38:27 +0700
+Message-ID: <CAFBCWQL4QCK9=8AWgcrHnSEn3iqGMYRmAJsgg0v+OG2ig_sZtg@mail.gmail.com>
 To: gwml@gnuweeb.org
-Subject: [gwml] Hello, Another test
+Subject: [gwml] Test
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -59,35 +59,13 @@ List-Post: <mailto:gwml@gnuweeb.org>
 List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6716050766725749948=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
---===============6716050766725749948==
-Content-Type: multipart/alternative; boundary="0000000000004239a105c301841d"
-
---0000000000004239a105c301841d
-Content-Type: text/plain; charset="UTF-8"
-
-This is a test for GNU/Weeb Mailing List, from outside address. Google Mail
-(again)
-
---0000000000004239a105c301841d
-Content-Type: text/html; charset="UTF-8"
-
-<div dir="auto">This is a test for GNU/Weeb Mailing List, from outside address. Google Mail (again)</div>
-
---0000000000004239a105c301841d--
-
---===============6716050766725749948==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
+test mailing list
 -- 
 GWML mailing list
 GWML@gnuweeb.org
 https://gwml.gnuweeb.org/listinfo/gwml
-
---===============6716050766725749948==--
