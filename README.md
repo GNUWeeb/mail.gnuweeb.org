@@ -42,6 +42,11 @@ sudo mysql -e "CREATE DATABASE gnuweeb;";
 
 # Make sure you have cd'ed to mail.gnuweeb.org;
 sudo mysql gnuweeb < database.sql;
+
+# Start the PHP server.
+# And ready to develop!
+# Access from your browser http://127.0.0.1:8080
+php -S 0.0.0.0:8080 -t public/
 ```
 
 ## After database is ready
