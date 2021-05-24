@@ -1,11 +1,13 @@
 
 .register-cage {
 	margin: auto;
-	margin-top: 30px;
-	width: 500px;
-	height: 540px;
+	margin-top: 55px;
+	width: 650px;
+	height: auto;
 	border: 1px solid #000;
 	text-align: center;
+	margin-bottom: 80px;
+	padding: 10px 40px 10px 40px;
 }
 
 .reg-table {
@@ -35,4 +37,27 @@ a:hover {
 
 #captcha-img {
 	max-width: 95%;
+	min-width: 200px;
+	min-height: 100px;
+	border: 1px solid #000;
+}
+
+.captcha-inst {
+	margin: auto;
+	width: 95%;	
+}
+
+.captcha-cage {
+	margin: auto;
+	width: 90%;
+	margin-top: 20px;
+}
+
+.captcha-area {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.reg-btn-cage {
+	margin-bottom: 10px;
 }
