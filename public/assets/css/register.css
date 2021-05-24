@@ -1,0 +1,38 @@
+
+.register-cage {
+	margin: auto;
+	margin-top: 30px;
+	width: 500px;
+	height: 540px;
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.reg-table {
+	margin: auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.tbl-hdr {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.hdr-sep-cracc {
+	margin-top: 20px;
+}
+
+.mandat {
+	color: red;
+}
+
+#captcha-img {
+	max-width: 95%;
+}

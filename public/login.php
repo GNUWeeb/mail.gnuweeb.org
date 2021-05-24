@@ -5,7 +5,7 @@ require_once __DIR__."/../init/web.php";
 sess_start();
 
 if (isset($_SESSION["user"])) {
-	header("Location: home.php");
+	header("Location: home.php&ref=login");
 	exit;
 }
 
