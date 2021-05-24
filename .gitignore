@@ -1,1 +1,8 @@
+*.o
+*.so
+*.swo
+*.swp
+*.log
+*.tmp
+*.lock
 /config.php
