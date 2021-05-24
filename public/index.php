@@ -1,4 +1,6 @@
 <?php
+// SPDX-License-Identifier: GPL-2.0
+
 
 require __DIR__."/../init/web.php";
 
