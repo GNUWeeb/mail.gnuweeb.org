@@ -42,11 +42,6 @@ sudo mysql -e "CREATE DATABASE gnuweeb;";
 
 # Make sure you have cd'ed to mail.gnuweeb.org;
 sudo mysql gnuweeb < database.sql;
-
-# Start the PHP server.
-# And ready to develop!
-# Access from your browser http://127.0.0.1:8080
-php -S 0.0.0.0:8080 -t public/
 ```
 
 ## After database is ready
@@ -56,6 +51,11 @@ cp -v config.example.php config.php;
 
 # Fix the config file, adjust with your database username/password.
 vim config.php;
+
+# Start the PHP server.
+# And ready to develop!
+# Access from your browser http://127.0.0.1:8080
+php -S 0.0.0.0:8080 -t public/
 ```
 
 
