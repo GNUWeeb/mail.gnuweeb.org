@@ -2,47 +2,53 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id eChzAjFWq2DJvgAAav/0+A
+	id ABB5HKxWq2DMvgAAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Mon, 24 May 2021 07:30:57 +0000
+	for <sprite@gnuweeb.org>; Mon, 24 May 2021 07:33:00 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id D6CA7C161B
-	for <sprite@gnuweeb.org>; Mon, 24 May 2021 07:30:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1621841456;
-	bh=5YWvNfaZPWcMSBzoIpO4CQZJxeeOikSbOyLy//BVY34=;
-	h=To:From:Date:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=kxQs34LCaKIoAgsGfLF2/7H1V22rCc4o77VkP3aznPqDvhV38E4ZViFejUukFgqaV
-	 ocojGCeplCXx9/pJj18d7dZj05pPF03OX3cpgc07j3afoii6OVQDj7PhcIumSZjf1U
-	 iLuImNILQi2f7xP96wrlOzBpBjwtapWDqHTcqS5iH8fm0gWT7ChUIaWuMHSlLhX/hK
-	 C3ZPUgPuD/jLf+02t5bN64Bd5op7RE4VkhsuN6oSNuZLgeX2X4RxVEi0OpBr9eLRsH
-	 pL/DH4RyaDMkdr5+/0VQg6ZGolT2O7u8yX8W3AhJARHEOXr18HB03Ygx0Woyk8mQnr
-	 1vi2zHFbNZXzg==
+	by gnuweeb.org (Postfix) with ESMTP id 68534C161A
+	for <sprite@gnuweeb.org>; Mon, 24 May 2021 07:33:00 +0000 (UTC)
+Authentication-Results: gnuweeb.org;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20161025 header.b=KgsvWrnR;
+	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from [10.7.7.2] (unknown [68.183.184.174])
- by gnuweeb.org (Postfix) with ESMTPSA id 8AFCBC15EA
- for <gwml@gnuweeb.org>; Mon, 24 May 2021 07:30:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1621841454;
- bh=wyeNgGVcKfVxsLO4J5+Qc0kwalm27Jpaciv7MrF/HFo=;
- h=To:From:Subject:Date:From;
- b=dSfh68R0ISZLD+F/95CB2cuj14aspxAWB/z5HYL2o2y8OuvYwngsw5vk0lINqSXhp
- COFtaaci+tcywXQMsrrNGX/N8a/kACqg21xnUDc+szSIgfA+OMmzK2/oFptFcx3Lb4
- EjsbbM0xdZH1sYLjNMkAlZO2R0RGxM5t6kQdRAnLqn8grYmGQdiOKBtdXz4DQx3SV2
- +h5dhK1CvxpggrgAVSMTaQL3eCDcsXqT3DSOFdSUKVRVcM3t3x/RY+J496SgvhX+vI
- TH2hRWTN8dfJAYSe53jkT7ES2r6fYYkFBSlpA6IeejudZyp8hGTXOUKbThmG1OVnBt
- tp7IyozcKDIkw==
-To: gwml@gnuweeb.org
-From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-Message-ID: <1635d29f-7611-2bc7-b801-bf2e09431d84@gnuweeb.org>
-Date: Mon, 24 May 2021 14:30:51 +0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+Received: from mail-il1-f181.google.com (mail-il1-f181.google.com
+ [209.85.166.181]) by gnuweeb.org (Postfix) with ESMTPS id 8171DBEEAA;
+ Mon, 24 May 2021 07:32:59 +0000 (UTC)
+Received: by mail-il1-f181.google.com with SMTP id b5so4165022ilc.12;
+ Mon, 24 May 2021 00:32:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=2ldq0fhwUQUiehFtgqmkdH+rNcoJDR+ooz/+MHwiY+o=;
+ b=KgsvWrnR4RJEqx5vbI+8gTbWCSO30eTiPPOPQ/nnGr+4++wO5YLxwC+gv9YlLKfHFC
+ 5XPlreNH/y7A3MFZokQvOgnX/HTE6uQLlWyg3pklAiSr7noVZpr4bi2A/bgZtQjtui6L
+ w1lwz9XawlatZMQ6DBIDGglJrNcvfZfCF5jItGE12aTxqkAE6rii5pIE8IQwhqH091lq
+ KHWduu4tehnlvyqhORKnxFNvMhKptXHxSjCqD0VZj1GxqApyPhsodQeBLKipK3R/zN7C
+ MeajnKEnhL3zj7nO2jJobzuf3ub2mrUIIa5bCGyQObyQ24ZTnJ7LtmQIWhyWkIwpXNdt
+ T5eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=2ldq0fhwUQUiehFtgqmkdH+rNcoJDR+ooz/+MHwiY+o=;
+ b=VkrqrtceaJv5yKfGLVIZqo/JeoNmsvNP397GTzA1TuQfZm1cDUoDtLIPpdLF2sEgwu
+ mzJppI5aD+6QaaT6zDVvg7k+G6f3SxTKPCpD+5H60avIdA3B/Nwl8oW8uoVfgzx9uXuV
+ tudC/kLTQlAuI9gdyvMvI56lDZHeuh5nJ26BCngEKjFrCchpoy48O81c1YWG/HJ25p78
+ jlM5ydsjDIAM5n4eC80+isZhHTfoXpZbqWeK/7BWKeBlrDjSKZnTGg0Ks3IRsWnFl0kP
+ a8n/k81wiOTe1vV80J9LjPLjZGYH5T92OyyvDUd/nVm4G2wd+hUPKTahzV9WLQ0yZTNJ
+ oV8Q==
+X-Gm-Message-State: AOAM532ANH1YSn+00ObDy5tKpYSPG4Q/zuPek/94K91QawrrSQLK8c+s
+ krLpu8DunxyxaCIwORtwskhnv5G1LKaViX/JazuJDWujBtU=
+X-Google-Smtp-Source: ABdhPJwJmlqjFTvNb+4ACjMsgx2SJcLhAz5ZN2xjath3akwNaKCsVnB2eW1vfm74fpiA2c/pRGcI2Vk6/hscXYFJRhc=
+X-Received: by 2002:a05:6e02:b28:: with SMTP id
+ e8mr14836072ilu.163.1621841577105; 
+ Mon, 24 May 2021 00:32:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Language: en-US
-Subject: [gwml] Hello test
+From: Ammar Faizi <ammarfaizi2@gmail.com>
+Date: Mon, 24 May 2021 14:32:40 +0700
+Message-ID: <CAFBCWQJ_2BvAXO0LQFW2ryf14nHRnyDEuPG20O1=dBtpc9zWOg@mail.gmail.com>
+To: ammarfaizi2@gnuweeb.org
+Subject: Re: [gwml] Hello test
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -54,13 +60,13 @@ List-Post: <mailto:gwml@gnuweeb.org>
 List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
+Cc: gwml@gnuweeb.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-test qwerqwer asdf asdf zxcv
-
+yes test
 -- 
 GWML mailing list
 GWML@gnuweeb.org
