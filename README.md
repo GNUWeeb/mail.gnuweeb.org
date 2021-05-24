@@ -19,7 +19,7 @@ git clone https://github.com/GNUWeeb/mail.gnuweeb.org;
 cd mail.gnuweeb.org;
 ```
 
-#### Setup User and Database for MySQL 8
+#### Setup (for MySQL 8)
 ```sh
 # Edit <username> and <password> with anything you want.
 sudo mysql -e "CREATE USER IF NOT EXISTS '<username>'@'%' IDENTIFIED BY '<password>';";
@@ -33,7 +33,7 @@ sudo mysql gnuweeb < database.sql;
 ```
 
 
-#### Setup User and Database for MySQL 5.x
+#### Setup (for MySQL 5.x and MariaDB)
 ```sh
 # Edit <username> and <password> with anything you want.
 
@@ -45,7 +45,7 @@ sudo mysql -e "CREATE DATABASE gnuweeb;";
 sudo mysql gnuweeb < database.sql;
 ```
 
-## After database is ready
+## After the database is ready
 ```sh
 # Make sure you have cd'ed to mail.gnuweeb.org;
 cp -v config.example.php config.php;
