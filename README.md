@@ -7,7 +7,9 @@
 ## Basic Setup
 ```sh
 sudo apt-get install mysql-server php7.4 -y;
-mysql --version; # Check your version number
+
+# Check your MySQL version number
+mysql --version;
 
 # Don't start mysql when boot (for local development only)
 sudo systemctl disable mysql;
