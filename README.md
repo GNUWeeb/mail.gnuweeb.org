@@ -38,6 +38,7 @@ sudo mysql gnuweeb < database.sql;
 # Edit <username> and <password> with anything you want.
 
 sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO '<username>'@'%' IDENTIFIED BY '<password>';";
+sudo mysql -e "FLUSH PRIVILEGES;";
 sudo mysql -e "CREATE DATABASE gnuweeb;";
 
 # Make sure you have cd'ed to mail.gnuweeb.org;
