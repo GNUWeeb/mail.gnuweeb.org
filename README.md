@@ -4,7 +4,7 @@
 - PHP 7.4+
 - MySQL 5.5+
 
-## Basic Setup
+## Setup Instructions
 ```sh
 sudo apt-get install mysql-server php7.4 -y;
 
@@ -47,7 +47,7 @@ sudo mysql -e "CREATE DATABASE gnuweeb;";
 sudo mysql gnuweeb < database.sql;
 ```
 
-## After the database is ready
+### After the database is ready
 ```sh
 # Make sure you have cd'ed to mail.gnuweeb.org;
 cp -v config.example.php config.php;
