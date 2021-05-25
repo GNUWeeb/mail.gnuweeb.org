@@ -205,6 +205,7 @@ try {
 	$userKey = rstr(255);
 	$encryptedUserKey = aes_encrypt($userKey, $createdAt);
 	$p["password"] = aes_encrypt($p["password"], $userKey);
+	$bcrypted = password_hash($p["password"], PASSWORD_BCRYPT);
 
 	$pdo->beginTransaction();
 
@@ -250,6 +251,9 @@ try {
 		$userId,
 		$encryptedUserKey
 	]);
+
+	if (USE_POSTFIX)
+		require __DIR__."/postfix_insert.php";
 
 	$pdo->commit();
 
