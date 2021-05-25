@@ -21,4 +21,7 @@ case "captcha_img":
 case "register":
 	require BASE_PATH."/src/api/register.php";
 	break;
+case "login":
+	require BASE_PATH."/src/api/login.php";
+	break;
 }
