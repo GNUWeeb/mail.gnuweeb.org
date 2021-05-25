@@ -205,7 +205,7 @@ try {
 	$userKey = rstr(255);
 	$encryptedUserKey = aes_encrypt($userKey, $createdAt);
 	$p["password"] = aes_encrypt($p["password"], $userKey);
-	$bcrypted = password_hash($p["password"], PASSWORD_BCRYPT);
+	$bcrypted = password_hash($p["password"], PASSWORD_BCRYPT, ["cost" => 5]);
 
 	$pdo->beginTransaction();
 
