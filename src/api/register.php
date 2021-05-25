@@ -165,10 +165,10 @@ if (!isset($cc["created_at"], $cc["answer"]) ||
 
 $now = time();
 $diff = $now - $cc["created_at"];
-$maxDiff = 300;
+$maxDiff = 600;
 if ($diff > $maxDiff) {
 	$code = 400;
-	$msg = "Captcha has been expired, please reload the captcha!";
+	$msg = "Captcha has been expired, please reload the captcha! (expire in {$maxDiff} seconds)";
 	goto out;
 }
 
@@ -180,7 +180,7 @@ if (((string)$cc["answer"]) !== trim($p["captcha_answer"])) {
 }
 
 
-$pdo = NULL;
+$st = $pdo = NULL;
 try {
 	$pdo = DB::pdo();
 
@@ -243,8 +243,8 @@ try {
 	]);
 
 	$pdo->commit();
-out_close:
-	unset($pdo);
+
+	$red = "login.php?ref=register&w=".rstr(64);
 } catch (PDOException $e) {
 	if ($pdo)
 		$pdo->rollback();
@@ -256,6 +256,10 @@ out_close:
 	$code = 500;
 	$msg = "Error: ".$e->getMessage();
 }
+
+out_close:
+unset($st);
+unset($pdo);
 
 out:
 header("Content-Type: application/json");

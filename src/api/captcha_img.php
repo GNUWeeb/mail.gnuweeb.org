@@ -3,17 +3,20 @@
 
 if (!(isset($_GET["content"]) && is_string($_GET["content"]))) {
 	http_response_code(400);
+	echo "Missing content parameter";
 	exit;
 }
 
 $data = aes_decrypt($_GET["content"], APP_KEY);
 if (!is_string($data)) {
 	http_response_code(400);
+	echo "Invalid content";
 	exit;
 }
 
 if (substr($data, 0, 6) !== "salt__") {
 	http_response_code(400);
+	echo "Invalid salt__";
 	exit;
 }
 
@@ -50,7 +53,7 @@ curl_setopt_array($ch,
 				"bcolor" => "white",
 				"border" => "50x20",
 				"content" => $begin.$data.$end,
-				"d" => 300
+				"d" => 250
 			]
 		)
 	]

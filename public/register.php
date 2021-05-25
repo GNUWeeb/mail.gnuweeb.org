@@ -141,14 +141,17 @@ if (isset($_SESSION["user"])) {
 			ch.onreadystatechange = function () {
 				if (this.readyState != 4)
 					return;
+				let res = this.responseText;
 				try {
-					let j = JSON.parse(this.responseText);
+					let j = JSON.parse(res);
 					captchaImg.src = LATEX_IMG_BASE_URL+encodeURIComponent(j.res);
 					captchaArea.style.display = "";
 					captchaLoading.style.display = "none";
 					toggle_input(0);
 				} catch (e) {
-					alert("Error: "+e.message);
+					if (res) {
+						alert("Error: "+e.message+";; Res: "+res);
+					}
 				}
 			};
 			ch.open("GET", "api.php?action=captcha_img&content="+encodeURIComponent(img));
@@ -165,15 +168,18 @@ if (isset($_SESSION["user"])) {
 			ch.onreadystatechange = function () {
 				if (this.readyState != 4)
 					return;
+				let res = this.responseText;
 				try {
-					let j = JSON.parse(this.responseText);
+					let j = JSON.parse(res);
 					let p = document.createTextNode(j.msg);
 					captchaMsg.innerHTML = "";
 					captchaMsg.appendChild(p);
 					captchaKey.value = j.key;
 					genImgCaptcha(j.img);
 				} catch (e) {
-					alert("Error: "+e.message);
+					if (res) {
+						alert("Error: "+e.message+";; Res: "+res);
+					}
 				}
 			};
 			ch.open("GET", "api.php?action=captcha");
@@ -189,14 +195,17 @@ if (isset($_SESSION["user"])) {
 			ch.onreadystatechange = function () {
 				if (this.readyState != 4)
 					return;
+				let res = this.responseText;
 				try {
-					let j = JSON.parse(this.responseText);
+					let j = JSON.parse(res);
 					if (typeof j.msg != "undefined" && j.msg)
 						alert(j.msg);
 					if (typeof j.red != "undefined" && j.red)
 						window.location = j.red;
 				} catch (e) {
-					alert("Error: "+e.message);
+					if (res) {
+						alert("Error: "+e.message+";; Res: "+res);
+					}
 				}
 				toggle_input(0);
 			};
