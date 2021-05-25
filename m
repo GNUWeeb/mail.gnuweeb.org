@@ -2,50 +2,49 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id 0MQTAtAarWDobQEAav/0+A
+	id GIUVEdQarWDhbQEAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Tue, 25 May 2021 15:42:08 +0000
+	for <sprite@gnuweeb.org>; Tue, 25 May 2021 15:42:12 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id EF042C2970;
-	Tue, 25 May 2021 15:42:07 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 25A67C2972;
+	Tue, 25 May 2021 15:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1621957327;
-	bh=xWr1w0cQ9/lFiPmVqkFH+ENIZHSx7SMxXu2rdG/1RQQ=;
-	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Reply-To:From;
-	b=hpZm/NufN9GXpSWeGsPvuphiMviS8oahTeskTNKa45YTgoBbbivdWRsKbCynV6I7w
-	 K8dMoLxIc+akthgcPiNA5OJBZWf+mmlUQytvaSAbT41AaIkCvCe0lbDIAPhgoTiCtn
-	 dUkRKr87Aqdq2BQbbUNAk1aZ0tkBzPOecEgzggVrEQT7B1FaeTVmGAEizzA6zd+hSi
-	 zERlCaK8pVywZ42ZgZh29RuJRCPgsq6vvePrfmi8rdTdfWT4bRUgMpaUnUoPGtZDE0
-	 yr5E6vgEfZOogfhV4YOUANJ1IW3PP2zpVLPUdCoT1bXioyiIlVcLYcedBSTAYxnLHt
-	 K0Bu6FpVwCKbQ==
+	s=default; t=1621957332;
+	bh=KxrVXvF8d6C5rR9TnxF+/r/vVVqrfOwQpf6gZSm9FVY=;
+	h=Date:In-Reply-To:From:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:Reply-To:From;
+	b=PjVhsR9Qnbvc7hKDjyb5F0qFWomkSlC7LY7ApSEXkx/cPKTIRZe9q0W5tkRmD4uFF
+	 2vCGyuISC665ehDEF2DBQC/EsIy4rXpqWFT1G09x4KhFQ9pIqdCOr38rkFbI9ZgEUR
+	 rWLz/6UMHa/TTdQghrSzj2MSGNEOUoxjJnEOefCefp45aE7b0YUsGEr3k4KVqtjQ46
+	 wCfnz65u0JGUoOUFGexVqQZU0fSuCqGcw31aH55xG3oOzXvcHhYr41/Ia+t5g0C8Dd
+	 xczwjKr3FFZZzzppR7ZD496GHh5KFc5aCNCtHA8swgeVJeIDw+zmpoiXwQP46VxKpF
+	 cpYUrfU1tpw2A==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from [192.168.1.36] (unknown [103.88.170.66])
- by gnuweeb.org (Postfix) with ESMTPSA id B15B1C295F
- for <gwml@gnuweeb.org>; Tue, 25 May 2021 15:42:06 +0000 (UTC)
+Received: from [192.168.1.10] (unknown [149.110.146.15])
+ by gnuweeb.org (Postfix) with ESMTPSA id 0EBE7C295F
+ for <gwml@gnuweeb.org>; Tue, 25 May 2021 15:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1621957326;
- bh=l1KXrU9Qh8UDql6RP9khoN00HpX5Vu0dm2H/7S31SPs=;
- h=Subject:To:References:From:Date:In-Reply-To:From;
- b=UqaJjfJClxqp0qK2QkxGlKm0YdPb1ShYnDHQX3lgr8txgyQAcY7/GPwLV1plybwNC
- w/pRjHPgkONPvaHbLrP1QhcuYNE+sTOf5Qzvi/z5Ptw9eKxkMAUCXvzC/7Yb0Wr3zP
- iAMoUwJuu4YXMXfZ/Jtf4c9L2HHF/xK2mElEBkL6LZEMixqsWGVDxqTiQCCvlf23X3
- c5Rwo9UyMUh7EzllYNXn01K2nAWwTWViwRLSVrMI/r0MBLr0jZRpayr2dRVozpZu/i
- r41aOd+Bj4p2JioetMEEPEKQI/y4zzOa4b/MvEw+Ul7vtc9+Bk3nPcjg2vRi/Ihey9
- yvFN1HRCQcZug==
-To: gwml@gnuweeb.org
-References: <c43ed234-a1cf-45ed-895e-7e891f00a6ae@email.android.com>
-From: Farrel Pirade <yoru@gnuweeb.org>
-Message-ID: <d6498a3f-f696-0a83-947c-9c91f97b2e2e@gnuweeb.org>
-Date: Tue, 25 May 2021 23:42:06 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.2
+ s=default; t=1621957331;
+ bh=KFi/huvK23vxSDA/e20u+jI65zX8N5Ckb4c4L6n0SdM=;
+ h=Date:Subject:In-Reply-To:From:To:From;
+ b=hEzrp/6dMFNMaiXAZQAQ1y4ysFZUQamT668f1D/0k6EKlXfh7YJDIPQr7I1G0oL30
+ B81Ok71iOsXFk+2dwoYNDGmLfy87v5vEFp8PAwi1XeZgR+GXUEPJ5hN0O+zdCHVcXR
+ Ssy6KXpT1CpT+cu2tAEL24OMdUXpsGm6kUcKk/wpdPIblEo644ZoR63NiOyb4D6ucS
+ GUZqG0A4OoG5QEMZJxQvSEo+b20UbxIXI736kpy5B06YAqdHl2f0LjvI6s1zsKyxJ3
+ UrA4RPuEWYJow9ph9qg71//LsaOIZfY7NffN7KYkhZG9Pm9jO+H/mKbKmAdhEKe3qK
+ H9eB2BOyyKrHA==
+Date: Tue, 25 May 2021 22:42:10 +0700
+Message-ID: <20fcba77-3b26-48ac-85a9-dc5df1c7c87b@email.android.com>
+X-Android-Message-ID: <20fcba77-3b26-48ac-85a9-dc5df1c7c87b@email.android.com>
+In-Reply-To: <b2e08603-87a4-153b-9456-dc57b933230e@gnuweeb.org>
+From: Sprite <sprite@gnuweeb.org>
+To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
+Importance: Normal
+X-Priority: 3
+X-MSMail-Priority: Normal
 MIME-Version: 1.0
-In-Reply-To: <c43ed234-a1cf-45ed-895e-7e891f00a6ae@email.android.com>
-Content-Language: en-US
-Subject: Re: [gwml] Test
+Subject: Re: [gwml] Tes
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -58,53 +57,26 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Content-Type: multipart/mixed; boundary="===============6716116790009177107=="
+Content-Type: multipart/mixed; boundary="===============7809817081360673742=="
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-This is a multi-part message in MIME format.
---===============6716116790009177107==
-Content-Type: multipart/alternative;
- boundary="------------DE14F4BC7FF07066729C810D"
-Content-Language: en-US
-
-This is a multi-part message in MIME format.
---------------DE14F4BC7FF07066729C810D
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 7bit
-
-test
-
-On 25/05/2021 23:38, Irvan Malik wrote:
-> Good night everyone
->
-
---------------DE14F4BC7FF07066729C810D
+--===============7809817081360673742==
 Content-Type: text/html; charset=utf-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
 
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-    <p>test<br>
-    </p>
-    <div class="moz-cite-prefix">On 25/05/2021 23:38, Irvan Malik wrote:<br>
-    </div>
-    <blockquote type="cite"
-      cite="mid:c43ed234-a1cf-45ed-895e-7e891f00a6ae@email.android.com">
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <div dir="auto">Good night everyone</div>
-      <br>
-      <fieldset class="mimeAttachmentHeader"></fieldset>
-    </blockquote>
-  </body>
-</html>
+PGRpdiBkaXI9J2F1dG8nPmhhbG8sIHRlc3QgcmVwbHk8L2Rpdj48ZGl2IGNsYXNzPSJnbWFpbF9l
+eHRyYSI+PGJyPjxkaXYgY2xhc3M9ImdtYWlsX3F1b3RlIj5FbCAyNiBtYXkgMjAyMSA2OjM3LCBN
+dWhhbW1hZCBGYWpyaWFuIE51ciBJYnJhaGltICZsdDtpeWFua2Rlc3VAZ251d2VlYi5vcmcmZ3Q7
+IGVzY3JpYmnDszo8YnIgdHlwZT0iYXR0cmlidXRpb24iIC8+PGJsb2NrcXVvdGUgY2xhc3M9InF1
+b3RlIiBzdHlsZT0ibWFyZ2luOjAgMCAwIC44ZXg7Ym9yZGVyLWxlZnQ6MXB4ICNjY2Mgc29saWQ7
+cGFkZGluZy1sZWZ0OjFleCI+PHAgZGlyPSJsdHIiPkhhaSYjMTM7PGJyPgomIzEzOzxicj4KLS0g
+JiMxMzs8YnI+CkdXTUwgbWFpbGluZyBsaXN0JiMxMzs8YnI+CkdXTUxAZ251d2VlYi5vcmcmIzEz
+Ozxicj4KaHR0cHM6Ly9nd21sLmdudXdlZWIub3JnL2xpc3RpbmZvL2d3bWwmIzEzOzxicj4KPC9w
+Pgo8L2Jsb2NrcXVvdGU+PC9kaXY+PGJyPjwvZGl2Pg==
 
---------------DE14F4BC7FF07066729C810D--
 
---===============6716116790009177107==
+--===============7809817081360673742==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -115,4 +87,4 @@ GWML mailing list
 GWML@gnuweeb.org
 https://gwml.gnuweeb.org/listinfo/gwml
 
---===============6716116790009177107==--
+--===============7809817081360673742==--
