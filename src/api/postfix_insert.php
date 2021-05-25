@@ -4,7 +4,7 @@
 $pfpdo = NULL;
 try {
 	$pfpdo = new PDO(...PF_PDO_PARAM);
-	$pfpdo->execute(<<<SQL
+	$pfpdo->prepare(<<<SQL
 		INSERT INTO `mailbox`
 		(
 			`username`,
