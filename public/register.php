@@ -105,7 +105,7 @@ if (isset($_SESSION["user"])) {
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3">Already have an account? <a href="login.php?ref=register&w=<?= rstr(32) ?>">Login</a></td>
+						<td colspan="3">Already have an account? <a href="login.php?ref=register&amp;w=<?= rstr(32) ?>">Login</a></td>
 					</tr>
 				</tbody>
 			</table>
