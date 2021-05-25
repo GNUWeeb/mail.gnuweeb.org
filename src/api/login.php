@@ -17,6 +17,8 @@ if (!isset($p["password"]) || !is_string($p["password"])) {
 	goto out;
 }
 
+$p["username"] = str_replace("@gnuweeb.org", "", strtolower($p["username"]));
+
 $st = $pdo = NULL;
 try {
 	$pdo = DB::pdo();
