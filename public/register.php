@@ -100,7 +100,7 @@ if (isset($_SESSION["user"])) {
 					<tr>
 						<td colspan="3">
 							<div class="reg-btn-cage">
-								<button type="submit">Register</button>
+								<button type="submit" id="register-btn">Register</button>
 							</div>
 						</td>
 					</tr>
@@ -115,6 +115,7 @@ if (isset($_SESSION["user"])) {
 		const LATEX_IMG_BASE_URL = "https://latex.teainside.org/api.php?action=file&type=png&hash=";
 		let
 			captchaLoading = document.getElementById("captcha-loading"),
+			registerBtn = document.getElementById("register-btn"),
 			captchaArea = document.getElementById("captcha-area"),
 			captchaImg = document.getElementById("captcha-img"),
 			captchaMsg = document.getElementById("captcha-msg"),
@@ -123,6 +124,7 @@ if (isset($_SESSION["user"])) {
 
 		function toggle_input(w) {
 			let q = document.getElementsByTagName("input");
+			registerBtn.disabled = w;
 			for (let i = 0; i < q.length; i++) {
 				q[i].disabled = w;
 			}
@@ -176,6 +178,7 @@ if (isset($_SESSION["user"])) {
 		loadCaptcha();
 
 		regForm.addEventListener("submit", function () {
+			toggle_input(1);
 			let ch = new XMLHttpRequest;
 			ch.withCredentials = true;
 			ch.onreadystatechange = function () {
@@ -190,6 +193,7 @@ if (isset($_SESSION["user"])) {
 				} catch (e) {
 					alert("Error: "+e.message);
 				}
+				toggle_input(0);
 			};
 			ch.open("POST", "api.php?action=register");
 			ch.send(new FormData(regForm));

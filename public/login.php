@@ -27,7 +27,7 @@ if (isset($_SESSION["user"])) {
 			<div class="ilabel">Password:</div>
 			<div class="iinput"><input type="password" name="password" required="1"></div>
 			<div class="isubmit"><button type="submit">Login</button></div>
-			<div class="ireg">Don't have an account? <a href="register.php?ref=login&amp;<?= rstr(32) ?>">Register</a></div>
+			<div class="ireg">Don't have an account? <a href="register.php?ref=login&amp;w=<?= rstr(32) ?>">Register</a></div>
 		</form>
 	</div>
 </body>
