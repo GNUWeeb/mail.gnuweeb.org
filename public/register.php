@@ -20,7 +20,7 @@ if (isset($_SESSION["user"])) {
 </head>
 <body>
 	<div class="register-cage">
-		<form method="POST" action="javascript:void(0);">
+		<form method="POST" action="javascript:void(0);" id="reg-form">
 			<h2>GNUWeeb Mail Registration</h2>
 			<table class="reg-table">
 				<tbody>
@@ -118,7 +118,8 @@ if (isset($_SESSION["user"])) {
 			captchaArea = document.getElementById("captcha-area"),
 			captchaImg = document.getElementById("captcha-img"),
 			captchaMsg = document.getElementById("captcha-msg"),
-			captchaKey = document.getElementById("captcha-key");
+			captchaKey = document.getElementById("captcha-key"),
+			regForm = document.getElementById("reg-form");
 
 		function toggle_input(w) {
 			let q = document.getElementsByTagName("input");
@@ -173,6 +174,22 @@ if (isset($_SESSION["user"])) {
 		}
 
 		loadCaptcha();
+
+		regForm.addEventListener("submit", function () {
+			let ch = new XMLHttpRequest;
+			ch.withCredentials = true;
+			ch.onreadystatechange = function () {
+				if (this.readyState != 4)
+					return;
+				try {
+					let j = JSON.parse(this.responseText);
+				} catch (e) {
+					alert("Error: "+e.message);
+				}
+			};
+			ch.open("POST", "api.php?action=register");
+			ch.send(new FormData(regForm));
+		});
 	</script>
 </body>
 </html>

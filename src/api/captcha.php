@@ -18,7 +18,7 @@ if (!isset($out["correct_answer"], $out["msg"], $out["latex"])) {
 
 header("Content-Type: application/json");
 echo json_encode([
-	"key" => aes_encrypt($out["correct_answer"], APP_KEY),
+	"key" => aes_encrypt("salt__".$out["correct_answer"], APP_KEY),
 	"img" => aes_encrypt("salt__".$out["latex"], APP_KEY),
 	"msg" => $out["msg"],
 ], JSON_UNESCAPED_SLASHES);
