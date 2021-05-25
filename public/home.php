@@ -33,6 +33,25 @@ if (!isset($_SESSION["user"])) {
 		</table>
 	</form>
 	<h2>If you lost your password, contact @Mysticial on GNUWeeb</h2>
+	<h2>Mail Client Config</h2>
+	<div style="width: 400px;border: 1px solid #000; padding: 10px;">
+	<pre style="text-align: left;">
+[Incoming]
+Server: mail1.gnuweeb.org
+Protocol: IMAP
+Port: 143
+SSL: STARTTLS
+Auth: Normal Password
+
+[Outgoing]
+Server: mail1.gnuweeb.org
+Protocol: SMTP
+Port: 587
+SSL: STARTTLS
+Auth: Normal Password
+	</pre>
+	</div>
+	<div style="margin-bottom:200px;"></div>
 	</center>
 </body>
 </html>
