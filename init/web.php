@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__."/global.php";
+
 function sess_start()
 {
 	static $is_started = false;
@@ -9,4 +11,3 @@ function sess_start()
 		session_start();
 	}
 }
-

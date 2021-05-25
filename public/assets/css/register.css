@@ -14,14 +14,6 @@
 	margin: auto;
 }
 
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
 .tbl-hdr {
 	font-size: 20px;
 	font-weight: bold;
@@ -37,8 +29,6 @@ a:hover {
 
 #captcha-img {
 	max-width: 95%;
-	min-width: 200px;
-	min-height: 100px;
 	border: 1px solid #000;
 }
 
@@ -53,11 +43,15 @@ a:hover {
 	margin-top: 20px;
 }
 
-.captcha-area {
+#captcha-area {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
 .reg-btn-cage {
 	margin-bottom: 10px;
+}
+
+.captcha-table {
+	margin: auto;
 }

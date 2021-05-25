@@ -54,6 +54,9 @@ sudo mysql gnuweeb < database.sql;
 # Make sure you have cd'ed to mail.gnuweeb.org;
 cp -v config.example.php config.php;
 
+# Generate APP_KEY for config.php
+head -c 30 /dev/urandom | xxd -ps
+
 # Fix the config file, adjust with your database username/password.
 vim config.php;
 
