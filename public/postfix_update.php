@@ -15,7 +15,7 @@ try {
 	$pfpdo = new PDO(...PF_PDO_PARAM);
 	$pfpdo->prepare(<<<SQL
 		UPDATE mailbox SET password = ? WHERE username = ?
-	SQL)->execute(["{CRYPT}".$bcrypted, $r["username"]]);
+	SQL)->execute(["{CRYPT}".$bcrypted, $r["username"]."@gnuweeb.org"]);
 } catch (PDOException $e) {
 	unset($pfpdo);
 	throw $e;
