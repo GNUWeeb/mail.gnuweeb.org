@@ -125,8 +125,13 @@ if (isset($_SESSION["user"])) {
 		function toggle_input(w) {
 			let q = document.getElementsByTagName("input");
 			registerBtn.disabled = w;
-			for (let i = 0; i < q.length; i++) {
-				q[i].disabled = w;
+
+			if (w) {
+				for (let i = 0; i < q.length; i++)
+					q[i].setAttribute("readonly", 1);
+			} else {
+				for (let i = 0; i < q.length; i++)
+					q[i].removeAttribute("readonly");
 			}
 		}
 

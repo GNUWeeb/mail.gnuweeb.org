@@ -86,11 +86,22 @@ if (isset($p["last_name"])) {
 	}
 }
 
-if (($p["gender"] !== "male") && ($p["gender"] !== "female") && ($p["gender"] !== "secret")) {
+switch ($p["gender"]) {
+case "male":
+	$p["gender"] = "m";
+	break;
+case "female":
+	$p["gender"] = "f";
+	break;
+case "secret":
+	$p["gender"] = "u";
+	break;
+default:
 	$code = 400;
 	$msg = "gender contains invalid value";
 	goto out;
 }
+
 
 if (isset($p["github_username"])) {
 	$p["github_username"] = trim($p["github_username"]);
@@ -104,7 +115,7 @@ if (isset($p["github_username"])) {
 	}
 }
 
-$p["username"] = trim($p["username"]);
+$p["username"] = strtolower(trim($p["username"]));
 $c = strlen($p["username"]);
 if ($c === 0) {
 	$code = 400;
@@ -137,16 +148,113 @@ if ($p["password"] !== $p["cpassword"]) {
 
 
 $cc = aes_decrypt($p["captcha_key"], APP_KEY);
-if (!$cc || (substr($cc, 0, 6) !== "salt__")) {
+if (!$cc) {
 	$code = 400;
 	$msg = "Invalid captcha_key";
 	goto out;
 }
 
-if (substr($cc, 6) !== trim($p["captcha_answer"])) {
+$cc = json_decode($cc, true);
+if (!isset($cc["created_at"], $cc["answer"]) ||
+	!is_int($cc["created_at"])) {
 	$code = 400;
-	$msg = "Wrong captcha answer!";
+	$msg = "Invalid captcha_key";
 	goto out;
+}
+
+
+$now = time();
+$diff = $now - $cc["created_at"];
+$maxDiff = 300;
+if ($diff > $maxDiff) {
+	$code = 400;
+	$msg = "Captcha has been expired, please reload the captcha!";
+	goto out;
+}
+
+
+if (((string)$cc["answer"]) !== trim($p["captcha_answer"])) {
+	$code = 400;
+	$msg = "Wrong captcha answer {$cc["answer"]}!";
+	goto out;
+}
+
+
+$pdo = NULL;
+try {
+	$pdo = DB::pdo();
+
+	$st = $pdo->prepare("SELECT `username` FROM `users` WHERE `username` = ?");
+	$st->execute([$p["username"]]);
+	if ($r = $st->fetch(PDO::FETCH_NUM)) {
+		$code = 400;
+		$msg = "Username \"{$p["username"]}\" has already been registered, please use another username.";
+		goto out_close;
+	}
+
+	$createdAt = date("Y-m-d H:i:s");
+	$userKey = rstr(255);
+	$encryptedUserKey = aes_encrypt($userKey, $createdAt);
+	$p["password"] = aes_encrypt($p["password"], $userKey);
+
+	$pdo->beginTransaction();
+
+	$pdo->prepare(<<<SQL
+		INSERT INTO `users`
+		(
+			`id`,
+			`first_name`,
+			`last_name`,
+			`username`,
+			`password`,
+			`gender`,
+			`github_username`,
+			`created_at`,
+			`updated_at`
+		)
+		VALUES
+		(
+			NULL,	# id
+			?,	# first_name
+			?,	# last_name
+			?,	# username
+			?,	# password
+			?,	# gender
+			?,	# github_username
+			?,	# created_at
+			NULL	# updated_at
+		);
+	SQL)->execute([
+		$p["first_name"],
+		$p["last_name"],
+		$p["username"],
+		$p["password"],
+		$p["gender"],
+		$p["github_username"],
+		$createdAt
+	]);
+
+	$userId = $pdo->lastInsertId();
+	$pdo->prepare(<<<SQL
+		INSERT INTO `user_keys` (`id`, `user_id`, `data`) VALUES (NULL, ?, ?);
+	SQL)->execute([
+		$userId,
+		$encryptedUserKey
+	]);
+
+	$pdo->commit();
+out_close:
+	unset($pdo);
+} catch (PDOException $e) {
+	if ($pdo)
+		$pdo->rollback();
+	$code = 500;
+	$msg = "Error: PDOException: ".$e->getMessage();
+} catch (Error $e) {
+	if ($pdo)
+		$pdo->rollback();
+	$code = 500;
+	$msg = "Error: ".$e->getMessage();
 }
 
 out:
