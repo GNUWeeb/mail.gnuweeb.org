@@ -2,48 +2,49 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id L+isJJkarWDmbQEAav/0+A
+	id EHXZLccarWDmbQEAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Tue, 25 May 2021 15:41:13 +0000
+	for <sprite@gnuweeb.org>; Tue, 25 May 2021 15:41:59 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 5B6C1C293C;
-	Tue, 25 May 2021 15:41:13 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id AE7D0C2954;
+	Tue, 25 May 2021 15:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1621957273;
-	bh=pC+5L2wmo+2V6zO3Z2jdGQT3dFtNxvSFaNVNVJCrEV0=;
-	h=To:From:Date:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:Reply-To:From;
-	b=YnPriFHnR4pVLthAIRkegMSCdg900mplRmd/spgKmm970EZlAiB9Wc2eevPySDE13
-	 h11zfnOdAi5vW51MgSOOcLiGT7UhVTX3pDPUsW9wHPRomqn9xPfKWGPtZC063W+6OT
-	 0kD/5fjgtB2xep+J8+8rWSG3AMYi4gzKxVeHbw36vVH/jMSJese05EpTekvY5smxY4
-	 V0pZK72Ov1GTWnbEGTv9NGh9ecDZU0ELrUEt9SnVvDVBMPovrDcgawEOOvJsB9IkvO
-	 VBbFPw58+UlwDO8EfU912QgDYmNDG3nHt2r8ehXXLXYav/DH6pFK0euZJ4ZavjQDgw
-	 gOu9LAX4y+ECA==
+	s=default; t=1621957319;
+	bh=MsetX/ZkuNj6LRmzdXv1bWkqwCJshA0NkB74QTzgJYg=;
+	h=Date:In-Reply-To:From:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:Reply-To:From;
+	b=BNXGwknUcVGUFQB/1+3oyR7q5ecJnjj1jLBdzuUEhDUNY1ON6ZFzTVU2a2F77aIsN
+	 Dx47JiEF6q4xDR08DpKdo2eJRQ9rMkVWftRxHOSBu13ni8yGYzprN/MOGFIPWMqNy3
+	 PAWKAXt64YOrpMW1M2lZslKJSnFKMm+/QZiQYSDY9Wb4pccN0ZmQV2GgotIgw4GFLA
+	 i/MrHqj+1rfDXrFV0KUSeauqjxy22aQ/S3qfzliEAJKCRraj8pbtGFy76kSgJnlxAU
+	 PC54SZqhWgK1cPHj7F7WUBFsdSmOInAwR8XP6dSh/En7H5k6+xH9kLe37L40RoWQwH
+	 E2t2JnXD9AaAg==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from [192.168.43.240] (unknown [182.1.206.184])
- by gnuweeb.org (Postfix) with ESMTPSA id A713EC294B
- for <gwml@gnuweeb.org>; Tue, 25 May 2021 15:37:42 +0000 (UTC)
+Received: from [192.168.1.10] (unknown [149.110.146.15])
+ by gnuweeb.org (Postfix) with ESMTPSA id 2828AC294B
+ for <gwml@gnuweeb.org>; Tue, 25 May 2021 15:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1621957062;
- bh=dDBOGyavKJGcul3g6rspbXQ7VB3LndOV4VFM2b9LP5g=;
- h=To:From:Subject:Date:From;
- b=KNWzz1m89IWFIMZ3fbEbMF6CXxvyf5XXExuHygIJrCGCXzahgBOkhxH9ijtSb1NuJ
- eZ/bLG6Im/ObU6apZpACWBQ2YM+ZZltAqsch2fczDwm57/iqe0W8rFr5ufm/jvfwFa
- D0s6q2GbpjGnNmF8IpMmdlMaQHUzAeIAVa397j3ZVTZiHpNYLviso+gmCENNZ9590j
- dpSM7s8WrLtfxxWwpcO7yLeO9ctzyyCFfeKe4fwa3WZONtH17o/r1aymcYUpcXoBSY
- zN0MnjPlqbI0kXZKCxzmvkv0t4NVMR9QYMLVXCSbxxslZ3sLRw4HJ5MYGPPOlGTdvF
- gmFmmBTNGU+FA==
-To: gwml@gnuweeb.org
-From: Muhammad Fajrian Nur Ibrahim <iyankdesu@gnuweeb.org>
-Message-ID: <b2e08603-87a4-153b-9456-dc57b933230e@gnuweeb.org>
-Date: Tue, 25 May 2021 23:37:42 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.2
+ s=default; t=1621957318;
+ bh=vL07fnH5TBRkyENj6L/XUJV69ZIOTe/8ifVe+aysjSo=;
+ h=Date:Subject:In-Reply-To:From:To:From;
+ b=QnugKVQVltPMJLJsN1O3o0BMM70ue0lAz95IlAAQEE37hgI9Hq+kJHUpMbK/DrLr5
+ PX33URQ22GWTf6H6oGGfg/sMeW41n1nk2NrDNgdYIVo3J+cFXXQAC0Y1YMigdPMAAu
+ xG4lvKMkzNhs9ePjYfWaskfK0cXbUDj7JGndYCf4ljqpqsEEfchi4zUxBIH/ME6sAf
+ Ru6yhY4VRUKrAcbs19HVCOVxzZ8AKey0cJxLIs05ZmwUHaLCdZgePBYot6DvQj9k37
+ kM971Ttlwl29t8KHU+y/HZgtwsdbPZOHK3EhFoZTyA5WmP9KdSEHj3oyD3BbB4R2HN
+ 7wDLtPLHufqWQ==
+Date: Tue, 25 May 2021 22:41:57 +0700
+Message-ID: <d6b9dc93-86af-47c3-84e3-d0677182d13e@email.android.com>
+X-Android-Message-ID: <d6b9dc93-86af-47c3-84e3-d0677182d13e@email.android.com>
+In-Reply-To: <c43ed234-a1cf-45ed-895e-7e891f00a6ae@email.android.com>
+From: Sprite <sprite@gnuweeb.org>
+To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
+Importance: Normal
+X-Priority: 3
+X-MSMail-Priority: Normal
 MIME-Version: 1.0
-Content-Language: en-US
-X-Mailman-Approved-At: Tue, 25 May 2021 15:41:12 +0000
-Subject: [gwml] Tes
+Subject: Re: [gwml] Test
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -56,14 +57,32 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============8824736392005766518=="
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-Hai
+--===============8824736392005766518==
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGRpdiBkaXI9J2F1dG8nPjxkaXY+Z29vZCBuaWdodDxicj48ZGl2IGNsYXNzPSJnbWFpbF9leHRy
+YSI+PGJyPjxkaXYgY2xhc3M9ImdtYWlsX3F1b3RlIj5FbCAyNSBtYXkgMjAyMSAyMjozOCwgSXJ2
+YW4gTWFsaWsgJmx0O2lydmFubWFAZ251d2VlYi5vcmcmZ3Q7IGVzY3JpYmnDszo8YnIgdHlwZT0i
+YXR0cmlidXRpb24iPjxibG9ja3F1b3RlIGNsYXNzPSJxdW90ZSIgc3R5bGU9Im1hcmdpbjowIDAg
+MCAuOGV4O2JvcmRlci1sZWZ0OjFweCAjY2NjIHNvbGlkO3BhZGRpbmctbGVmdDoxZXgiPjxkaXYg
+ZGlyPSJhdXRvIj5Hb29kIG5pZ2h0IGV2ZXJ5b25lPC9kaXY+PC9ibG9ja3F1b3RlPjwvZGl2Pjxi
+cj48L2Rpdj48L2Rpdj48L2Rpdj4=
+
+
+--===============8824736392005766518==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 -- 
 GWML mailing list
 GWML@gnuweeb.org
 https://gwml.gnuweeb.org/listinfo/gwml
+
+--===============8824736392005766518==--
