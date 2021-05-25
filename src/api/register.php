@@ -145,7 +145,7 @@ if (!$cc || (substr($cc, 0, 6) !== "salt__")) {
 
 if (substr($cc, 6) !== trim($p["captcha_answer"])) {
 	$code = 400;
-	$msg = "Wrong captcha answer! {$cc}";
+	$msg = "Wrong captcha answer!";
 	goto out;
 }
 

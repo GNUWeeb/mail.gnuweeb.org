@@ -6,7 +6,7 @@ require_once __DIR__."/../init/web.php";
 sess_start();
 
 if (isset($_SESSION["user"])) {
-	header("Location: home.php?ref=register");
+	header("Location: home.php?ref=register&w=".rstr(32));
 	exit;
 }
 
@@ -105,7 +105,7 @@ if (isset($_SESSION["user"])) {
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3">Already have an account? <a href="login.php?ref=register">Login</a></td>
+						<td colspan="3">Already have an account? <a href="login.php?ref=register&w=<?= rstr(32) ?>">Login</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -183,6 +183,10 @@ if (isset($_SESSION["user"])) {
 					return;
 				try {
 					let j = JSON.parse(this.responseText);
+					if (typeof j.msg != "undefined" && j.msg)
+						alert(j.msg);
+					if (typeof j.red != "undefined" && j.red)
+						window.location = j.red;
 				} catch (e) {
 					alert("Error: "+e.message);
 				}

@@ -6,7 +6,7 @@ require_once __DIR__."/../init/web.php";
 sess_start();
 
 if (isset($_SESSION["user"])) {
-	header("Location: home.php&ref=login");
+	header("Location: home.php&ref=login&w=".rstr(32));
 	exit;
 }
 
@@ -27,7 +27,7 @@ if (isset($_SESSION["user"])) {
 			<div class="ilabel">Password:</div>
 			<div class="iinput"><input type="password" name="password" required="1"></div>
 			<div class="isubmit"><button type="submit">Login</button></div>
-			<div class="ireg">Don't have an account? <a href="register.php?ref=login">Register</a></div>
+			<div class="ireg">Don't have an account? <a href="register.php?ref=login&<?= rstr(32) ?>">Register</a></div>
 		</form>
 	</div>
 </body>
