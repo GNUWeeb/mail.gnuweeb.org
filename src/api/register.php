@@ -147,7 +147,16 @@ if ($p["password"] !== $p["cpassword"]) {
 }
 
 
-$cc = aes_decrypt($p["captcha_key"], APP_KEY);
+$cc = $p["captcha_key"];
+if (!isset($_SESSION["captcha_key"]) || ($cc !== $_SESSION["captcha_key"])) {
+	/* Oops... someone is trying to bypass our captcha session :) */
+	$code = 400;
+	$msg = "Invalid captcha_key";
+	goto out;
+}
+
+
+$cc = aes_decrypt($cc, APP_KEY);
 if (!$cc) {
 	$code = 400;
 	$msg = "Invalid captcha_key";
@@ -243,6 +252,9 @@ try {
 	]);
 
 	$pdo->commit();
+
+	/* Kill the captcha session! */
+	unset($_SESSION["captcha_key"]);
 
 	$red = "login.php?ref=register&w=".rstr(64);
 } catch (PDOException $e) {

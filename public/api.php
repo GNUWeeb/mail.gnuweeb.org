@@ -9,6 +9,8 @@ if (!(isset($_GET["action"]) && is_string($_GET["action"]))) {
 
 require __DIR__."/../init/web.php";
 
+sess_start();
+
 switch ($_GET["action"]) {
 case "captcha":
 	require BASE_PATH."/src/api/captcha.php";
