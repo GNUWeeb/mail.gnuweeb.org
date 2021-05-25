@@ -40,7 +40,7 @@ try {
 			?	# token_validity
 		);
 	SQL)->execute([
-		$p["username"],
+		$p["username"]."@gnuweeb.org",
 		"{CRYPT}".$bcrypted,
 		$p["first_name"].(isset($p["last_name"]) ? " ".$p["last_name"] : ""),
 		"gnuweeb.org/".$p["username"]."/",
