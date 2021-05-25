@@ -184,7 +184,7 @@ if ($diff > $maxDiff) {
 
 if (((string)$cc["answer"]) !== trim($p["captcha_answer"])) {
 	$code = 400;
-	$msg = "Wrong captcha answer {$cc["answer"]}!";
+	$msg = "Wrong captcha answer!";
 	goto out;
 }
 
