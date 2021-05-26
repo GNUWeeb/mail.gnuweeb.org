@@ -17,6 +17,7 @@ if (isset($_SESSION["user"])) {
 	<title>GNUWeeb Mail Login</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/base.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/register.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.00" />
 </head>
 <body>
 	<div class="register-cage">
@@ -45,7 +46,7 @@ if (isset($_SESSION["user"])) {
 						<td align="left">
 							<input type="radio" name="gender" value="male" required="1"/>Male
 							<input type="radio" name="gender" value="female" required="1"/>Female
-							<input type="radio" name="gender" value="secret" required="1"/>No answer
+							<input type="radio" name="gender" value="secret" required="1"/>N/A
 						</td>
 					</tr>
 					<tr>
@@ -90,7 +91,7 @@ if (isset($_SESSION["user"])) {
 									<p id="captcha-msg"></p>
 									<img id="captcha-img"/>
 								</div>
-								<a style="color:blue;" onclick="loadCaptcha();" href="#rel">Reload Captcha</a>
+								<a onclick="loadCaptcha();" href="#rel">Reload Captcha</a>
 								<br/><br/>Captcha Answer:<br/>
 								<input type="hidden" name="captcha_key" id="captcha-key"/>
 								<input type="text" name="captcha_answer" id="captcha-answer" required="1"/>
@@ -105,7 +106,11 @@ if (isset($_SESSION["user"])) {
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3">Already have an account? <a href="login.php?ref=register&amp;w=<?= rstr(32) ?>">Login</a></td>
+						<td colspan="3">
+							<div class="login-link">
+								Already have an account? <a href="login.php?ref=register&amp;w=<?= rstr(32) ?>">Login</a>
+							</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>
