@@ -26,7 +26,7 @@ if (!isset($_SESSION["user"])) {
 	<h1>Change Password</h1>
 	<form method="post" action="passwd.php">
 		<table>
-			<tr><td>Current Password</td><td>:</td><td><input type="password" name="old_password" required="1"/></td></tr>
+			<tr><td>Old Password</td><td>:</td><td><input type="password" name="old_password" required="1"/></td></tr>
 			<tr><td>New Password</td><td>:</td><td><input type="password" name="new_password" required="1"/></td></tr>
 			<tr><td>Retype New Password</td><td>:</td><td><input type="password" name="cnew_password" required="1"/></td></tr>
 			<tr><td align="center" colspan="3"><input type="submit" name="Submit"/></td></tr>
@@ -35,7 +35,7 @@ if (!isset($_SESSION["user"])) {
 	<h2>If you lost your password, contact @Mysticial on GNUWeeb</h2>
 	<h2>Mail Client Config</h2>
 	<div style="width: 400px;border: 1px solid #000; padding: 10px;">
-	<pre style="text-align: left;">
+<pre style="text-align: left;">
 [Incoming]
 Server: mail1.gnuweeb.org
 Protocol: IMAP
@@ -49,7 +49,7 @@ Protocol: SMTP
 Port: 587
 SSL: STARTTLS
 Auth: Normal Password
-	</pre>
+</pre>
 	</div>
 	<div style="margin-bottom:200px;"></div>
 	</center>

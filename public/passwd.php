@@ -27,10 +27,13 @@ if (!isset($p["cnew_password"]) || !is_string($p["cnew_password"])) {
 	goto out;
 }
 
+$inTrx = false;
 $st = $pdo = NULL;
 try {
 	$pdo = DB::pdo();
 
+	$pdo->beginTransaction();
+	$inTrx = true;
 	$st = $pdo->prepare(<<<SQL
 		SELECT
 			a.id,
@@ -51,9 +54,8 @@ try {
 	if (!($r = $st->fetch(PDO::FETCH_ASSOC))) {
 		$code = 400;
 		$msg = "Invalid session!";
-		var_dump(123);
-		// session_destroy();
-		// header("Location: login.php?ref=passwd&w=".rstr(32));
+		session_destroy();
+		header("Location: login.php?ref=passwd&w=".rstr(32));
 		exit;
 	}
 
@@ -62,7 +64,7 @@ try {
 
 	if ($password !== $p["old_password"]) {
 		$code = 400;
-		$msg = "Wrong old password {$password}!";
+		$msg = "Wrong old password!";
 		goto out_close;
 	}
 
@@ -97,13 +99,18 @@ try {
 	if (USE_POSTFIX)
 		require __DIR__."/postfix_update.php";
 
+	$pdo->commit();
+	$inTrx = false;
 	$_SESSION["user"] = $r;
 	$red = "home.php";
-
 } catch (PDOException $e) {
+	if ($pdo && $inTrx)
+		$pdo->rollback();
 	$code = 500;
 	$msg = "Error: PDOException: ".$e->getMessage();
 } catch (Error $e) {
+	if ($inTrx && $pdo)
+		$pdo->rollback();
 	$code = 500;
 	$msg = "Error: ".$e->getMessage();
 }

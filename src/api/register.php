@@ -188,7 +188,7 @@ if (((string)$cc["answer"]) !== trim($p["captcha_answer"])) {
 	goto out;
 }
 
-
+$inTrx = false;
 $st = $pdo = NULL;
 try {
 	$pdo = DB::pdo();
@@ -204,11 +204,14 @@ try {
 	$createdAt = date("Y-m-d H:i:s");
 	$userKey = rstr(255);
 	$encryptedUserKey = aes_encrypt($userKey, $createdAt);
+	/*
+	 * This BCRYPT is for postfix only!
+	 */
 	$bcrypted = password_hash($p["password"], PASSWORD_BCRYPT, ["cost" => 5]);
 	$p["password"] = aes_encrypt($p["password"], $userKey);
 
 	$pdo->beginTransaction();
-
+	$inTrx = true;
 	$pdo->prepare(<<<SQL
 		INSERT INTO `users`
 		(
@@ -247,27 +250,25 @@ try {
 	$userId = $pdo->lastInsertId();
 	$pdo->prepare(<<<SQL
 		INSERT INTO `user_keys` (`id`, `user_id`, `data`) VALUES (NULL, ?, ?);
-	SQL)->execute([
-		$userId,
-		$encryptedUserKey
-	]);
+	SQL)->execute([$userId, $encryptedUserKey]);
 
 	if (USE_POSTFIX)
 		require __DIR__."/postfix_insert.php";
 
 	$pdo->commit();
+	$inTrx = false;
 
 	/* Kill the captcha session! */
 	unset($_SESSION["captcha_key"]);
 
 	$red = "login.php?ref=register&w=".rstr(64);
 } catch (PDOException $e) {
-	if ($pdo)
+	if ($inTrx && $pdo)
 		$pdo->rollback();
 	$code = 500;
 	$msg = "Error: PDOException: ".$e->getMessage();
 } catch (Error $e) {
-	if ($pdo)
+	if ($inTrx && $pdo)
 		$pdo->rollback();
 	$code = 500;
 	$msg = "Error: ".$e->getMessage();
