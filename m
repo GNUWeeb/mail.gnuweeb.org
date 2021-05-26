@@ -2,48 +2,49 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id 8CPwCn8lrmAWuwEAav/0+A
+	id ITTFOhlarmCkxAEAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Wed, 26 May 2021 10:39:59 +0000
+	for <sprite@gnuweeb.org>; Wed, 26 May 2021 14:24:25 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id DC302C2A1A;
-	Wed, 26 May 2021 10:39:58 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id ABE5AC2A21;
+	Wed, 26 May 2021 14:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1622025598;
-	bh=2KJTUwzG5/aE9tp6jK+t75YdvahoJdmaQetwtAManG8=;
-	h=Date:In-Reply-To:From:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:Reply-To:From;
-	b=i6Q3/NnqwPZDbsDvseQ9uDgKsdsTq3FZyr3RLWANKSJzFBj2f4SUajaU9rZsGnEB/
-	 DV6rlYGmlixPv4gPxlYr6Rw2v42DFkjjWaM4pimj+wUqBbvhJw/dW5NuM8rRj3kUrq
-	 qMP0lA2zjpw6ahIACo/iIS8ycQyx/30HgknEGDEcPSVb3fwHbqR5rQNXx6fuKZSzmn
-	 c/FlGfM6FLI66PG0mVB4dIYs0/Nfm2H/dZTMX+UO53AS+SEQIDCjXPMnXMkfQB5i+O
-	 xAtOtARdkA72yVLUEfSRVgkfIXsmJvtT5da7B8oWvwuHxo0CJmIhCZM1KxLsnahfM1
-	 UpJ0a851ll3bg==
+	s=default; t=1622039065;
+	bh=hUBlIDGK10GXAqa3ONt2fJCkpNL6sC/VekhiiwHI5cg=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Reply-To:Cc:From;
+	b=ZhZLZYDtsw1ynbApAs77C22JBbez0NPkNYWNZNfjHVGSk6uUNnox487vz/UgqT9fM
+	 efmvHBake21OGmeyA1yqyrTndeKUFx0FFjkXXJl4XKTuBZOP1WZgkmHsW7DXd3fvfg
+	 BvFdGcION1B0ZkQHNNX5WBhy7yqKl+9Q0FVMNNchr6Xd7DC+SXitwVQf9T1dqZNJxO
+	 KgWB8FKS/f3y0dgtirqzmg02yx3i10e6DvnSAFM+8hUwXBRPE0P6Axqd+j7I+fXdvb
+	 XguAgTnT2CpP3bNCIQNiP7uE5ekzNPoyk7sbpUI2nIsaAeHswAZDm/BzWQFVhPbVKi
+	 Gujn5CIQZbajA==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from [10.38.18.121] (unknown [182.2.71.169])
- by gnuweeb.org (Postfix) with ESMTPSA id 3F3D7C2A20
- for <gwml@gnuweeb.org>; Wed, 26 May 2021 10:39:57 +0000 (UTC)
+Received: from [192.168.1.11] (unknown [149.110.149.72])
+ by gnuweeb.org (Postfix) with ESMTPSA id 2F3FFC2A2B;
+ Wed, 26 May 2021 14:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1622025598;
- bh=4kLRCIoo43ElB0bXcs9UXlQfZGbU3EWou1JzWiue8E0=;
- h=Date:Subject:In-Reply-To:From:To:From;
- b=J1Rqi4QVE8ljSdSu726Hb+3iPGuq27sgkR1m0MUle1MjpShmQ9p1Hk4oByMVT2nrX
- c4djSIQ4/dC8En1gKssqarZlzcTQ6dTf6T6pj4V6TY012GvuV4rvJIVPC1E22PnAI8
- ch3l75dnehFMi0KDFMTjgkeWjYsUSE1k6w6MNP3+xudShMh8gGYRbvzv2qz1KM6BT9
- DCGVeMHGGFXIKszdoG4TB/cIE3e9OoGS7BSesSqhvdgdZu63SYUCRyzDirjSo04CfC
- QT+tdfdNC1P35Pa8Ln1i+fkNnMcPiGYM8TIqH8N7v4vL1Scp5Wq3iXToji55dZQySa
- V6lWZExUXqRHQ==
-Date: Wed, 26 May 2021 17:39:51 +0700
-Message-ID: <44faf1d7-8bc3-4d2f-8ed0-200805c81f83@email.android.com>
-X-Android-Message-ID: <44faf1d7-8bc3-4d2f-8ed0-200805c81f83@email.android.com>
-In-Reply-To: <mailman.46.1622024873.19899.gwml@gnuweeb.org>
-From: ammarfaizi2@gnuweeb.org
-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Importance: Normal
-X-Priority: 3
-X-MSMail-Priority: Normal
+ s=default; t=1622039064;
+ bh=EgJufthES5Wgvy4mNpDrakCcu3Fb9GZFRwfdpCmG+kE=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=gMYywrCJ0QJCsZ3Q9pofjvKUD5iT43yiDNdhUGvrco39N/Y0NWVQLiFChDH4p9D+g
+ 3vABfimYEeiHioQlejVbSjqvnMHCS7q8PO2Bi0mZOpGlm/BhCpsfGbV1vcNSvRu0Vb
+ qCmocUwMhMfiaI6hbO7LtyugzkK/w4taZhnnkKiLVFpufIFzxfk03GUaeL+bMdt0TW
+ 8GGuz68M4dXFFrvBCX26TfseqfbheCZs33HH10fbX6psz0MtqWDwtwvzkcxZMc0d+j
+ /bxOlUsFDy1hzEQpl23Ni1pjISOzePBQAB1UZUoZ97kwQeN2uxEzCalzqCSZglP44n
+ YVhPqRnq5fo4Q==
+To: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+References: <04bd58b0-621b-e558-4ce0-f01d2e7ee277@gnuweeb.org>
+From: Sprite <sprite@gnuweeb.org>
+Message-ID: <b3d133d9-b128-1476-b326-3bd984e7b2e9@gnuweeb.org>
+Date: Wed, 26 May 2021 21:24:05 +0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
+In-Reply-To: <04bd58b0-621b-e558-4ce0-f01d2e7ee277@gnuweeb.org>
+Content-Language: en-US
 Subject: Re: [gwml] [Performance] Mail server log is too verbose due to
  debug log
 X-BeenThere: gwml@gnuweeb.org
@@ -58,34 +59,38 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Content-Type: multipart/mixed; boundary="===============8156058113949444643=="
+Cc: gwml@gnuweeb.org
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
---===============8156058113949444643==
-Content-Type: text/html; charset=utf-8
-Content-Transfer-Encoding: base64
-
-PGRpdiBkaXI9J2F1dG8nPldoeSBpcyBteSBtZXNzYWdlIHNlbnQgYXMgZm9yd2FyZGVkIG1lc3Nh
-Z2U/PGRpdiBkaXI9ImF1dG8iPkRpZCBJIGNvbmZpZ3VyZSBzb21ldGhpbmcgd3Jvbmc/PGJyPjxi
-cj48ZGl2IGRhdGEtc21hcnRtYWlsPSJnbWFpbF9zaWduYXR1cmUiIGRpcj0iYXV0byI+Jm5ic3A7
-IEFtbWFyIEZhaXppPC9kaXY+PC9kaXY+PC9kaXY+PGRpdiBjbGFzcz0iZ21haWxfZXh0cmEiPjxi
-cj48ZGl2IGNsYXNzPSJnbWFpbF9xdW90ZSI+T24gTWF5IDI2LCAyMDIxIDU6MjcgUE0sIEFtbWFy
-IEZhaXppIHZpYSBHV01MICZsdDtnd21sQGdudXdlZWIub3JnJmd0OyB3cm90ZTo8YnIgdHlwZT0i
-YXR0cmlidXRpb24iIC8+PGJsb2NrcXVvdGUgY2xhc3M9InF1b3RlIiBzdHlsZT0ibWFyZ2luOjAg
-MCAwIC44ZXg7Ym9yZGVyLWxlZnQ6MXB4ICNjY2Mgc29saWQ7cGFkZGluZy1sZWZ0OjFleCI+PC9i
-bG9ja3F1b3RlPjwvZGl2Pjxicj48L2Rpdj4=
-
-
---===============8156058113949444643==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
--- 
-GWML mailing list
-GWML@gnuweeb.org
-https://gwml.gnuweeb.org/listinfo/gwml
-
---===============8156058113949444643==--
+SXQgbG9va3MgbGlrZSwgSSBmb3Jnb3QgdG8gdHVybiBvZmYgdGhlIHBhc3N3b3JkIGRlYnVnIGxv
+Zywgd2hlbiBJIHdhcyAKdHJ5aW5nIHRvIGZpbmQgb3V0IHdoeSB0aGUgc2VydmVyJ3MgdmlydHVh
+bCBtYWlscyBkb2Vzbid0IHdvcmsuIEknbGwgCmNoZWNrIG9uIHRoaXMuCgpPbiAyNi8wNS8yMSAx
+Ny4yNywgQW1tYXIgRmFpemkgd3JvdGU6Cj4gSGkgU3ByaXRlLAo+Cj4gSSBmb3VuZCB0aGF0IHRo
+ZSBtYWlsIHNlcnZlciBpcyB5aWVsZGluZyB2ZXJ5IGxhcmdlIGFtb3VudCBvZiBkZWJ1Zwo+IGxv
+ZyBpbiBqb3VybmFsY3RsIGZvciBldmVyeSBzaW1wbGUgYWN0aW9uIHdlIGRvIGluIG91ciBtYWls
+IHNlcnZpY2UuCj4KPiBUaGVyZSBhcmUgcGxlbnR5IG9mIGRlYnVnIGxvZyBsaWtlIHRoaXM6Cj4g
+TWF5IDI2IDEwOjIwOjI5IGdudXdlZWIgZG92ZWNvdFs4ODkxMF06IGF1dGgtd29ya2VyKDExMjk2
+Nyk6IERlYnVnOiAKPiBzcWwoYWRtaW5AZ251d2VlYi5vcmcseHh4Lnh4eC4xODQuMTc0LDw4YS8r
+L0RqRDZxSkV0N2l1Pik6IAo+IENSWVBUKHh4eHh4eHh4eHgpICE9ICckMnkkMDUkeHh4eHh4eHh4
+eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4Jwo+IE1heSAyNiAxMDoyMDoyOSBnbnV3ZWViIGRv
+dmVjb3RbODg5MTBdOiBhdXRoOiBEZWJ1ZzogCj4gc3FsKGFkbWluQGdudXdlZWIub3JnLHh4eC54
+eHguMTg0LjE3NCw8OGEvKy9EakQ2cUpFdDdpdT4pOiBGaW5pc2hlZCAKPiBwYXNzZGIgbG9va3Vw
+Cj4gTWF5IDI2IDEwOjIwOjI5IGdudXdlZWIgZG92ZWNvdFs4ODkxMF06IGF1dGg6IERlYnVnOiAK
+PiBhdXRoKGFkbWluQGdudXdlZWIub3JnLHh4eC54eHguMTg0LjE3NCw8OGEvKy9EakQ2cUpFdDdp
+dT4pOiBBdXRoIAo+IHJlcXVlc3QgZmluaXNoZWQKPiBNYXkgMjYgMTA6MjA6MjkgZ251d2VlYiBk
+b3ZlY290Wzg4OTEwXTogYXV0aC13b3JrZXIoMTEyOTY3KTogRGVidWc6IAo+IHNxbChhZG1pbkBn
+bnV3ZWViLm9yZyx4eHgueHh4LjE4NC4xNzQsPDhhLysvRGpENnFKRXQ3aXU+KTogRmluaXNoZWQg
+Cj4gcGFzc2RiIGxvb2t1cAo+IE1heSAyNiAxMDoyMDoyOSBnbnV3ZWViIGRvdmVjb3RbODg5MTBd
+OiBhdXRoLXdvcmtlcigxMTI5NjcpOiBEZWJ1ZzogCj4gY29ubiB1bml4OmF1dGgtd29ya2VyIChw
+aWQ9MTEyOTY2LHVpZD0xMTMpOiBhdXRoLXdvcmtlcjw4PjogRmluaXNoZWQKPiBNYXkgMjYgMTA6
+MjA6MzEgZ251d2VlYiBkb3ZlY290Wzg4OTEwXTogYXV0aDogRGVidWc6IGNsaWVudCBwYXNzZGIg
+Cj4gb3V0OiBGQUlMwqDCoMKgwqDCoMKgwqAgM8KgwqDCoMKgwqDCoMKgIHVzZXI9YWRtaW5AZ251
+d2VlYi5vcmcKPiBgYGAKPgo+IFdlIHByb2JhYmx5IGNhbiBpbXByb3ZlIHRoZSBzZXJ2ZXIgcGVy
+Zm9ybWFuY2UgaWYgd2UgY2FuIHR1cm4gb2ZmIHRoaXMKPiBkZWJ1ZyBsb2cuIEFsc28sIGFzIHdl
+IGtub3cgdGhpcyBsb2cgaXMgd3JpdHRlbiB0byBkaXNrLiBXZSBjYW4gc2F2ZQo+IGEgbG90IG9m
+IEkvTyBvcGVyYXRpb25zIGlmIHdlIHR1cm4gb2ZmIHRoZSBkZWJ1ZyBtb2RlLgo+Cj4gUmVnYXJk
+cywKPiDCoCBBbW1hciBGYWl6aQo+Ci0tIApHV01MIG1haWxpbmcgbGlzdApHV01MQGdudXdlZWIu
+b3JnCmh0dHBzOi8vZ3dtbC5nbnV3ZWViLm9yZy9saXN0aW5mby9nd21sCg==
