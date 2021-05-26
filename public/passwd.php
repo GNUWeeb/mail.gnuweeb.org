@@ -93,8 +93,8 @@ try {
 	$p["new_password"] = aes_encrypt($p["new_password"], $userKey);
 
 	$pdo->prepare(<<<SQL
-		UPDATE users SET password = ? WHERE id = ? LIMIT 1
-	SQL)->execute([$p["new_password"], $_SESSION["user"]["id"]]);
+		UPDATE users SET password = ?, updated_at = ? WHERE id = ? LIMIT 1
+	SQL)->execute([$p["new_password"], date("Y-m-d H:i:s"), $_SESSION["user"]["id"]]);
 
 	if (USE_POSTFIX)
 		require __DIR__."/postfix_update.php";
