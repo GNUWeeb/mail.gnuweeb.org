@@ -1,23 +1,37 @@
 
 .login-cage {
+	background-color: #3f3f3f;
 	margin: auto;
 	margin-top: 100px;
-	width: 400px;
-	height: 340px;
-	border: 1px solid #000;
+	width: 35%;
+	height: 400px;
+	border: 1px solid transparent;
 	text-align: center;
+}
+
+.login-cage form {
+	margin: auto;
+	width: 90%;
+}
+
+.login-cage h2 {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .ilabel {
 	margin-top: 30px;
+	padding-top: 5px;
 }
 
 .iinput {
 	margin-top: 5px;
+	padding-bottom: 10px;
 }
 
 .isubmit {
 	margin-top: 20px;
+	padding-bottom: 10px;
 }
 
 .ireg {
@@ -30,4 +44,15 @@ a {
 
 a:hover {
 	text-decoration: underline;
+}
+
+@media screen and (max-width: 960px) {
+	.login-cage {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 540px) {
+	.login-cage {
+		width: 90%;
+	}
 }

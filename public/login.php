@@ -17,6 +17,7 @@ if (isset($_SESSION["user"])) {
 	<title>GNUWeeb Mail Login</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/base.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/login.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.00"/>
 </head>
 <body>
 	<div class="login-cage">
