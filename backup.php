@@ -52,6 +52,10 @@ $dumpCmd    .= " ".escapeshellarg(PF_DB_NAME);
 $dumpCmd    .= " | gzip -9c > ".escapeshellarg($targetFile);
 $dumpCmd    .= " 2>&1";
 $e[] = exec_cmd($dumpCmd, $targetFile);
+
+$targetFile  = "/tmp/vmail_gnuweeb_org_{$now}.tar.gz";
+$dumpCmd     = "cd /var/vmail; tar -c gnuweeb.org | gzip -9c > ".escapeshellarg($targetFile);
+$e[] = exec_cmd($dumpCmd, $targetFile);
 endif;
 
 
@@ -117,6 +121,7 @@ CAPTION;
 	curl_close($ch);
 	$endTime = microtime(true);
 
+	@unlink($targetFile);
 	return [
 		"fname" => $bsfilename,
 		"size" => $size,
