@@ -19,8 +19,17 @@ if (substr($data, 0, 6) !== "salt__") {
 	echo "Invalid salt__";
 	exit;
 }
-
 $data = substr($data, 6);
+
+
+if (!isset($_GET["extreme"])) {
+	require __DIR__."/captcha_letter.php";
+	header("Content-Type: image/jpeg");
+	make_captcha($data);
+	exit;
+}
+
+
 $begin = <<<LATEX
 \\documentclass[12pt]{article}
 \\usepackage{amsmath}
@@ -60,11 +69,29 @@ curl_setopt_array($ch,
 );
 
 $out = curl_exec($ch);
+curl_close($ch);
 
 if (!$out) {
 	http_response_code(500);
 	exit;
 }
 
-header("Content-Type: application/json");
-echo $out;
+
+$out = json_decode($out, true);
+if (!isset($out["res"])) {
+	http_response_code(500);
+	exit;
+}
+
+header("Content-Type: image/png");
+$ch = curl_init("https://latex.teainside.org/api.php?action=file&type=png&hash=".urlencode($out["res"]));
+curl_setopt_array($ch,
+	[
+		CURLOPT_WRITEFUNCTION => function ($ch, $str) {
+			echo $str;
+			return strlen($str);
+		}
+	]
+);
+curl_exec($ch);
+curl_close($ch);

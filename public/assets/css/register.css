@@ -33,9 +33,9 @@
 	border: 1px solid #000;
 }
 
-.captcha-inst {
+#captcha-inst {
 	margin: auto;
-	width: 95%;	
+	width: 95%;
 }
 
 .captcha-cage {
@@ -73,4 +73,12 @@
 		width: 95%;
 		padding: 10px 10px 10px 10px;
 	}
+}
+
+.captcha-extreme-cage {
+	margin: auto;
+	width: 80%;
+	padding: 5px;
+	margin-top: 30px;
+	border: 1px solid #fff;
 }

@@ -14,10 +14,10 @@ if (isset($_SESSION["user"])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GNUWeeb Mail Login</title>
+	<title>GNUWeeb Mail Registration</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/base.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/register.css"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.00" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.00"/>
 </head>
 <body>
 	<div class="register-cage">
@@ -74,6 +74,13 @@ if (isset($_SESSION["user"])) {
 						<td align="center">:</td>
 						<td align="left"><input type="password" name="cpassword" required="1"/></td>
 					</tr>
+					<tr>
+						<td align="center" colspan="3">
+							<div class="captcha-extreme-cage">
+								<input onchange="loadCaptcha();" type="checkbox" id="captcha-extreme"/> Turn on extreme captcha
+							</div>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			<table class="captcha-table">
@@ -84,12 +91,10 @@ if (isset($_SESSION["user"])) {
 								<h1>Loading Captcha...</h1>
 							</div>
 							<div id="captcha-area" style="display:none;">
-								<div class="captcha-inst">
-									Please solve this captcha problem to make sure you're a human!
-								</div>
+								<div id="captcha-inst">Please solve this captcha problem to make sure you're a human!</div>
 								<div class="captcha-cage">
 									<p id="captcha-msg"></p>
-									<img id="captcha-img"/>
+									<img id="captcha-img" alt="Loading captcha image..."/>
 								</div>
 								<a onclick="loadCaptcha();" href="#rel">Reload Captcha</a>
 								<br/><br/>Captcha Answer:<br/>
@@ -120,6 +125,7 @@ if (isset($_SESSION["user"])) {
 		const LATEX_IMG_BASE_URL = "https://latex.teainside.org/api.php?action=file&type=png&hash=";
 		let
 			captchaLoading = document.getElementById("captcha-loading"),
+			captchaExtreme = document.getElementById("captcha-extreme"),
 			registerBtn = document.getElementById("register-btn"),
 			captchaArea = document.getElementById("captcha-area"),
 			captchaImg = document.getElementById("captcha-img"),
@@ -138,29 +144,7 @@ if (isset($_SESSION["user"])) {
 				for (let i = 0; i < q.length; i++)
 					q[i].removeAttribute("readonly");
 			}
-		}
-
-		function genImgCaptcha(img) {
-			let ch = new XMLHttpRequest;
-			ch.withCredentials = true;
-			ch.onreadystatechange = function () {
-				if (this.readyState != 4)
-					return;
-				let res = this.responseText;
-				try {
-					let j = JSON.parse(res);
-					captchaImg.src = LATEX_IMG_BASE_URL+encodeURIComponent(j.res);
-					captchaArea.style.display = "";
-					captchaLoading.style.display = "none";
-					toggle_input(0);
-				} catch (e) {
-					if (res) {
-						alert("Error: "+e.message+";; Res: "+res);
-					}
-				}
-			};
-			ch.open("GET", "api.php?action=captcha_img&content="+encodeURIComponent(img));
-			ch.send();
+			captchaExtreme.disabled = w;
 		}
 
 		function loadCaptcha() {
@@ -180,14 +164,18 @@ if (isset($_SESSION["user"])) {
 					captchaMsg.innerHTML = "";
 					captchaMsg.appendChild(p);
 					captchaKey.value = j.key;
-					genImgCaptcha(j.img);
+					captchaImg.src = "api.php?action=captcha_img&content="+encodeURIComponent(j.img)
+						+(captchaExtreme.checked ? "&extreme=1" : "");
+					captchaArea.style.display = "";
+					captchaLoading.style.display = "none";
+					toggle_input(0);
 				} catch (e) {
 					if (res) {
 						alert("Error: "+e.message+";; Res: "+res);
 					}
 				}
 			};
-			ch.open("GET", "api.php?action=captcha");
+			ch.open("GET", "api.php?action=captcha"+(captchaExtreme.checked ? "&extreme=1" : ""));
 			ch.send();
 		}
 

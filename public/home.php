@@ -18,11 +18,11 @@ if (!isset($_SESSION["user"])) {
 	<title>GNUWeeb Mail</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/base.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/home.css"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.00"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.00"/>
 </head>
 <body>
 	<center>
-	<a href="logout.php"><h3>Logout</h3></a>
+	<a href="logout.php"><h3 class="logout-btn">Logout</h3></a>
 	<h2>Hi <?php echo htmlspecialchars($_SESSION["user"]["first_name"]); ?>!</h2>
 	<h2>This is just emergency web view to change password, it is still under development</h2>
 	<div class="passwd-cage">
