@@ -1,4 +1,5 @@
 <?php
+// SPDX-License-Identifier: GPL-2.0
 
 if (isset($_GET["extreme"])) {
 	$ch = curl_init("https://captcha.teainside.org/api.php?key=abc123&action=get_captcha&type=calculus&level=1");

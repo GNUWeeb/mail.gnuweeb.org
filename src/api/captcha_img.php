@@ -1,5 +1,5 @@
 <?php
-
+// SPDX-License-Identifier: GPL-2.0
 
 if (!(isset($_GET["content"]) && is_string($_GET["content"]))) {
 	http_response_code(400);

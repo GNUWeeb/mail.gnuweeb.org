@@ -1,4 +1,5 @@
 <?php
+// SPDX-License-Identifier: GPL-2.0
 
 $p = $_POST;
 $code = 200;

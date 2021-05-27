@@ -1,8 +1,9 @@
 <?php
+// SPDX-License-Identifier: GPL-2.0
 
 /**
- * @author Ammar Faizi <ammarfaizi2@gmail.com> https://www.facebook.com/ammarfaizi2
- * @license MIT
+ * @author Ammar Faizi <ammarfaizi2@gmail.com>
+ * @license GPL-2.0
  * @package {No Package}
  * @version 8.0
  */
