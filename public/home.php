@@ -16,8 +16,8 @@ if (!isset($_SESSION["user"])) {
 <html>
 <head>
 	<title>GNUWeeb Mail</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/base.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/base.css?cc=<?= cc(); ?>"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/home.css?cc=<?= cc(); ?>"/>
 	<meta name="viewport" content="width=device-width,initial-scale=1.00"/>
 </head>
 <body>

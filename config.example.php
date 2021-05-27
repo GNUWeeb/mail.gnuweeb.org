@@ -5,6 +5,7 @@ date_default_timezone_set("UTC");
 const BASE_PATH = __DIR__;
 const STORAGE_PATH = BASE_PATH."/storage";
 const PUBLIC_PATH = BASE_PATH."/public";
+const STATIC_CACHE = false;
 
 const DB_HOST = "127.0.0.1";
 const DB_PORT = 3306;
