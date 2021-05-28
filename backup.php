@@ -54,7 +54,11 @@ $dumpCmd    .= " 2>&1";
 $e[] = exec_cmd($dumpCmd, $targetFile);
 
 $targetFile  = "/tmp/vmail_gnuweeb_org_{$now}.tar.gz";
-$dumpCmd     = "cd /var/vmail; tar -c gnuweeb.org | gzip -9c > ".escapeshellarg($targetFile);
+$dumpCmd     = "cd /var/vmail; tar --dereference -c gnuweeb.org | gzip -9c > ".escapeshellarg($targetFile);
+$e[] = exec_cmd($dumpCmd, $targetFile);
+
+$targetFile  = "/tmp/varlib_mailman_{$now}.tar.gz";
+$dumpCmd     = "cd /var/lib; tar --dereference -c mailman | gzip -9c > ".escapeshellarg($targetFile);
 $e[] = exec_cmd($dumpCmd, $targetFile);
 endif;
 
