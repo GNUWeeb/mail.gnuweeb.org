@@ -2,43 +2,43 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id d0RKGvkqtGA9CwUAav/0+A
+	id FmRkGiKxtGBDGAUAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Mon, 31 May 2021 00:16:57 +0000
+	for <sprite@gnuweeb.org>; Mon, 31 May 2021 09:49:22 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 180DBC2B21;
-	Mon, 31 May 2021 00:16:57 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 04784C2B2D;
+	Mon, 31 May 2021 09:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1622420217;
-	bh=ARr9MjRnZ2F00vlaIbAvKDLSlkJhxW2/ukAEg2EQC+Y=;
+	s=default; t=1622454562;
+	bh=aOZ4HLIsUhqlx7nD8UzyZqDTDwL+xcwsV9PeLpKfaOs=;
 	h=To:From:Subject:Date:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:Reply-To:Cc:From;
-	b=oO4pM0TVKwXj4c/gGBNaQNoVBs1asSlDD2nI3N9XPGXGfxDmqja6HkhVdsMR1NBOS
-	 Odqr32XNZsCuODbvVfXnoCFKR+pFJzpls+BDEQe0L2J5fCBJ5jyfGFppC2nQCL59CX
-	 rcSezFEgZknfzqYbny1+NiN9F9LG7YueVth8UUMUl0cy1O4MxYpHSdvb47T+TF8yEQ
-	 M6iik2iFG+c8LXBQuS3+3aaGZymXGm3imUbyjO9mAuDECH6Ez4bCtCSRaprXn4CKTN
-	 w0//s1GC9gyWFsn/T9Eat1nlFPio4ZdGKo7AIVdxF87huWZitO1XHXeLvktbrq8ssv
-	 j4J7Af6aendZQ==
+	 List-Post:List-Help:List-Subscribe:Reply-To:From;
+	b=DQ7gPnzLrAs8/G7qoc51ByQ7fk14wreYT3Z4uFkNe+xemD1OW3sa7Pm3SENnMsPbo
+	 Hx47SUlvo8w7pXTcdaq0lDdsl0DlyNgkZWnE9VpKDhnRo4OwawYB+WwKm6PsQogP5s
+	 ug1nJh1xRdEk2r3BIt55sEumwmFbveUZRxc9aWfWRzy1/oDd+jJA8gBdfDIsTdAWva
+	 Jv6LNuod9QELWut1uqIng2kuLWXK/GA8FVGk4GDx5Od99hL1tC7mpQp9abS6LTzX+8
+	 Z2uZweIIn5thL8A9wHEvW9aQSvAnOezBTtL2hhQ+jQn1XdiNxRlPobjIpoUfOXDwb2
+	 Ie1f+44sBWNnQ==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
 Received: from [10.7.7.2] (unknown [68.183.184.174])
- by gnuweeb.org (Postfix) with ESMTPSA id 7B7E2C2AFA;
- Mon, 31 May 2021 00:16:55 +0000 (UTC)
+ by gnuweeb.org (Postfix) with ESMTPSA id A8D0DC2B24
+ for <gwml@gnuweeb.org>; Mon, 31 May 2021 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1622420215;
- bh=2ESJuE6AX1NoggWtWKcPOIPdVvnSp9qX2ZltZKDT1IM=;
- h=To:Cc:From:Subject:Date:From;
- b=DRI6+mfQwg75eiN28+H8229lj7unfWCyGKLeU2J9ksSeOA1qsZdbYQBOyhvqlJ2Cp
- ZCwlQndYSLcugFdefFstgj7f9R3LtRLV/1K7icfnbFXtHhKr4FkOw6EjBKn40QK0MN
- G5CgGORZRk1EZ25tL3kOMxheXfMRH9PKV2LfA1as33bEc0gHG8pcQNkGa54b3g3QP5
- d1HUTrDmoWbU08xcAMwluEYnzccszidFlgSJoU91DuiP8ET/gzoivEiJV736nXCoPm
- 67ypt2oWexnyHE3b0GecytPOBDiu9Pdfp/W4MXHaQtaW2DcUXbmz4N8ffvF6hvpoGy
- 3CsI8F88ndkzQ==
+ s=default; t=1622454560;
+ bh=uS/5UOFMkPSt9c/fjn/GjeDTE7DqWz3n3+LawEXOPyM=;
+ h=To:From:Subject:Date:From;
+ b=SkQNDl/HcLPuuQAXI7KIKN89adMfpp7DMVSybYbTor09yrt/fTdPDC+DpwoDMviP2
+ VN3DDf5FmEYcmpdnF8UgcT6+UNiivaigMwP/I60cgwPl8m2bggmuN260WydgbE/SJi
+ lNK1mK87aZ+vKc83JgbOQhs6FdSPld+bXIwSDvNYzRqyBer93lq9+jalaDrvcvPmIt
+ 1yxRU1mYWnyc911WAAUnByyAOyQ2Tw0XLZHkjYuzoC69hPQl+KVyaajStd531j9D81
+ wvWuV+aGTDTgRmfUtXuhpowBxC6RZ/VWCSeUbPAyb6mWwgZAfaCRdLGfsYAd3RYz0a
+ hIuGrr81FrgCQ==
 To: gwml@gnuweeb.org
 From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-Subject: Welcome Irvan and Andreas
-Message-ID: <a68b6412-d96a-e208-1f9a-6d162364b7a8@gnuweeb.org>
-Date: Mon, 31 May 2021 07:16:53 +0700
+Subject: [Quiz] Exploit Buffer Overflow Vulnerability
+Message-ID: <50e30bfc-8410-de1c-d720-964f5c7a4a20@gnuweeb.org>
+Date: Mon, 31 May 2021 16:49:13 +0700
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.8.1
 MIME-Version: 1.0
@@ -55,14 +55,19 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: everel@gnuweeb.org
 Content-Transfer-Encoding: base64
 Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-SGkgSXJ2YW4sCkhpIEFuZHJlYXMsCgpXZWxjb21lIHRvIEdOVS9XZWViIG1haWxpbmcgbGlzdCEK
-CiDCoCBBbW1hcgoKQ2M6IElydmFuIDxldmVyZWxAZ251d2VlYi5vcmc+CkNjOiBBbmRyZWFzIDx2
-aW9sZXRldmVyZ2FyZGVuQGdudXdlZWIub3JnPgpTaWduZWQtb2ZmLWJ5OiBBbW1hciBGYWl6aSA8
-YW1tYXJmYWl6aTJAZ251d2VlYi5vcmc+Ci0tIApHV01MIG1haWxpbmcgbGlzdApHV01MQGdudXdl
-ZWIub3JnCmh0dHBzOi8vZ3dtbC5nbnV3ZWViLm9yZy9saXN0aW5mby9nd21sCg==
+I3F1aXogI2J1ZmZlcl9vdmVyZmxvdyAjeDY0CgpIaSBldmVyeW9uZSwKClRoaXMgaXMgdGhlIDMt
+cmQgcXVpeiBJIHBvc3RlZCBvbiBHVyBtYWlsaW5nIGxpc3QuCgpQcmludCB0aGUgY29uZ3JhdHVs
+YXRpb24gbWVzc2FnZSB2aWEgYnVmZmVyIG92ZXJmbG93IHZ1bG5lcmFiaWxpdHk6Cmh0dHBzOi8v
+d3d3LmdudXdlZWIub3JnL3F1aXovMDAzCgowMDM6IEVMRiA2NC1iaXQgTFNCIGV4ZWN1dGFibGUs
+IHg4Ni02NCwgdmVyc2lvbiAxIChTWVNWKSwgc3RhdGljYWxseSAKbGlua2VkLCBCdWlsZElEW3No
+YTFdPTIyMDE5NTBiMDViMjlkYTYwNmViYzNiODc4MzUxM2U5YWJjMzUxZGUsIG5vdCBzdHJpcHBl
+ZAoKU291cmNlIGNvZGU6Cmh0dHBzOi8vZ2lzdC5naXRodWIuY29tL2FtbWFyZmFpemkyL2U2MDI4
+MGU2NGFjMzkxYWY1MzRlZGVjNDlkZTBlMjdiCgpTaGFyZSB5b3VyIHNvbHV0aW9uIG9uIFRlbGVn
+cmFtIHRvby4KCkhhcHB5IGhhY2tpbmchCgogwqAgQW1tYXIKCi0tIApHV01MIG1haWxpbmcgbGlz
+dApHV01MQGdudXdlZWIub3JnCmh0dHBzOi8vZ3dtbC5nbnV3ZWViLm9yZy9saXN0aW5mby9nd21s
+Cg==
