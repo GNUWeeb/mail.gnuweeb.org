@@ -1,5 +1,5 @@
 <?php
-// SPDX-License-Identifier: GPL-2.0
+ SPDX-License-Identifier: GPL-2.0
 
 
 require_once __DIR__."/../init/web.php";
@@ -17,16 +17,17 @@ if (!isset($_SESSION["user"])) {
         <title>GNUWeeb Mail</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/asset/css/bootstrap.min.css">
-        <script src="/asset/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/home.css">
+        <script src="/assets/js/jquery.min.js"></script>
         
-        <link rel="stylesheet" href="font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     </head>
 
-    <body>
+    <body class = "text-white">
         <div class="container-fluid max-vh-100">
             <div class = "row position-fixed w-100 h-100">
-                <div class = "col-12 col-lg-3 d-none d-lg-block bg-light border-right min-vh-100">
+                <div class = "col-12 col-lg-3 d-none d-lg-block text-white border-right min-vh-100" id = "side-container">
                     <div class = "px-4 pt-4">
                         <h2>GNUWeeb</h2>
                         <p>Some quote here</p>
@@ -42,7 +43,7 @@ if (!isset($_SESSION["user"])) {
                     <span>GNUWeeb 2021</span>
                 </div>
 
-                <div class = "col-12 col-lg-9 p-4" style = "overflow-y: auto; height: 100%;">
+                <div class = "col-12 col-lg-9 p-4 bg-dark" style = "overflow-y: auto; height: 100%;" id = "main-container">
                     <div id = "home" class = "tab">
                         <h2>Hi <?php echo htmlspecialchars($_SESSION["user"]["first_name"]); ?>!</h2>
                         <p>This is just emergency web view to change password, it is still under development.</p>
@@ -53,7 +54,7 @@ if (!isset($_SESSION["user"])) {
 
                         <form method = "post" action = "passwd.php">
                             <div class = "mb-4">
-                                <label>Old password</label>
+                                <label>Old password:</label>
                                 <div class = "input-group">
                                     <input class = "form-control" type = "password">
                                     <div class = "input-group-append">
@@ -65,7 +66,7 @@ if (!isset($_SESSION["user"])) {
                             </div>
 
                             <div class = "mb-4">
-                                <label>New password</label>
+                                <label>New password:</label>
                                 <div class = "input-group">
                                     <input class = "form-control" type = "password">
                                     <div class = "input-group-append">
@@ -75,7 +76,7 @@ if (!isset($_SESSION["user"])) {
                             </div>
 
                             <div class = "mb-4">
-                                <label>Retype new password</label>
+                                <label>Retype new password:</label>
                                 <div class = "input-group">
                                     <input class = "form-control" type = "password">
                                     <div class = "input-group-append">
@@ -90,7 +91,7 @@ if (!isset($_SESSION["user"])) {
 
                     <div id = "mail-config" class = "tab">
                         <h2>Mail client config</h2>
-                        <pre style = "text-align: left;">
+                        <pre style = "text-align: left;" class = "text-white">
 [Incoming]
 Server	: mail1.gnuweeb.org
 Protocol: IMAP
