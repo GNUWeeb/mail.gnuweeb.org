@@ -2,50 +2,51 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id 4LMhKXRRCWFlqA0Aav/0+A
+	id oJtRO1wwCmFuwQ0Aav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Tue, 03 Aug 2021 14:23:48 +0000
+	for <sprite@gnuweeb.org>; Wed, 04 Aug 2021 06:14:52 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 48457C2BCC;
-	Tue,  3 Aug 2021 14:23:47 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id E0F91C2B64;
+	Wed,  4 Aug 2021 06:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1628000627;
-	bh=JNJ5cO9QILqT4eHdLEFHRGzVzdaHUVm6Q4jn9D1aW2I=;
+	s=default; t=1628057691;
+	bh=q9rQn8nM5/rhEiKfTIPEDOu7+z9MSKgRXJriPH+xUFs=;
 	h=Subject:To:References:From:Date:In-Reply-To:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Reply-To:Cc:From;
-	b=lLlg5+7t4SNadXhozy8d0cNZqlLM2I8Fpz82lgWIUbZGFuzvnQUEJ2VBsH8G5GF/e
-	 Ea0rQXoKVZWiYE3fSu7IcAxTcktjWe0t9gVEB0k7PPN8hkLrc1WbmIheSq4eyr/7aV
-	 ozlqNaCMK06VhHPGl3Mw1mwxvPfju17jqMxJNqe1k2GfgBiIvVPWud3D321Cd8XClC
-	 TCYm2Jik4MOZP1zU3zEIhrkP//R9Updvk24IEZ4/JE2rb06rEAGpIxjIVW00tiZdyC
-	 3MV71oo1p8hEbqUy3kOLVn3OpWGQjrJn8zV162h0FKasV9YTsjLsrUuAe+jlLSkkOZ
-	 gwERCWipQ5EOw==
+	b=MdoZhmYf3umoCQhPDS1L6yOWZd++gsoHXJmXoA+ifmK4yQHXSedyUNspAbJ+AwWm7
+	 Cn2GMfsVam8BA59eFWJcosUFhj5sOC0mXecqG3wKiugJj2ml1AigUxPSQRIq+lS8Av
+	 1JGa6l+DCzBldVkiaurxEJWOCqmpT+o3kytNOLEiNbp4v7ha/VxglPBoG3D5O+iKSg
+	 dBi9JZ5ZEahy6bihRXQx0HI1jjWu7vfYJBLwhj7wls5+kHcACp3R0lZMwKtKsuvbLL
+	 p6dPJA89H7ViQzuDI9evygdQMb7JNaswcYqiSjOSjAd0Bs5YFTzox0GZFOJvS2kOnv
+	 4ae6/JT+SJCHw==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
 Received: from [10.7.7.2] (unknown [68.183.184.174])
- by gnuweeb.org (Postfix) with ESMTPSA id 5FD8CC2BB0;
- Tue,  3 Aug 2021 14:23:44 +0000 (UTC)
+ by gnuweeb.org (Postfix) with ESMTPSA id B8D85C2AC0;
+ Wed,  4 Aug 2021 06:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1628000625;
- bh=LAMfmafnLri63nsWkSopFx0WegPYHrAQVz8I0aHjDpQ=;
+ s=default; t=1628057689;
+ bh=eeWfr96ZIXMNpRpbRqGDNup/bks1mWaLs6ILIqMetog=;
  h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
- b=G36A2WM12jUrqS2PpcoQTiwVGxozRzdBFbemJB8eALwNWpSxstle2R5TeJgz6KbaP
- gXC0tnRRn9rJd05ZZDYLk0N9AN8b1sJm4fwntGJihb58Pvb4yM7zlvz4AkVO2ZRLAr
- LS9rnUIs3nNdhs3/l0WRulnoblOSInhPK+vGarFYJ6uw8m2UhpJhyONxwK65rhoXQr
- nbs+dcVDjFLTailJiDrJS0soOs0xuzBi348AjNBzEEMDljcr9/PW4qsxYlEz2vt+MI
- 6YSBSXCWom4atDEqumZAXiQ9c+0qYszN0/CU/ZA8Gmj+jHpfG95opsbyxNO2eZdhu3
- OrAwlqYXiWZgw==
+ b=YZTeSIsFLIQ/+gD44S+46DBPjGBg4EHp1O1PgWhLGXYaxoJSyz4ZK8Wed/CdnTNuI
+ 96BhJgh+QhbjeWjiPfsZI0NI8h5lRO6W+KGaP8QAe+7Sq2Ophm85l3gdK8yz8S7o+0
+ Ko0B2Kc39FaUhVvPeLSR26iSV9tvFLIWc31f8HqQhyGJ+63rITshoFuziCGhaI72yv
+ RrIdOViM4pxRnVMlUhPnPl+XNS0OiXnGBnIxyZ4yzsvvco5RYIC6E5ih9Rg+KU0JwK
+ ZWXNQjONzEtxP+djwKlyqlQuCuzvPxSEhWkkdS+uEbLn/i28abQJ7fxgIvBj5gvQ6R
+ F+78jI0JgkmbQ==
 Subject: Re: [module] Create quiz module
-To: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+To: Alviro Iskandar Setiawan <alviro@gnuweeb.org>
 References: <e7d78869-bbb3-93fe-d6c6-8514b4ce6f98@gnuweeb.org>
  <50cbac51-98c8-0851-46c7-904d7ced656f@gnuweeb.org>
-From: Alviro Iskandar Setiawan <alviro@gnuweeb.org>
-Message-ID: <034dca05-416e-d60c-d6ac-35580551acf3@gnuweeb.org>
-Date: Tue, 3 Aug 2021 21:23:39 +0700
+ <034dca05-416e-d60c-d6ac-35580551acf3@gnuweeb.org>
+From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+Message-ID: <c54b2e0c-d6de-f9f8-5459-71b3f7ede07a@gnuweeb.org>
+Date: Wed, 4 Aug 2021 13:14:40 +0700
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <50cbac51-98c8-0851-46c7-904d7ced656f@gnuweeb.org>
+In-Reply-To: <034dca05-416e-d60c-d6ac-35580551acf3@gnuweeb.org>
 Content-Language: en-US
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
@@ -60,13 +61,21 @@ List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-Yes sir, I have experience with mysql database
+On 8/3/21 9:23 PM, Alviro Iskandar Setiawan wrote:
+> Yes sir, I have experience with mysql database
+> 
 
+All good, thanks for your availability. I'll post something for you to
+try later today. I'll see if I can tighten this up.
+
+
+-- 
+Ammar
 -- 
 GWML mailing list
 GWML@gnuweeb.org
