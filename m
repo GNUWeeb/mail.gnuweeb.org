@@ -2,49 +2,52 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id royoKYdlF2FNRA8Aav/0+A
+	id +D9MEmRqF2E2RQ8Aav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Sat, 14 Aug 2021 06:41:11 +0000
+	for <sprite@gnuweeb.org>; Sat, 14 Aug 2021 07:01:56 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 4DC53C2C15;
-	Sat, 14 Aug 2021 06:41:11 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 44AE3C2B7E;
+	Sat, 14 Aug 2021 07:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1628923271;
-	bh=n8+0Hfj/uXdV0CeD5R8uJvIViHFh35GcWaB5qDtsnqk=;
-	h=From:To:Subject:Date:In-Reply-To:References:List-Id:
+	s=default; t=1628924515;
+	bh=PyGevNpAqQTKZ/sCWZ64JWIgSUcmBK8oOGB5y4A8CQ4=;
+	h=Subject:To:References:From:Date:In-Reply-To:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Reply-To:Cc:From;
-	b=Jhw5OdDxs9CJSFIy/M+99G3iKrSi7E5il0dgYkR1f6x83WEJ79DvkuIOJSth+/ZLV
-	 lHNgD1pVXTnRjXCnEqr0cRpUakHOsStblXQfAsUCbw4InNfvY0laMz2kpcta1K1YN3
-	 GeGa6IjWmmWulbB04WrCves4lSkIQPepCreHCIy4EmDnsu3ZeRI5jb17iPYVThZMYj
-	 PZFwcOxNiQDwuRV7XDxLuHSLMfL5OxkySKC2k4tCrzvnytkTzHzlVKpi04kCw8S56O
-	 LtYW3PhIm3zQaiUAAXKBK7hpaaebpsZ7UG/Nhn5X275Mt+H/IwYNZ1s8DaaVmaZ9fU
-	 T6OONY9p+/4RQ==
+	b=JjLsEHLWMZzyXSTlxgBGV9tPe5XhmgRJon493DO18srIpD1Weiq9uIEkWc/lKsvVk
+	 PgURROA9NZrUv9JlpLDuVJG9gGuWB89/xlHwN1P8k/m8vns3H3+JbNGyKRDx9ZI8z9
+	 4fFNhuS2Nv9/xnd5k+/fujrCCOb2O4eb/np0lHvxrfKXaQJvDOT5bAlM4VRAuhh52K
+	 03hqfIvxFvgCIF96WCw2+CLP/gPNIp7zN+8wlgpWEsB7k/A6xiJT1uXcHw4Wc+T55c
+	 Ba2LXhPMI74xZrJ9PKb18pIhaqAgzI/vkzBnEqLImMWVf0EXPyNojNb7+zGCQyBfoa
+	 vLDIUy6GTmXzA==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from integral.. (unknown [182.2.68.212])
- by gnuweeb.org (Postfix) with ESMTPSA id 942F7C2B7E;
- Sat, 14 Aug 2021 06:41:08 +0000 (UTC)
+Received: from [192.168.43.248] (unknown [182.2.68.212])
+ by gnuweeb.org (Postfix) with ESMTPSA id 8758FC2BF4;
+ Sat, 14 Aug 2021 07:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1628923269;
- bh=5TXiX7hQqnbC6aXnAJ0k7N8/UaTy5Pwmutw4LQtQZ0k=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=L0oADJu9biNCxoxZwyI3P2/pJlsl7tzzrs+oZFXm7/nBfv0B/Il7MLmXH6MKD1hh1
- 3AFeq1JEEbPNhe870DCUGvxrf51GfhIyz2E9vMxlBtrbCcB/wyIlGb/22jQoAW5IMW
- 36opPujU0VVF9+hgAphi7+gUOMN1AyE37om1shNxjLE0N/OwLbhC9shNIbBr93nFJd
- 4C5cDko68DZQg40zZKyi6EKPLZkrqcCyXjuRauqm33H/BUZ7wUpx0pwFnDEAc2bUNg
- M4TulmElnZ8V3P4raTIMAKplTk5xqOznXmYDO+OfQzFWgSr4sPa3rTAV5tyOQkmaKu
- 3ST3+H3QVf1rg==
-From: Alviro Iskandar Setiawan <alviro@gnuweeb.org>
-To: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-Subject: [PATCH] Scraper: don't make runScrapers() be class method
-Date: Sat, 14 Aug 2021 13:40:42 +0700
-Message-Id: <20210814064042.6145-2-alviro@gnuweeb.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210814064042.6145-1-alviro@gnuweeb.org>
+ s=default; t=1628924513;
+ bh=PAkNeVFO5XxmsN1kCds0nMTVFfyen350VsFynrTFRpk=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=ThYM1ELwiVZbxKuucu2S/iogGSH4GFL3ybvE42bSuMvKnpiqRPTwL3TL0mvs/FpLB
+ MykgO2LfyIqyFB3CRTewQ2BVfVC9+L5MOzzzNxVDeaJd/oKXVpeHTNZZu56MfkJ/5I
+ ky4dcDCMfBGVRviLpE8azUX+w82NhkhCEBU2YFiwOfygb/rKhppMZPGlO1MbNozWQg
+ W8qkPkX4ibK4DvTrK7JXIZkUSdcXzOjosVZ0VrKo4sh0pmkZRhLqrgOmMBZIN4Ugu2
+ qK1cxxQfwNfAkW0+6YI2YyFPLnkMMQqc5FpszYbmQCE7u16keRwPSGyrhBfMxvLZz+
+ HiirriYzObbsA==
+Subject: Re: [PATCH] Scraper: don't make runScrapers() be class method
+To: Alviro Iskandar Setiawan <alviro@gnuweeb.org>
 References: <1900a7bd-59fa-6ecd-8eca-b8aabff6a846@gnuweeb.org>
  <20210814064042.6145-1-alviro@gnuweeb.org>
+ <20210814064042.6145-2-alviro@gnuweeb.org>
+From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+Message-ID: <753d5260-22de-9b28-0486-e09a69808f60@gnuweeb.org>
+Date: Sat, 14 Aug 2021 14:01:51 +0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
+In-Reply-To: <20210814064042.6145-2-alviro@gnuweeb.org>
+Content-Language: en-US
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -57,81 +60,20 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: Alviro Iskandar Setiawan <alviro@gnuweeb.org>,
- GNU/Weeb Mailing List <gwml@gnuweeb.org>
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-Don't plug runScrapers() inside the class Scraper, this can be inlined
-inside Scraper::run().
+Applied, thanks.
 
-Cc: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Link: https://gwml.gnuweeb.org/pipermail/gwml/20210813/000068.html
-Signed-off-by: Alviro Iskandar Setiawan <alviro@gnuweeb.org>
----
- src/tgvisd/Scraper.cpp | 10 +++++-----
- src/tgvisd/Scraper.hpp |  4 ++--
- 2 files changed, 7 insertions(+), 7 deletions(-)
+* patch_from_alviro:
+  Scraper: don't make runScrapers() be class method
+  generic scraper: add chat scraper
 
-diff --git a/src/tgvisd/Scraper.cpp b/src/tgvisd/Scraper.cpp
-index c8e5c92..b5dfedd 100644
---- a/src/tgvisd/Scraper.cpp
-+++ b/src/tgvisd/Scraper.cpp
-@@ -42,7 +42,7 @@ Scraper::~Scraper(void)
- }
- 
- 
--void Scraper::runScrapers(void)
-+static void runScrapers(Scraper *sc)
- {
- 	// auto st = db->prepare("SELECT eeee;");
- 	// st->execute();
-@@ -58,10 +58,10 @@ void Scraper::runScrapers(void)
- 	// }
- 	// sleep(1);
- 
--	chatScraper_ = new tgvisd::Scrapers::ChatScraper(this);
-+	sc->chatScraper_ = new tgvisd::Scrapers::ChatScraper(sc);
- 
--	std::thread chatScraper([this]{
--		this->chatScraper_->run();
-+	std::thread chatScraper([sc]{
-+		sc->chatScraper_->run();
- 	});
- 	chatScraper.join();
- }
-@@ -75,7 +75,7 @@ void Scraper::run(void)
- 	}
- 
- 	try {
--		runScrapers();
-+		runScrapers(this);
- 	} catch (std::runtime_error &e) {
- 		pr_err("std::runtime_error: %s", e.what());
- 		main_->doStop();
-diff --git a/src/tgvisd/Scraper.hpp b/src/tgvisd/Scraper.hpp
-index a7308d0..1d019e2 100644
---- a/src/tgvisd/Scraper.hpp
-+++ b/src/tgvisd/Scraper.hpp
-@@ -30,10 +30,10 @@ public:
- 		return main_;
- 	}
- 
-+	tgvisd::Scrapers::ChatScraper *chatScraper_ = nullptr;
-+
- private:
--	void runScrapers(void);
- 	Main *main_ = nullptr;
--	tgvisd::Scrapers::ChatScraper *chatScraper_ = nullptr;
- };
- 
- } /* namespace tgvisd */
 -- 
-2.30.2
-
+Ammar
 -- 
 GWML mailing list
 GWML@gnuweeb.org
