@@ -2,52 +2,42 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id +D9MEmRqF2E2RQ8Aav/0+A
+	id ckzhMPPvSmHjEwAAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Sat, 14 Aug 2021 07:01:56 +0000
+	for <sprite@gnuweeb.org>; Wed, 22 Sep 2021 08:57:23 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 44AE3C2B7E;
-	Sat, 14 Aug 2021 07:01:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1628924515;
-	bh=PyGevNpAqQTKZ/sCWZ64JWIgSUcmBK8oOGB5y4A8CQ4=;
-	h=Subject:To:References:From:Date:In-Reply-To:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Reply-To:Cc:From;
-	b=JjLsEHLWMZzyXSTlxgBGV9tPe5XhmgRJon493DO18srIpD1Weiq9uIEkWc/lKsvVk
-	 PgURROA9NZrUv9JlpLDuVJG9gGuWB89/xlHwN1P8k/m8vns3H3+JbNGyKRDx9ZI8z9
-	 4fFNhuS2Nv9/xnd5k+/fujrCCOb2O4eb/np0lHvxrfKXaQJvDOT5bAlM4VRAuhh52K
-	 03hqfIvxFvgCIF96WCw2+CLP/gPNIp7zN+8wlgpWEsB7k/A6xiJT1uXcHw4Wc+T55c
-	 Ba2LXhPMI74xZrJ9PKb18pIhaqAgzI/vkzBnEqLImMWVf0EXPyNojNb7+zGCQyBfoa
-	 vLDIUy6GTmXzA==
+	by gnuweeb.org (Postfix) with ESMTP id 66B23BEE8C;
+	Wed, 22 Sep 2021 08:57:21 +0000 (UTC)
+Authentication-Results: gnuweeb.org;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=siarie.me header.i=@siarie.me header.a=rsa-sha256 header.s=gm1 header.b=jsvSD4fA;
+	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from [192.168.43.248] (unknown [182.2.68.212])
- by gnuweeb.org (Postfix) with ESMTPSA id 8758FC2BF4;
- Sat, 14 Aug 2021 07:01:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1628924513;
- bh=PAkNeVFO5XxmsN1kCds0nMTVFfyen350VsFynrTFRpk=;
- h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
- b=ThYM1ELwiVZbxKuucu2S/iogGSH4GFL3ybvE42bSuMvKnpiqRPTwL3TL0mvs/FpLB
- MykgO2LfyIqyFB3CRTewQ2BVfVC9+L5MOzzzNxVDeaJd/oKXVpeHTNZZu56MfkJ/5I
- ky4dcDCMfBGVRviLpE8azUX+w82NhkhCEBU2YFiwOfygb/rKhppMZPGlO1MbNozWQg
- W8qkPkX4ibK4DvTrK7JXIZkUSdcXzOjosVZ0VrKo4sh0pmkZRhLqrgOmMBZIN4Ugu2
- qK1cxxQfwNfAkW0+6YI2YyFPLnkMMQqc5FpszYbmQCE7u16keRwPSGyrhBfMxvLZz+
- HiirriYzObbsA==
-Subject: Re: [PATCH] Scraper: don't make runScrapers() be class method
-To: Alviro Iskandar Setiawan <alviro@gnuweeb.org>
-References: <1900a7bd-59fa-6ecd-8eca-b8aabff6a846@gnuweeb.org>
- <20210814064042.6145-1-alviro@gnuweeb.org>
- <20210814064042.6145-2-alviro@gnuweeb.org>
-From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-Message-ID: <753d5260-22de-9b28-0486-e09a69808f60@gnuweeb.org>
-Date: Sat, 14 Aug 2021 14:01:51 +0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+Received: from relay6-d.mail.gandi.net (relay6-d.mail.gandi.net
+ [217.70.183.198]) by gnuweeb.org (Postfix) with ESMTPS id B9632C0064
+ for <gwml@gnuweeb.org>; Wed, 22 Sep 2021 07:58:34 +0000 (UTC)
+Received: (Authenticated sender: mail@siarie.me)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPA id 1E08FC0003
+ for <gwml@gnuweeb.org>; Wed, 22 Sep 2021 07:58:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siarie.me; s=gm1;
+ t=1632297507;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding;
+ bh=W3XDfGoqtcu57agZj1kyMjHwhAiFdxgzDAO9bmrIclI=;
+ b=jsvSD4fAgUocE6FQiIkRchUjQamfGyqFQ2jM3dwy0q8mb7OXwZ4gKKOJRrDJu5173yd8ma
+ co/kCLGyZbr0SRLSCZpF5UVSuZrv26jsgP1KdLbcIQudjVNqPjwLZrAo5u4LiJHLGoBJ8W
+ tNegoBaXuNzODh05+7Zeb5FCKmch+2gjd2VrbrqsXXYzx3qAPoMlO2Qu3MJPJib9ZGjDDx
+ btSEpBIHuGV1h+AxebDdqcqlNUEnjgXI2aMDlmvF9Bn/596Dl7PDpkw9LIDs0/zZ0+HQDe
+ sHFFAh8O90ipGXUrKz0k6bEu6WLqQ86e38b2UJ61OVUeSdAQJZlYYXkqytXAdg==
 MIME-Version: 1.0
-In-Reply-To: <20210814064042.6145-2-alviro@gnuweeb.org>
-Content-Language: en-US
+Date: Wed, 22 Sep 2021 14:58:26 +0700
+From: Sri Aspari <mail@siarie.me>
+To: gwml@gnuweeb.org
+Subject: Announcement - Server shutdown
+User-Agent: Roundcube Webmail/1.4.11
+Message-ID: <b8affb0daf9121ae675924aff557f88a@siarie.me>
+X-Sender: mail@siarie.me
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -60,20 +50,56 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-Applied, thanks.
+Hello everyone,
 
-* patch_from_alviro:
-  Scraper: don't make runScrapers() be class method
-  generic scraper: add chat scraper
+Firstly, I am Apologize for the trouble. I have something I want to
+tell you.
 
--- 
-Ammar
+Information
+===========
+As you may know, the server was down yesterday. I didn't realize that
+until Ammar mentioned me in the telegram. The server down because the
+billing account was ran out of credit. The server should be fine now
+(if this email is sent).
+
+Server shutdown
+===============
+Life getting hard, the company I worked for didn't go well, and I ended
+up getting layoffs a few weeks ago. I am not sure if I can keep this
+server up. I have to prioritize my expenses. So, I am planning to
+shutdown the server next month. However, if you want to keep the server
+up. You can help me pay the server by make a donation to this community.
+
+Available donation methods:
+     - Crowdfunding
+       We have crowdfunding page available at ko-fi[0] and trakteer[1]
+
+     - Referral program
+       Our hosting has referral program. You (and me) will get free
+       credit if you register using referral code (v63w0g) or link[2]
+
+       This is what they says:
+
+         > For every new user who signs up using your referral code and
+         > makes at least one minimum payment, you will receive Rp 50.000
+         > worth of free credits. Every new user receives a bonus worth
+         > of Rp 50.000 credits when signing up through the referral
+         > program.
+
+     - Or you contact me directly for other method.
+
+
+[0]: https://ko-fi.com/GNUWeeb
+[1]: https://trakteer.id/GNUWeeb
+[2]: https://console.idcloudhost.com/referral/v63w0g
+
+Thanks,
+Sri Aspari
 -- 
 GWML mailing list
 GWML@gnuweeb.org
