@@ -1,8 +1,5 @@
-@import url('/assets/css/hack.css');
 * {
-	background-color: #f0f0f0;
-	font-family: "Hack", monospace;
-	border-radius: 4px;
+	font-family: Arial;
 }
 
 button {
@@ -16,8 +13,4 @@ a {
 
 a:hover {
 	text-decoration: underline;
-}
-
-.logout-btn {
-	color: #00aade;
 }
