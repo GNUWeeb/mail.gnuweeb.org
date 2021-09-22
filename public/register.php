@@ -46,7 +46,7 @@ if (isset($_SESSION["user"])) {
 						<td align="left">
 							<input type="radio" name="gender" value="male" required="1"/>Male
 							<input type="radio" name="gender" value="female" required="1"/>Female
-							<input type="radio" name="gender" value="secret" required="1"/>N/A
+							<input type="radio" name="gender" value="secret" required="1"/>No answer
 						</td>
 					</tr>
 					<tr>
@@ -96,7 +96,7 @@ if (isset($_SESSION["user"])) {
 									<p id="captcha-msg"></p>
 									<img id="captcha-img" alt="Loading captcha image..."/>
 								</div>
-								<a onclick="loadCaptcha();" href="#rel">Reload Captcha</a>
+								<a style="color:blue;" onclick="loadCaptcha();" href="#rel">Reload Captcha</a>
 								<br/><br/>Captcha Answer:<br/>
 								<input type="hidden" name="captcha_key" id="captcha-key"/>
 								<input type="text" name="captcha_answer" id="captcha-answer" required="1"/>
@@ -111,11 +111,7 @@ if (isset($_SESSION["user"])) {
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3">
-							<div class="login-link">
-								Already have an account? <a href="login.php?ref=register&amp;w=<?= rstr(32) ?>">Login</a>
-							</div>
-						</td>
+						<td colspan="3">Already have an account? <a href="login.php?ref=register&amp;w=<?= rstr(32) ?>">Login</a></td>
 					</tr>
 				</tbody>
 			</table>

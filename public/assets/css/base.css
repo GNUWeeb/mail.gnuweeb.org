@@ -1,26 +1,16 @@
 @import url('/assets/css/hack.css');
-body {
-	background-color: #1f1f1f;
-}
-
 * {
+	background-color: #f0f0f0;
 	font-family: "Hack", monospace;
 	border-radius: 4px;
-	color: #ffffff;
 }
 
 button {
 	cursor: pointer;
-	color: #000000;
-	padding: 4px 10px 4px 10px;
-}
-
-input {
-	color: #000000;
 }
 
 a {
-	color: #00aade;
+	color: blue;
 	text-decoration: none;
 }
 

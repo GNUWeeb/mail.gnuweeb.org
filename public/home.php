@@ -25,34 +25,32 @@ if (!isset($_SESSION["user"])) {
 	<a href="logout.php"><h3 class="logout-btn">Logout</h3></a>
 	<h2>Hi <?php echo htmlspecialchars($_SESSION["user"]["first_name"]); ?>!</h2>
 	<h2>This is just emergency web view to change password, it is still under development</h2>
-	<div class="passwd-cage">
-		<h1>Change Password</h1>
-		<form method="post" action="passwd.php">
-			<table>
-				<tr><td>Old Password</td><td>:</td><td><input type="password" name="old_password" required="1"/></td></tr>
-				<tr><td>New Password</td><td>:</td><td><input type="password" name="new_password" required="1"/></td></tr>
-				<tr><td>Retype New Password</td><td>:</td><td><input type="password" name="cnew_password" required="1"/></td></tr>
-				<tr><td align="center" style="padding-top: 20px;" colspan="3"><input type="submit" name="Submit" value="Change Password"/></td></tr>
-			</table>
-		</form>
-	</div>
-	<h3>If you lost your password, contact @Mysticial on GNUWeeb</h3>
+	<h1>Change Password</h1>
+	<form method="post" action="passwd.php">
+		<table>
+			<tr><td>Old Password</td><td>:</td><td><input type="password" name="old_password" required="1"/></td></tr>
+			<tr><td>New Password</td><td>:</td><td><input type="password" name="new_password" required="1"/></td></tr>
+			<tr><td>Retype New Password</td><td>:</td><td><input type="password" name="cnew_password" required="1"/></td></tr>
+			<tr><td align="center" colspan="3"><input type="submit" name="Submit"/></td></tr>
+		</table>
+	</form>
+	<h2>If you lost your password, contact @Mysticial on GNUWeeb</h2>
 	<h2>Mail Client Config</h2>
-	<div class="mail-info">
+	<div style="width: 400px;border: 1px solid #000; padding: 10px;">
 <pre style="text-align: left;">
 [Incoming]
-Server	: mail1.gnuweeb.org
+Server: mail1.gnuweeb.org
 Protocol: IMAP
-SSL/Port: 143 for STARTTLS
-	: 993 for SSL/TLS
-Auth	: Normal Password
+Port: 143
+SSL: STARTTLS
+Auth: Normal Password
 
 [Outgoing]
-Server	: mail1.gnuweeb.org
+Server: mail1.gnuweeb.org
 Protocol: SMTP
-SSL/Port: 587 for STARTTLS
-	: 465 for SSL/TLS
-Auth	: Normal Password
+Port: 587
+SSL: STARTTLS
+Auth: Normal Password
 </pre>
 	</div>
 	<div style="margin-bottom:200px;"></div>

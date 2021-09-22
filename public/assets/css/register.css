@@ -1,9 +1,8 @@
 
 .register-cage {
-	background-color: #3f3f3f;
 	margin: auto;
 	margin-top: 55px;
-	width: 60%;
+	width: 650px;
 	height: auto;
 	border: 1px solid #000;
 	text-align: center;
@@ -50,8 +49,7 @@
 }
 
 .reg-btn-cage {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .captcha-table {
@@ -82,3 +80,4 @@
 	margin-top: 30px;
 	border: 1px solid #fff;
 }
+
