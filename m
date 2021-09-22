@@ -2,42 +2,50 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id ckzhMPPvSmHjEwAAav/0+A
+	id iCy8G0fzSmGGFAAAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Wed, 22 Sep 2021 08:57:23 +0000
+	for <sprite@gnuweeb.org>; Wed, 22 Sep 2021 09:11:35 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 66B23BEE8C;
-	Wed, 22 Sep 2021 08:57:21 +0000 (UTC)
-Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=siarie.me header.i=@siarie.me header.a=rsa-sha256 header.s=gm1 header.b=jsvSD4fA;
-	dkim-atps=neutral
+	by gnuweeb.org (Postfix) with ESMTP id 1443FBEE8C;
+	Wed, 22 Sep 2021 09:11:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
+	s=default; t=1632301894;
+	bh=9K806pH4qK+c927D0B2R0nZ0F0PRkbqT3mUCN4Sw2s8=;
+	h=Subject:To:References:From:Date:In-Reply-To:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Reply-To:From;
+	b=jy2U1iEGiEb5yIW30AbpYefeME8jeQXJJ2UAAa61tMJ154hgNiKYXlwCg2iUJWNi1
+	 kAKEfC9KhyC9UxSQDtsquWK2UmyRdLDcfxQNpRI9jyk83DIU3lKr8ZFrj3uoW2ZNq/
+	 XfPMNRVk7c59awb5ypb0FojWlP40k+826wDdF7eWLEDQbJ9eFpvMa/suzRrHnoEQt9
+	 +FgT9JJ4sTZkjej8qJv/T+8JOLy3wv9FjwJ40k73dDrwxUAhr8aUL18heBR4QMCEIZ
+	 1q8nIz2eUmF/HaFpwhE7Npf3KhmSd+zS3wFoq3Aey9mlq4N3qVRHzepOZBUFlAT9Eq
+	 TwbvxGHd2GvbA==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from relay6-d.mail.gandi.net (relay6-d.mail.gandi.net
- [217.70.183.198]) by gnuweeb.org (Postfix) with ESMTPS id B9632C0064
- for <gwml@gnuweeb.org>; Wed, 22 Sep 2021 07:58:34 +0000 (UTC)
-Received: (Authenticated sender: mail@siarie.me)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPA id 1E08FC0003
- for <gwml@gnuweeb.org>; Wed, 22 Sep 2021 07:58:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siarie.me; s=gm1;
- t=1632297507;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding;
- bh=W3XDfGoqtcu57agZj1kyMjHwhAiFdxgzDAO9bmrIclI=;
- b=jsvSD4fAgUocE6FQiIkRchUjQamfGyqFQ2jM3dwy0q8mb7OXwZ4gKKOJRrDJu5173yd8ma
- co/kCLGyZbr0SRLSCZpF5UVSuZrv26jsgP1KdLbcIQudjVNqPjwLZrAo5u4LiJHLGoBJ8W
- tNegoBaXuNzODh05+7Zeb5FCKmch+2gjd2VrbrqsXXYzx3qAPoMlO2Qu3MJPJib9ZGjDDx
- btSEpBIHuGV1h+AxebDdqcqlNUEnjgXI2aMDlmvF9Bn/596Dl7PDpkw9LIDs0/zZ0+HQDe
- sHFFAh8O90ipGXUrKz0k6bEu6WLqQ86e38b2UJ61OVUeSdAQJZlYYXkqytXAdg==
+Received: from [192.168.43.248] (unknown [182.2.37.92])
+ by gnuweeb.org (Postfix) with ESMTPSA id B7536C1630;
+ Wed, 22 Sep 2021 09:11:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
+ s=default; t=1632301893;
+ bh=SKjCYv0JFHgaCFX9xN0YxzGtU9WEGJyD+UWxPHbSyBM=;
+ h=Subject:To:References:From:Date:In-Reply-To:From;
+ b=iGnq/7/9zahdjUJtAYD9eQtUn4+CNhZvGI99F0+qqWJfLICsr34FvBGKHlsM+5vP1
+ Q8mDNOk0iFb6Me3krQmDqx/dWLdrhwek5cFO/lhe3TafHxszYGQ6dIVAxud05wKWGK
+ m5+EiHzigUhq4UyWEwL9CIcmwyHZgfZhIuVKP6yZzUMqNpwkQqLdbsyEqT07RuWA09
+ oDfDOmMSdrxlvyswLKle4khYW/+PRODXO8bSkH4rp2TP0UJAtY0PGRa+SUT0/YcAHx
+ gRc/92BuVBXlp5Kw0y2/Qpt5MsuFaIisWXoEcsDPJ8EHacig+O6FUWq0fGexRfsw/N
+ /Qsdc3hwE9UgQ==
+Subject: Re: Announcement - Server shutdown
+To: GNU/Weeb Mailing List <gwml@gnuweeb.org>, Sri Aspari <mail@siarie.me>
+References: <b8affb0daf9121ae675924aff557f88a@siarie.me>
+From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+Message-ID: <bda67e55-ddb3-9f48-7268-29368cd2d264@gnuweeb.org>
+Date: Wed, 22 Sep 2021 16:11:29 +0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-Date: Wed, 22 Sep 2021 14:58:26 +0700
-From: Sri Aspari <mail@siarie.me>
-To: gwml@gnuweeb.org
-Subject: Announcement - Server shutdown
-User-Agent: Roundcube Webmail/1.4.11
-Message-ID: <b8affb0daf9121ae675924aff557f88a@siarie.me>
-X-Sender: mail@siarie.me
+In-Reply-To: <b8affb0daf9121ae675924aff557f88a@siarie.me>
+Content-Language: en-US
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -50,57 +58,15 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-Hello everyone,
-
-Firstly, I am Apologize for the trouble. I have something I want to
-tell you.
-
-Information
-===========
-As you may know, the server was down yesterday. I didn't realize that
-until Ammar mentioned me in the telegram. The server down because the
-billing account was ran out of credit. The server should be fine now
-(if this email is sent).
-
-Server shutdown
-===============
-Life getting hard, the company I worked for didn't go well, and I ended
-up getting layoffs a few weeks ago. I am not sure if I can keep this
-server up. I have to prioritize my expenses. So, I am planning to
-shutdown the server next month. However, if you want to keep the server
-up. You can help me pay the server by make a donation to this community.
-
-Available donation methods:
-     - Crowdfunding
-       We have crowdfunding page available at ko-fi[0] and trakteer[1]
-
-     - Referral program
-       Our hosting has referral program. You (and me) will get free
-       credit if you register using referral code (v63w0g) or link[2]
-
-       This is what they says:
-
-         > For every new user who signs up using your referral code and
-         > makes at least one minimum payment, you will receive Rp 50.000
-         > worth of free credits. Every new user receives a bonus worth
-         > of Rp 50.000 credits when signing up through the referral
-         > program.
-
-     - Or you contact me directly for other method.
-
-
-[0]: https://ko-fi.com/GNUWeeb
-[1]: https://trakteer.id/GNUWeeb
-[2]: https://console.idcloudhost.com/referral/v63w0g
-
-Thanks,
-Sri Aspari
--- 
-GWML mailing list
-GWML@gnuweeb.org
-https://gwml.gnuweeb.org/listinfo/gwml
+T24gOS8yMi8yMSAyOjU4IFBNLCBTcmkgQXNwYXJpIHdyb3RlOgo+IAo+IAo+IFswXTrCoGh0dHBz
+Oi8va28tZmkuY29tL0dOVVdlZWIKPiBbMV06wqBodHRwczovL3RyYWt0ZWVyLmlkL0dOVVdlZWIK
+PiBbMl06wqBodHRwczovL2NvbnNvbGUuaWRjbG91ZGhvc3QuY29tL3JlZmVycmFsL3Y2M3cwZwoK
+RXZlcnlvbmUsIHBsZWFzZSBkb24ndCBwcm9jZWVkIHRvIGRvbmF0ZSB0byB0aGF0IGtvLWZpIGFu
+ZCB0cmFrdGVlcgphY2NvdW50LiBUaG9zZSBhY2NvdW50cyBhcmUgbm90IGhlbGQgYnkgR05VL1dl
+ZWIgbWVtYmVycyBhbnltb3JlLgoKLS0gCkFtbWFyCi0tIApHV01MIG1haWxpbmcgbGlzdApHV01M
+QGdudXdlZWIub3JnCmh0dHBzOi8vZ3dtbC5nbnV3ZWViLm9yZy9saXN0aW5mby9nd21sCg==
