@@ -2,44 +2,45 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id F3eHNew52GEbOAQAav/0+A
+	id UHb9E/A52GE/NwQAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Fri, 07 Jan 2022 13:02:36 +0000
+	for <sprite@gnuweeb.org>; Fri, 07 Jan 2022 13:02:40 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 306FDC17F2;
-	Fri,  7 Jan 2022 13:02:36 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 88A78C17CA;
+	Fri,  7 Jan 2022 13:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1641560556;
-	bh=x30iPU90alVlS63XoWTM9jSd48DKerwSyseaQY4nZuU=;
+	s=default; t=1641560558;
+	bh=aevzeYP+NSd+5x0j2YBSAQ79mtJOu6MRiP4mGtI0eyo=;
 	h=From:To:Subject:Date:In-Reply-To:References:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Reply-To:Cc:From;
-	b=TTo/LTF3SwQge3NE0BeBLC41EdYcPSKXdMBkWzkxnWkybH9lx8UYdgINidEXryphw
-	 94SCgfZirrONpgPi5NmLpnUn0S+85eLT0KwNYt13YGx0hVbFIGiRrvUdCRBnrX4+Dy
-	 rPD8nDZLh5EBUpPAE0e3tbZp0DU3fdIeEyGRKMk3lfvzUjYWXPdbyQ1dVQviqWyDY3
-	 m8ogE9LtdnoIPHxrr4nA0zECEP8LftD9xdpTp24dhvt+DYiHIgHqL9E4YN5u7Zdupv
-	 dgqIYdbsat2BDR3n37AePpBMq4bw6U3iVPsTnAOo6VNU4kmytZLK9vrViZm0LIYQu8
-	 PZB32l/E5j4BA==
+	b=hPpy4foVg8zqsHGWOEYDB5oZJLoESCLeEitnOLr3YhFO/qnGYW5s2cXKs7xGIv34q
+	 iZNPH+78J9nLqwJMgSs73xM2Qe1+wluoKVGTUz7quhi4rBpqrLg1lD1G9e13DWXCG0
+	 ftn5fCyvg9rfukYkhUaaLMyQzl0JI2TYczmbq0j04zjTrX375hjKvtxeoxutwIIdl2
+	 WH9BvE+2EoromaoQH7y0YaN7TQgtLWQ+yMqcjcUzsSBNneM5bhVUOvRAF8jAl9/EKl
+	 NY/KToqBCeeJEaqogBPwu2mN5g5A2mvlpM1hvJSJxhte2S8aMElJ4YPXQrbM5PHoU3
+	 qus9DZMOCbQ8A==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
 Received: from integral2.. (unknown [36.68.70.227])
- by gnuweeb.org (Postfix) with ESMTPSA id 713A2C17FC;
- Fri,  7 Jan 2022 13:02:27 +0000 (UTC)
+ by gnuweeb.org (Postfix) with ESMTPSA id EAC23C1802;
+ Fri,  7 Jan 2022 13:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1641560549;
- bh=jxiUZwLzhvAtVVYmpsCory4e6DnzuQhhApnmwUn+hpo=;
+ s=default; t=1641560551;
+ bh=6Qymrh9obeq4yNN83F9D+/EoYY3hE5HOgw+1pgrdx2M=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=azNWke3Aja+fX58XjIK8bFDH7L4RL4Rn9pKOy2nGFEH99IB/RPNcl8qVBO+T1nY8F
- dDdSDhCARBUty7LDcdS+bC7l4tu2GRvf9C6knBPQ98XpVE9uAL7cc9bKZG9mbf7eYY
- jbHopARx4zC4d7IpZDoB9a6+wqFNTs2JTxsg422sQ+JVeVEFbIw6cq6X/y0pfa7OWY
- k9cvF0ibib+RLgP0IO+z+pi6tAWJonGLUMEgHEi5TbP0N/1Boo7AaRrBtMtDcghkkY
- Im3GPVDGb3tcnhPk+LZcljy7Zs17VMjSvp1rAry11MFoiGH5RQTce0NS9PVJ6Pt2hJ
- hVpkW9iWunybQ==
+ b=G0APWIERkF4pN9A03eoP7yZzm472Woyt3lX+g/VIt+B4e9QGFKHUmdF/xkem5cEJs
+ B/U/j+mtVo+YNs5WJr8J/DGFSfZKvVqXHw8KFRouAmW/8ZSNF1XeUhVlq0Q5Qa+Mn4
+ 0LDZDozeVPsy4Kdo9yx93N++d12gpLSBchXal8rQNnGP2CMK/VJ2ruNhjP9mNX8WTt
+ M+R5ufBRMYmSeh8UDgwhaNlip1weCRBNZuVhFeCkc2f1vMZ0wWT9AlVPKScnUav5+o
+ S1lAgXTtGKUvyggFq7WkYsu5zMQEonf8tubTVcmhzJghzjESQwvTAeLq+sjnFsVlgP
+ S6/yy8KmS7S0g==
 From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
 To: Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH liburing 2/3] test/socket-rw: Fix UB, accessing dead object
-Date: Fri,  7 Jan 2022 20:02:17 +0700
-Message-Id: <20220107130218.1238910-3-ammarfaizi2@gnuweeb.org>
+Subject: [PATCH liburing 3/3] test/socket-rw-offset: Fix UB,
+ accessing dead object
+Date: Fri,  7 Jan 2022 20:02:18 +0700
+Message-Id: <20220107130218.1238910-4-ammarfaizi2@gnuweeb.org>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220107130218.1238910-1-ammarfaizi2@gnuweeb.org>
 References: <20220107130218.1238910-1-ammarfaizi2@gnuweeb.org>
@@ -74,16 +75,16 @@ lifetime is extended.
 
 Cc: Jens Axboe <axboe@kernel.dk>
 Cc: Hrvoje Zeba <zeba.hrvoje@gmail.com>
-Fixes: 79ba71a4881fb1cd300520553d7285b3c5ee1293 ("Add deadlock socket read/write test case")
+Fixes: 03be3e4fbddd491ef0426b6f9c9085a168acc1c4 ("Add test case for socket read with offset == -1")
 Signed-off-by: Ammar Faizi <ammarfaizi2@gnuweeb.org>
 ---
- test/socket-rw.c | 17 +++++++----------
+ test/socket-rw-offset.c | 17 +++++++----------
  1 file changed, 7 insertions(+), 10 deletions(-)
 
-diff --git a/test/socket-rw.c b/test/socket-rw.c
-index 5afd14d..4fbf032 100644
---- a/test/socket-rw.c
-+++ b/test/socket-rw.c
+diff --git a/test/socket-rw-offset.c b/test/socket-rw-offset.c
+index fe6ace3..987b6c9 100644
+--- a/test/socket-rw-offset.c
++++ b/test/socket-rw-offset.c
 @@ -27,6 +27,7 @@ int main(int argc, char *argv[])
  	int32_t recv_s0;
  	int32_t val = 1;
@@ -92,7 +93,7 @@ index 5afd14d..4fbf032 100644
  
  	if (argc > 1)
  		return 0;
-@@ -103,27 +104,23 @@ int main(int argc, char *argv[])
+@@ -108,27 +109,23 @@ int main(int argc, char *argv[])
  	char send_buff[128];
  
  	{
@@ -106,8 +107,8 @@ index 5afd14d..4fbf032 100644
  		struct io_uring_sqe* sqe = io_uring_get_sqe(&m_io_uring);
  		assert(sqe != NULL);
  
--		io_uring_prep_readv(sqe, p_fd[0], iov, 1, 0);
-+		io_uring_prep_readv(sqe, p_fd[0], iov_r, 1, 0);
+-		io_uring_prep_readv(sqe, p_fd[0], iov, 1, -1);
++		io_uring_prep_readv(sqe, p_fd[0], iov_r, 1, -1);
  	}
  
  	{
