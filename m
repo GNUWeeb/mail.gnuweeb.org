@@ -2,46 +2,49 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id lAgdFDzS2GF7SQQAav/0+A
+	id gOYGJD7S2GGQSQQAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Fri, 07 Jan 2022 23:52:28 +0000
+	for <sprite@gnuweeb.org>; Fri, 07 Jan 2022 23:52:30 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 637B1C204A;
+	by gnuweeb.org (Postfix) with ESMTP id 9CC7DC2048;
 	Fri,  7 Jan 2022 23:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
 	s=default; t=1641599546;
-	bh=Ac4MH0pW1g+1tBJp371AnPbyTIpWpEdleEKWTH0Laas=;
-	h=From:To:Subject:Date:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:Reply-To:Cc:From;
-	b=ON9ALK3b4VxA8hJiH8mfXEUijKZ+5lF1rPZ2JXrZEMah8HNPk+FPo3aQqsB8oavx1
-	 kw4cxlhOw47PmvqrFoatozYTMP6Wk1xEptk0n0kvgoRkctUjm0bRrKxwLLDj4Xamqe
-	 ijE7lwzzNc3Lz4vs3vsZbvn8gvbODznKpm8X5cSiTOV8FtqXDC98fvHrFwQh44+18C
-	 /LuUlwTfFCMQfrFVttHutjCjVywxOh3UhNT91SPYHjYYfRLe0pQu5Sgm8Zvz8SEwqp
-	 RBgFvhEcYI1BhzCfpA8mtNbBL4cpaN3VxvnSgm0xwUlb9AM5pseXDL7t0K1741+5PO
-	 j9LMMIGHkMu4g==
+	bh=ugpm5OYlAbho8LQdBV4H7MFLQViYDCJShoUNRnOgkbc=;
+	h=From:To:Subject:Date:In-Reply-To:References:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Reply-To:Cc:From;
+	b=letyS4CFTZAS34vBAhgf83jBMo5541FUyHw3nFHCUcUUBzzvPQ0M9OCc2YyExKbVt
+	 AuVu8vho+TWP+q2ydgyYKDRqZADIKTsMbFYj212CB8fUN1Go6ShDSVk0H/+GvyC0wF
+	 nLCcRT4x4hTAn4gyku/MvADMKihanNcHPa55IFPn4ZNh8MOMH5f9CrdYbKRf+kbvhn
+	 vGXBBr7FOFdXI4ppDeoYODMjIc/WcG1SLtZPdaVv9Kc+KkzWrDf/mvfgMVxdpQH6hp
+	 Jr2JHmsty7aKz0Zah+zppAAUyg2pKDir721zsh13c5ysH3u8NOvwnR71oEdGS0li0/
+	 NDYdNbak84d0Q==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
 Received: from integral2.. (unknown [36.68.70.227])
- by gnuweeb.org (Postfix) with ESMTPSA id 366E2C17A2;
- Fri,  7 Jan 2022 23:52:23 +0000 (UTC)
+ by gnuweeb.org (Postfix) with ESMTPSA id 8A478C17CA;
+ Fri,  7 Jan 2022 23:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
  s=default; t=1641599544;
- bh=ca4bX+EcjyR4n5K34jrDY96jKXArWt9Pb9enQ9ZUt30=;
- h=From:To:Cc:Subject:Date:From;
- b=lMaBAnZKc8oFO48pca8fTMa0E7HcYQI2bq5HHBxr75synNX2PmFJc3LU713f6Wu5J
- ti4tCjC4BvGXUgqSdZRc8yj4F7jwMDjynErfWpfs7qRCfVNWQONZeGA+L+b0khUWzZ
- cFFEzts9RR3Y9den/EVbfD9KF4mbtsGwEnvjMUxlU/VYkI4PG/ikTlVzhmIzDkQkUI
- K1ZYRITPUd9q5v3R8jjw1E+A82FWYOZraSDJfn6+wHwGb/KqkJ8rCAzf7z/X74tm1K
- wWFQn0TlWrdaO2ppFPp3QaxsmLvBKIkpWUWELnkGHADkSIh8u62GZ37JT0xMFDKs1w
- sW1Qbzdxq15dw==
+ bh=NWy+Wlzi8SPi1Do3lakRbwYr/LHTBJck7Fu+hasZIqo=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=fPNB6A1ZFG3sr0EuPpXiS2lu/8yTJlFZKz9MjVYjhI5+PyvS58j3ICsQMFuE70DY+
+ xPoWLk4EhhU6Xw3q66AHozIcFWPKlMD6SKhsnnj/gHvEK3TuTeE9q2xzpQk7yt+8Xm
+ Bwzo7QUvY8Wy8+4TeVZEZM/A5eYG36D6WH3+ynPJtwCieYVdtKASpslABkCO+V604p
+ XMRSDaRNOueVz+qcpgRDVWEG4TICwJ5hktVnNlME0YfuGwwBwj1hWn5uhSJOpIZbIo
+ 2SimraBJQ0i7PuCGsjaLUtOEKC8gY0MzZw+juqy6oaF+Yk9ba4dskp95uLN4hMXYxo
+ tNCmho3cyKxkQ==
 From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
  Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
  Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
-Subject: [PATCH v1 0/3] x86-64 entry documentation and clean up
-Date: Sat,  8 Jan 2022 06:52:07 +0700
-Message-Id: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
+Subject: [PATCH v1 1/3] x86/entry/64: Clean up spaces after the instruction
+Date: Sat,  8 Jan 2022 06:52:08 +0700
+Message-Id: <20220107235210.1339168-2-ammarfaizi2@gnuweeb.org>
 X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
+References: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
 MIME-Version: 1.0
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
@@ -62,39 +65,69 @@ Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-Hi,
+Most of lines here use a tab as a separator between the instruction
+and its operand(s). But there are several parts that use spaces.
 
-There are 3 patches in this series.
+Replace these spaces with a tab for consistency.
 
-1) Trivial clean up in entry_64.S.
-2) Add comment about registers on exit in entry_64.S.
-3) Add documentation about registers on entry and exit.
-
-(2) and (3) are based on the discussion we had at:
-
-  https://lore.kernel.org/lkml/alpine.LSU.2.20.2110131601000.26294@wotan.suse.de/
-
-This series is based on commit:
-
-  24556728c305886b8bb05bf2ac7e20cf7db3e314 ("Merge tag 'for-linus' of git://git.kernel.org/pub/scm/virt/kvm/kvm")
-
-Thanks!
-
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: x86-ml <x86@kernel.org>
+Cc: lkml <linux-kernel@vger.kernel.org>
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 Signed-off-by: Ammar Faizi <ammarfaizi2@gnuweeb.org>
 ---
-Ammar Faizi (3):
-  x86/entry/64: Clean up spaces after instruction
-  x86/entry/64: Add info about registers on exit
-  Documentation: x86-64: Document registers on entry and exit
+ arch/x86/entry/entry_64.S | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
- Documentation/x86/entry_64.rst | 47 ++++++++++++++++++++++++++++++++++
- arch/x86/entry/entry_64.S      | 27 ++++++++++++++-----
- 2 files changed, 67 insertions(+), 7 deletions(-)
-
-
-base-commit: 24556728c305886b8bb05bf2ac7e20cf7db3e314
+diff --git a/arch/x86/entry/entry_64.S b/arch/x86/entry/entry_64.S
+index 97b1f84bb53f..e432dd075291 100644
+--- a/arch/x86/entry/entry_64.S
++++ b/arch/x86/entry/entry_64.S
+@@ -305,13 +305,13 @@ SYM_CODE_END(ret_from_fork)
+ 
+ .macro DEBUG_ENTRY_ASSERT_IRQS_OFF
+ #ifdef CONFIG_DEBUG_ENTRY
+-	pushq %rax
++	pushq	%rax
+ 	SAVE_FLAGS
+-	testl $X86_EFLAGS_IF, %eax
+-	jz .Lokay_\@
++	testl	$X86_EFLAGS_IF, %eax
++	jz	.Lokay_\@
+ 	ud2
+ .Lokay_\@:
+-	popq %rax
++	popq	%rax
+ #endif
+ .endm
+ 
+@@ -749,8 +749,8 @@ SYM_CODE_START_LOCAL_NOALIGN(.Lbad_gs)
+ 	swapgs					/* switch back to user gs */
+ .macro ZAP_GS
+ 	/* This can't be a string because the preprocessor needs to see it. */
+-	movl $__USER_DS, %eax
+-	movl %eax, %gs
++	movl	$__USER_DS, %eax
++	movl	%eax, %gs
+ .endm
+ 	ALTERNATIVE "", "ZAP_GS", X86_BUG_NULL_SEG
+ 	xorl	%eax, %eax
+@@ -1135,7 +1135,7 @@ SYM_CODE_START(asm_exc_nmi)
+ 	pushq	2*8(%rdx)	/* pt_regs->cs */
+ 	pushq	1*8(%rdx)	/* pt_regs->rip */
+ 	UNWIND_HINT_IRET_REGS
+-	pushq   $-1		/* pt_regs->orig_ax */
++	pushq	$-1		/* pt_regs->orig_ax */
+ 	PUSH_AND_CLEAR_REGS rdx=(%rdx)
+ 	ENCODE_FRAME_POINTER
+ 
 -- 
-Ammar Faizi
+2.32.0
 
 -- 
 GWML mailing list
