@@ -1,92 +1,40 @@
-Return-Path: <mailman-bounces@gnuweeb.org>
+Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id eD98K7gd2GFSMgQAav/0+A
-	(envelope-from <mailman-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Fri, 07 Jan 2022 11:02:16 +0000
+	id 8BDLKUEe2GG7MgQAav/0+A
+	(envelope-from <gwml-bounces@gnuweeb.org>)
+	for <sprite@gnuweeb.org>; Fri, 07 Jan 2022 11:04:33 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 72080C17CA;
-	Fri,  7 Jan 2022 11:02:16 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id E59C0C00E2;
+	Fri,  7 Jan 2022 11:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1641553336;
-	bh=/Aa9iWNMOlY883ozEG4gTaskUYevnonxlHBmX+Wzcig=;
-	h=Subject:From:To:Date:List-Id:From;
-	b=iYPrxfpjAPWpKh9NOUZ+5UweGVTB90W14RgBqolDulZB1oloMDNXTo/1rikfmjTni
-	 ZjSTDN3rS/p2mPmkJr2r3M5wa/OBp3e34GP3n+0hgV8hMU0pVlD9HEt5U5o5xb1aSq
-	 cqCX9DHJAKj5nrIZUrbtGybBfwwU/aiuQSXZz+lzM9h6xUAXxMI1GtRnsfBOFo2LIM
-	 nHtYkuGzK60rB5pPnqTWDcRILmXfnZ2n48HjM1R/ZMKhZe3TLpNZqHt54JDXJYGdV4
-	 fUKgBp/8+FHSrFvBFy4Sd6viCogvLMS/cWd54Yfz7PMzcaRa3HtqyN+XsH8PdEib1s
-	 ufFA3+xIopCoQ==
-X-Original-To: gwml-owner@gnuweeb.org
-Delivered-To: gwml-owner@gnuweeb.org
-Received: from [127.0.0.1] (localhost [127.0.0.1])
- by gnuweeb.org (Postfix) with ESMTP id 6110CC17DE
- for <gwml-owner@gnuweeb.org>; Fri,  7 Jan 2022 11:02:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1641553334;
- bh=/Aa9iWNMOlY883ozEG4gTaskUYevnonxlHBmX+Wzcig=;
- h=Subject:From:To:Date:List-Id:From;
- b=b9cdfvh5FvuNHgEr0Gdf/EW00ESBe/RqtlpWMXetXWCIHTHoU3qsafviptsj/1Y52
- N82hoE3imRAoEpGQ9l/FaMQwV/mk+oTEYTs5pXTwvb5ojcGJcJSHWmqCtvrPZCtPHu
- 1hEGvmccFkVdUOUfQTU4wPQSqJvX1pzje+4lAGKP1cvXMEs7wyLapyCaKJkBNi90Va
- geCcicMHRWzUrA7yQw7HaSTkJGQy9EIT8VwPVN5wbwCrJgIO9JZ4bKC9vUSAnh8OYb
- MvB+pP5tlpbQwYQekfd19hWGG8wVm5jykJSoTeJsmozHiDe1F33n+MgJHYOAr6CrCi
- fSRPLJWbN5PYw==
-Subject: GWML post from ammarfaizi2@gnuweeb.org requires approval
-From: gwml-owner@gnuweeb.org
-To: gwml-owner@gnuweeb.org
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============3782993603333579818=="
-Message-ID: <mailman.14.1641553332.764.gwml@gnuweeb.org>
-Date: Fri, 07 Jan 2022 11:02:12 +0000
-Precedence: list
-X-BeenThere: gwml@gnuweeb.org
-X-Mailman-Version: 2.1.29
-List-Id: GNU/Weeb Mailing List <gwml.gnuweeb.org>
-X-List-Administrivia: yes
-Errors-To: mailman-bounces@gnuweeb.org
-Sender: "GWML" <mailman-bounces@gnuweeb.org>
-
---===============3782993603333579818==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-
-As list administrator, your authorization is requested for the
-following mailing list posting:
-
-    List:    GWML@gnuweeb.org
-    From:    ammarfaizi2@gnuweeb.org
-    Subject: Re: [RFC PATCH v3 3/3] io_uring: Add `sendto(2)` and `recvfrom(2)` support
-    Reason:  Too many recipients to the message
-
-At your convenience, visit:
-
-    https://gwml.gnuweeb.org/admindb/gwml
-        
-to approve or deny the request.
-
---===============3782993603333579818==
-Content-Type: message/rfc822
-MIME-Version: 1.0
-
-Return-Path: <ammarfaizi2@gnuweeb.org>
+	s=default; t=1641553471;
+	bh=BmwtAtOcAYjFl19SU3JhAajn7aopod5MW2/NcA7Jqqo=;
+	h=Date:To:References:From:Subject:In-Reply-To:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Reply-To:Cc:From;
+	b=m1H6S+UGpyOWcyqsVffzKDxqmkYPAWckmTXvP7WsvNAha2RAaOk2mZUf5awI5nTCE
+	 ODAZHz0P0lqSczk8dzvTDdPeNJJJOEjT4dzKL4G4WLKMN7ErKOUKnPuRdExWJHwIX/
+	 i/tzWJaQ79Dd58TSi5m5MJOqZzOt96cRAJdTMGcCVlObMq1OK+ilkQwpu0bK++1Jch
+	 hsDSaFW9o5fDXb+tVcNJl/YeHEEJbQLxBkBqxJ8Nag6N5ueyGTieEAa65Y5LB/zfMM
+	 hgoji/PjmQGgeZxANVBOAgifEXcggrYuJLyh4Lq2u3q8AUUAUq9JjiNIjck1RgPhCj
+	 0DUg7uya3lN0g==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
 Received: from [192.168.88.87] (unknown [36.68.70.227])
-	by gnuweeb.org (Postfix) with ESMTPSA id 5730FC17E1;
-	Fri,  7 Jan 2022 11:02:11 +0000 (UTC)
+ by gnuweeb.org (Postfix) with ESMTPSA id 5730FC17E1;
+ Fri,  7 Jan 2022 11:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1641553331;
-	bh=69iC82DV9kEJV/y18CXzQrwBf7JCWfwDCvwqflWLAyg=;
-	h=Date:To:Cc:References:From:Subject:In-Reply-To:From;
-	b=EBDp/MeweWTi1DS3kvD1Z1D9e2RrI94g8B7M3p5YLqjH2Qq6VodebI+npXLZIISx6
-	 WhRqNmE4LpeWvrJZByB3MG4IJ4+YUaZr3vqxbhga447B1qev4LQhO9usqsBVndqyXB
-	 AB7Yd5UeMpgZsrC/5d/LfqH1ya3yBSS5o3JRLgXOAJmxU9C3dVMu2/fw8WNndJSm0n
-	 WrGHFFM1fnl9aL3W0yTTi9FZMjL315t/h/BJTRKtQkWp13onFVNrORUoxJykbB5PyE
-	 KlPUmyPBuudFpuCWaQHYZIPJujPPM5GDZykcfAFpBYBOQnr+hN2EA3rg9/CVgjEiLA
-	 oK3yqqE2Bnu9A==
+ s=default; t=1641553331;
+ bh=69iC82DV9kEJV/y18CXzQrwBf7JCWfwDCvwqflWLAyg=;
+ h=Date:To:Cc:References:From:Subject:In-Reply-To:From;
+ b=EBDp/MeweWTi1DS3kvD1Z1D9e2RrI94g8B7M3p5YLqjH2Qq6VodebI+npXLZIISx6
+ WhRqNmE4LpeWvrJZByB3MG4IJ4+YUaZr3vqxbhga447B1qev4LQhO9usqsBVndqyXB
+ AB7Yd5UeMpgZsrC/5d/LfqH1ya3yBSS5o3JRLgXOAJmxU9C3dVMu2/fw8WNndJSm0n
+ WrGHFFM1fnl9aL3W0yTTi9FZMjL315t/h/BJTRKtQkWp13onFVNrORUoxJykbB5PyE
+ KlPUmyPBuudFpuCWaQHYZIPJujPPM5GDZykcfAFpBYBOQnr+hN2EA3rg9/CVgjEiLA
+ oK3yqqE2Bnu9A==
 Message-ID: <754444d8-72e0-6b65-20f5-c41f3a698de9@gnuweeb.org>
 Date: Fri, 7 Jan 2022 18:02:10 +0700
 MIME-Version: 1.0
@@ -94,14 +42,6 @@ User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.3.1
 Content-Language: en-US
 To: Praveen Kumar <kpraveen.lkml@gmail.com>, Jens Axboe <axboe@kernel.dk>
-Cc: Ammar Faizi <ammarfaizi2@gnuweeb.org>,
- io-uring Mailing List <io-uring@vger.kernel.org>,
- netdev Mailing List <netdev@vger.kernel.org>,
- GNU/Weeb Mailing List <gwml@gnuweeb.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Pavel Begunkov <asml.silence@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Nugra <richiisei@gmail.com>, Ammar Faizi <ammarfaizi2@gmail.com>
 References: <20211230115057.139187-3-ammar.faizi@intel.com>
  <20211230173126.174350-1-ammar.faizi@intel.com>
  <20211230173126.174350-4-ammar.faizi@intel.com>
@@ -136,6 +76,33 @@ Autocrypt: addr=ammarfaizi2@gnuweeb.org; keydata=
 Subject: Re: [RFC PATCH v3 3/3] io_uring: Add `sendto(2)` and `recvfrom(2)`
  support
 In-Reply-To: <778df8ea-f8c6-d586-5c9c-42329da0e40d@gmail.com>
+X-Mailman-Approved-At: Fri, 07 Jan 2022 11:04:30 +0000
+X-BeenThere: gwml@gnuweeb.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: GNU/Weeb Mailing List <gwml.gnuweeb.org>
+List-Unsubscribe: <https://gwml.gnuweeb.org/options/gwml>,
+ <mailto:gwml-request@gnuweeb.org?subject=unsubscribe>
+List-Archive: <http://gwml.gnuweeb.org/pipermail/gwml/>
+List-Post: <mailto:gwml@gnuweeb.org>
+List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
+List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
+ <mailto:gwml-request@gnuweeb.org?subject=subscribe>
+Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>,
+ Ammar Faizi <ammarfaizi2@gnuweeb.org>,
+ netdev Mailing List <netdev@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ io-uring Mailing List <io-uring@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Nugra <richiisei@gmail.com>,
+ Jakub Kicinski <kuba@kernel.org>, Pavel Begunkov <asml.silence@gmail.com>
+Content-Type: multipart/mixed; boundary="===============1635568541785871378=="
+Errors-To: gwml-bounces@gnuweeb.org
+Sender: "GWML" <gwml-bounces@gnuweeb.org>
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============1635568541785871378==
+Content-Language: en-US
 Content-Type: multipart/signed; micalg=pgp-sha256;
  protocol="application/pgp-signature";
  boundary="------------0BPPakvX3xrne7GYz0xeCG0J"
@@ -443,23 +410,15 @@ g63g8dt/kXOFyjDcPI7ws637GJBU4vP0Ouzxc0TvRPvpWt+ufV0P5c1hgWmxu3AYKF7zcF2Ocz9j
 
 --------------0BPPakvX3xrne7GYz0xeCG0J--
 
---===============3782993603333579818==
-Content-Type: message/rfc822
-MIME-Version: 1.0
-
+--===============1635568541785871378==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Subject: confirm 6366c994ca65815faeff02941822aee51e01347c
-Sender: gwml-request@gnuweeb.org
-From: gwml-request@gnuweeb.org
-Date: Fri, 07 Jan 2022 11:02:12 +0000
-Message-ID: <mailman.13.1641553332.764.gwml@gnuweeb.org>
+Content-Disposition: inline
 
-If you reply to this message, keeping the Subject: header intact,
-Mailman will discard the held message.  Do this if the message is
-spam.  If you reply to this message and include an Approved: header
-with the list password in it, the message will be approved for posting
-to the list.  The Approved: header can also appear in the first line
-of the body of the reply.
---===============3782993603333579818==--
+-- 
+GWML mailing list
+GWML@gnuweeb.org
+https://gwml.gnuweeb.org/listinfo/gwml
+
+--===============1635568541785871378==--
