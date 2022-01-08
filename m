@@ -2,53 +2,52 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id CZckAKLU2GGYSwQAav/0+A
+	id vXelGO7U2GHoSwQAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Sat, 08 Jan 2022 00:02:42 +0000
+	for <sprite@gnuweeb.org>; Sat, 08 Jan 2022 00:03:58 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 2DE13C17F2;
-	Sat,  8 Jan 2022 00:02:39 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 5FB47C163B;
+	Sat,  8 Jan 2022 00:03:57 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20201202 header.b=hnvG9ccP;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20201202 header.b=LTu0WQos;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from ams.source.kernel.org (ams.source.kernel.org [145.40.68.75])
- by gnuweeb.org (Postfix) with ESMTPS id 53388C17D0;
- Sat,  8 Jan 2022 00:02:36 +0000 (UTC)
+Received: from dfw.source.kernel.org (dfw.source.kernel.org [139.178.84.217])
+ by gnuweeb.org (Postfix) with ESMTPS id B37DCC163B;
+ Sat,  8 Jan 2022 00:03:54 +0000 (UTC)
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id ABB33B827B7;
- Sat,  8 Jan 2022 00:02:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 956B2C36AE5;
- Sat,  8 Jan 2022 00:02:32 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id EBE8A61FB6;
+ Sat,  8 Jan 2022 00:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9AEC36AE9;
+ Sat,  8 Jan 2022 00:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1641600153;
- bh=xYWsaBpg8GJluGfp56NCYqYBUSwqnZhGsPKLc7bt8ZE=;
+ s=k20201202; t=1641600232;
+ bh=hE1JBx+LnKCkS09uZwGJ9c57lUnWhsJUSmayJAeW0Xc=;
  h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=hnvG9ccPNutq8WQ8cn98dUlt59RPBl7cgL+d2S27cHbmXB8OH3veyMDPXUNTgJd/V
- XTroRC5a74pCiDDdlma4Ly3Zlg8KVOL5q2eomeNZzhCp4Sm14aSNvtFTo9BE/8lhkK
- WxRNhWppCEQv73u61k3YMPrEgWrBBsuhQhvCeOrFWpt5s7o1+MqULZnAwaZWe8j16B
- GyJWPLr8dNf+Scmp4HAftWXHdQnP3UIS7TmzFcJ1OddI75Oc9EG2KlVpi/3Y/DNhp7
- LodQN8DLp+uSO3ES2H7VH1r58eUrm0jPW7+2stzyLWTRPoIxjFJN/weUUSeSZFj8oQ
- CMsZHVqEalLYQ==
-Message-ID: <37ce01e8-43eb-7eff-9667-745e17cdd65f@kernel.org>
-Date: Fri, 7 Jan 2022 16:02:27 -0800
+ b=LTu0WQosVkpZblvDe8q2lVUw/g2V5ZluNj9YT2OEG5Sniqpa+5EtIU2RJKp4HOri+
+ y+oLdkV9twKnLnS+Tm2j0mTSBsdZhMK3KcVsYoIgjFF30WpQ08HugvMmyrUIyczRPy
+ yl/iEjYJ7y5bHTAhmKkTu+tnIME3w+LHoJjycST5SjwPAPMachykGfzG2kqtBd6d6y
+ kKcLAAIYEfwIZbrUJW/22q+1Q03d56GSwfTqWi3/kTt3NHSFQeJp5+z6WJJUY8HiGa
+ ZRbr9EwKN/jNwuVCQQKY6yKF8UDxREgg7MeTnRLnk7MxPwYet4QWaDN4mjFOTkcFPA
+ 1+mEJ4+JtzcCg==
+Message-ID: <5d1a9dff-6319-14a6-ad81-97350a6849af@kernel.org>
+Date: Fri, 7 Jan 2022 16:03:46 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.3.0
-Subject: Re: [PATCH v1 3/3] Documentation: x86-64: Document registers on entry
- and exit
+Subject: Re: [PATCH v1 2/3] x86/entry/64: Add info about registers on exit
 Content-Language: en-US
 To: Ammar Faizi <ammarfaizi2@gnuweeb.org>,
  Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
  Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
  "H. Peter Anvin" <hpa@zytor.com>
 References: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
- <20220107235210.1339168-4-ammarfaizi2@gnuweeb.org>
+ <20220107235210.1339168-3-ammarfaizi2@gnuweeb.org>
 From: Andy Lutomirski <luto@kernel.org>
-In-Reply-To: <20220107235210.1339168-4-ammarfaizi2@gnuweeb.org>
+In-Reply-To: <20220107235210.1339168-3-ammarfaizi2@gnuweeb.org>
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,9 +61,8 @@ List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 Cc: "H.J. Lu" <hjl.tools@gmail.com>, Michael Matz <matz@suse.de>,
- GNU/Weeb Mailing List <gwml@gnuweeb.org>, Jonathan Corbet <corbet@lwn.net>,
- x86-ml <x86@kernel.org>, lkml <linux-kernel@vger.kernel.org>,
- Willy Tarreau <w@1wt.eu>
+ GNU/Weeb Mailing List <gwml@gnuweeb.org>, x86-ml <x86@kernel.org>,
+ lkml <linux-kernel@vger.kernel.org>, Willy Tarreau <w@1wt.eu>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Errors-To: gwml-bounces@gnuweeb.org
@@ -80,61 +78,10 @@ On 1/7/22 15:52, Ammar Faizi wrote:
 > kernel must restore all registers before returning to the userspace
 > (except for rax, rcx and r11).
 > 
-> On Wed, 13 Oct 2021 at 16:24:28 +0000, Michael Matz <matz@suse.de> wrote:
->> It might also be interesting to know that while the wording of the psABI
->> was indeed intended to imply that all argument registers are potentially
->> clobbered (like with normal calls) glibc's inline assembler to call
->> syscalls relies on most registers to actually be preserved:
->>
->> # define REGISTERS_CLOBBERED_BY_SYSCALL "cc", "r11", "cx"
->> ...
->> #define internal_syscall6(number, arg1, arg2, arg3, arg4, arg5, arg6) \
->> ({                                                                      \
->>      unsigned long int resultvar;                                        \
->>      TYPEFY (arg6, __arg6) = ARGIFY (arg6);                              \
->>      TYPEFY (arg5, __arg5) = ARGIFY (arg5);                              \
->>      TYPEFY (arg4, __arg4) = ARGIFY (arg4);                              \
->>      TYPEFY (arg3, __arg3) = ARGIFY (arg3);                              \
->>      TYPEFY (arg2, __arg2) = ARGIFY (arg2);                              \
->>      TYPEFY (arg1, __arg1) = ARGIFY (arg1);                              \
->>      register TYPEFY (arg6, _a6) asm ("r9") = __arg6;                    \
->>      register TYPEFY (arg5, _a5) asm ("r8") = __arg5;                    \
->>      register TYPEFY (arg4, _a4) asm ("r10") = __arg4;                   \
->>      register TYPEFY (arg3, _a3) asm ("rdx") = __arg3;                   \
->>      register TYPEFY (arg2, _a2) asm ("rsi") = __arg2;                   \
->>      register TYPEFY (arg1, _a1) asm ("rdi") = __arg1;                   \
->>      asm volatile (                                                      \
->>      "syscall\n\t"                                                       \
->>      : "=a" (resultvar)                                                  \
->>      : "0" (number), "r" (_a1), "r" (_a2), "r" (_a3), "r" (_a4),         \
->>        "r" (_a5), "r" (_a6)                                              \
->>      : "memory", REGISTERS_CLOBBERED_BY_SYSCALL);                        \
->>      (long int) resultvar;                                               \
->> })
->>
->>
->> Note in particular the missing clobbers or outputs of any of the argument
->> regs.
->>
->> So, even though the psABI (might have) meant something else, as glibc is
->> doing the above we in fact have a de-facto standard that the kernel can't
->> clobber any of the argument regs.  The wording and the linux x86-64
->> syscall implementation (and use in glibc) all come from the same time in
->> 2001, so there never was a time when the kernel was not saving/restoring
->> the arg registers, so it can't stop now.
->>
->> In effect this means the psABI should be clarified to explicitely say the
->> the arg registers aren't clobbered, i.e. that the mentioned list of
->> clobbered regs isn't inclusive but exclusive.  I will do that.
->>
->> When I was discussing this with Boris earlier I hadn't yet looked at glibc
->> use but only gave my interpretation from memory and reading.  Obviously
->> reality trumps anything like that :-)
-> 
 > Link: https://lore.kernel.org/lkml/alpine.LSU.2.20.2110131601000.26294@wotan.suse.de/
 > Link: https://gitlab.com/x86-psABIs/x86-64-ABI/-/merge_requests/25
 > 
-> This documents "registers on entry" and "registers on exit".
+> This adds info about registers on exit.
 > 
 > Cc: Andy Lutomirski <luto@kernel.org>
 > Cc: Thomas Gleixner <tglx@linutronix.de>
@@ -144,32 +91,104 @@ On 1/7/22 15:52, Ammar Faizi wrote:
 > Cc: "H. Peter Anvin" <hpa@zytor.com>
 > Cc: Michael Matz <matz@suse.de>
 > Cc: "H.J. Lu" <hjl.tools@gmail.com>
-> Cc: Jonathan Corbet <corbet@lwn.net>
 > Cc: Willy Tarreau <w@1wt.eu>
 > Cc: x86-ml <x86@kernel.org>
 > Cc: lkml <linux-kernel@vger.kernel.org>
 > Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 > Signed-off-by: Ammar Faizi <ammarfaizi2@gnuweeb.org>
 > ---
->   Documentation/x86/entry_64.rst | 47 ++++++++++++++++++++++++++++++++++
->   1 file changed, 47 insertions(+)
 > 
-> diff --git a/Documentation/x86/entry_64.rst b/Documentation/x86/entry_64.rst
-> index e433e08f7018..3f2007e2a938 100644
-> --- a/Documentation/x86/entry_64.rst
-> +++ b/Documentation/x86/entry_64.rst
-> @@ -108,3 +108,50 @@ We try to only use IST entries and the paranoid entry code for vectors
->   that absolutely need the more expensive check for the GS base - and we
->   generate all 'normal' entry points with the regular (faster) paranoid=0
->   variant.
-> +
-> +
-> +Registers on entry:
-> +-------------------
+> Quoted the full comment in that file after patched, so it's easier to
+> review:
+> /*
+>   * 64-bit SYSCALL instruction entry. Up to 6 arguments in registers.
+>   *
+>   * This is the only entry point used for 64-bit system calls.  The
+>   * hardware interface is reasonably well designed and the register to
+>   * argument mapping Linux uses fits well with the registers that are
+>   * available when SYSCALL is used.
+>   *
+>   * SYSCALL instructions can be found inlined in libc implementations as
+>   * well as some other programs and libraries.  There are also a handful
+>   * of SYSCALL instructions in the vDSO used, for example, as a
+>   * clock_gettimeofday fallback.
+>   *
+>   * 64-bit SYSCALL saves rip to rcx, clears rflags.RF, then saves rflags to r11,
+>   * then loads new ss, cs, and rip from previously programmed MSRs.
+>   * rflags gets masked by a value from another MSR (so CLD and CLAC
+>   * are not needed). SYSCALL does not save anything on the stack
+>   * and does not change rsp.
+>   *
+>   * Registers on entry:
+>   * rax  system call number
+>   * rcx  return address
+>   * r11  saved rflags (note: r11 is callee-clobbered register in C ABI)
+>   * rdi  arg0
+>   * rsi  arg1
+>   * rdx  arg2
+>   * r10  arg3 (needs to be moved to rcx to conform to C ABI)
+>   * r8   arg4
+>   * r9   arg5
+>   * (note: r12-r15, rbp, rbx are callee-preserved in C ABI)
+>   *
+>   * Only called from user space.
+>   *
+>   * Registers on exit:
+>   * rax  syscall return value
+>   * rcx  return address
+>   * r11  rflags
+>   *
+>   * For a historical reason in the glibc source, the kernel must restore all
+>   * registers except the rax (syscall return value) before returning to the
+>   * userspace.
+>   *
+>   * In other words, with respect to the userspace, when the kernel returns
+>   * to the userspace, only 3 registers are clobbered, they are rax, rcx,
+>   * and r11.
+>   *
+>   * When user can change pt_regs->foo always force IRET. That is because
+>   * it deals with uncanonical addresses better. SYSRET has trouble
+>   * with them due to bugs in both AMD and Intel CPUs.
+>   */
+> 
+> ---
+> 
+>   arch/x86/entry/entry_64.S | 13 +++++++++++++
+>   1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/x86/entry/entry_64.S b/arch/x86/entry/entry_64.S
+> index e432dd075291..1111fff2e05f 100644
+> --- a/arch/x86/entry/entry_64.S
+> +++ b/arch/x86/entry/entry_64.S
+> @@ -79,6 +79,19 @@
+>    *
+>    * Only called from user space.
+>    *
+> + * Registers on exit:
+> + * rax  syscall return value
+> + * rcx  return address
+> + * r11  rflags
+> + *
+> + * For a historical reason in the glibc source, the kernel must restore all
+> + * registers except the rax (syscall return value) before returning to the
+> + * userspace.
+> + *
+> + * In other words, with respect to the userspace, when the kernel returns
+> + * to the userspace, only 3 registers are clobbered, they are rax, rcx,
+> + * and r11.
+> + *
 
-This is SYSCALL64 registers on entry, not general registers on entry. 
-Also, this has little to do with the entry logic, so it probably doesn't 
-belong in this file.
+I would say this much more concisely:
+
+The Linux kernel preserves all registers (even C callee-clobbered 
+registers) except for rax, rcx and r11 across system calls, and existing 
+user code relies on this behavior.
+
+>    * When user can change pt_regs->foo always force IRET. That is because
+>    * it deals with uncanonical addresses better. SYSRET has trouble
+>    * with them due to bugs in both AMD and Intel CPUs.
+> 
+
 -- 
 GWML mailing list
 GWML@gnuweeb.org
