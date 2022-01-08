@@ -2,52 +2,54 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id vXelGO7U2GHoSwQAav/0+A
+	id QBtlEiXc2GHkTAQAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Sat, 08 Jan 2022 00:03:58 +0000
+	for <sprite@gnuweeb.org>; Sat, 08 Jan 2022 00:34:45 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 5FB47C163B;
-	Sat,  8 Jan 2022 00:03:57 +0000 (UTC)
-Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20201202 header.b=LTu0WQos;
-	dkim-atps=neutral
+	by gnuweeb.org (Postfix) with ESMTP id E7159C170F;
+	Sat,  8 Jan 2022 00:34:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
+	s=default; t=1641602083;
+	bh=Xs9/Ax99t1gvkK5xt18P42zeijXnN2SEJae4iqVxMsk=;
+	h=Date:Subject:To:References:From:In-Reply-To:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Reply-To:Cc:From;
+	b=Mn6DQDQM6vph+L6AGTcp3a77PJGKjiIbLPKUkVYPqwq0RaxUZfioODAE2/yvSYdvv
+	 iZAsfn7oMusoD5Ypl/rYc+Oh4R4+epcnhlQdOyEo3DAKh9Mixr6BZiud02He6Hk98l
+	 mRAVcsl7F1TizuUdL0hpR6rsfgvIRxq4pswUi4eWDuoOByA6ag+6EqwLpj6ZoPXoyA
+	 Ew32hHW6fTSPvhS8ZeOfmKPy9T6YIuhMdD1aL2ZThg1vCrp9DTXP84LkKh9YZq2O+M
+	 kGUZARew843Grdw93wG38CiYuafeDGTPiP/2iXUCUjDRZlTCr92kG5sfqeBNSb/9jA
+	 QQi5XInEV8R8A==
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from dfw.source.kernel.org (dfw.source.kernel.org [139.178.84.217])
- by gnuweeb.org (Postfix) with ESMTPS id B37DCC163B;
- Sat,  8 Jan 2022 00:03:54 +0000 (UTC)
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id EBE8A61FB6;
- Sat,  8 Jan 2022 00:03:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9AEC36AE9;
- Sat,  8 Jan 2022 00:03:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1641600232;
- bh=hE1JBx+LnKCkS09uZwGJ9c57lUnWhsJUSmayJAeW0Xc=;
+Received: from [192.168.88.87] (unknown [36.68.70.227])
+ by gnuweeb.org (Postfix) with ESMTPSA id CEEB9C16A3;
+ Sat,  8 Jan 2022 00:34:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
+ s=default; t=1641602083;
+ bh=0xcjPoPfkzyVc5Gka7zNxUOAxnE7w/mp3ZC5xlgICrs=;
  h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=LTu0WQosVkpZblvDe8q2lVUw/g2V5ZluNj9YT2OEG5Sniqpa+5EtIU2RJKp4HOri+
- y+oLdkV9twKnLnS+Tm2j0mTSBsdZhMK3KcVsYoIgjFF30WpQ08HugvMmyrUIyczRPy
- yl/iEjYJ7y5bHTAhmKkTu+tnIME3w+LHoJjycST5SjwPAPMachykGfzG2kqtBd6d6y
- kKcLAAIYEfwIZbrUJW/22q+1Q03d56GSwfTqWi3/kTt3NHSFQeJp5+z6WJJUY8HiGa
- ZRbr9EwKN/jNwuVCQQKY6yKF8UDxREgg7MeTnRLnk7MxPwYet4QWaDN4mjFOTkcFPA
- 1+mEJ4+JtzcCg==
-Message-ID: <5d1a9dff-6319-14a6-ad81-97350a6849af@kernel.org>
-Date: Fri, 7 Jan 2022 16:03:46 -0800
+ b=AAS0a1q7Z58b3PdeHM9ClLOUa8v1yP0XXtCzEv88OBs9vCXcj9xIR5iO4SIDnQ0jp
+ LGE23zjFPj7a+0+Bb5o+nxy+2RadeYBvibZg7GvfWf84RQ+EQTTV2AYrWgZUAwBzBB
+ lcdSF30vKioN6EUaYtGRMjk9nbFcJAjPUutq46SWRFxN9uxd9eKOs7tQ7P2sUgJ6w9
+ +g2hhaxIEZdqD/+DCxWWrL5sGUYwpfKYWiHPxPPTBMRthV+mB9rCBaB5eo7ObXrLY7
+ 8cnd0XY9UeJj04hH+J/iR4M79xhyAhrZ4ucVLkL36ghy9wlSMGBGrxTMwgCxnttM72
+ j5vuqL2NnKSJA==
+Message-ID: <6d10d7e4-8af4-5398-7c08-8d111d1179ee@gnuweeb.org>
+Date: Sat, 8 Jan 2022 07:34:42 +0700
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.0
+ Thunderbird/91.3.1
 Subject: Re: [PATCH v1 2/3] x86/entry/64: Add info about registers on exit
 Content-Language: en-US
-To: Ammar Faizi <ammarfaizi2@gnuweeb.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
 References: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
  <20220107235210.1339168-3-ammarfaizi2@gnuweeb.org>
-From: Andy Lutomirski <luto@kernel.org>
-In-Reply-To: <20220107235210.1339168-3-ammarfaizi2@gnuweeb.org>
+ <5d1a9dff-6319-14a6-ad81-97350a6849af@kernel.org>
+From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+In-Reply-To: <5d1a9dff-6319-14a6-ad81-97350a6849af@kernel.org>
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,133 +65,113 @@ Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 Cc: "H.J. Lu" <hjl.tools@gmail.com>, Michael Matz <matz@suse.de>,
  GNU/Weeb Mailing List <gwml@gnuweeb.org>, x86-ml <x86@kernel.org>,
  lkml <linux-kernel@vger.kernel.org>, Willy Tarreau <w@1wt.eu>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============2368526876020072864=="
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-On 1/7/22 15:52, Ammar Faizi wrote:
-> There was a controversial discussion about the wording in the System
-> V ABI document regarding what registers the kernel is allowed to
-> clobber when the userspace executes syscall.
-> 
-> The resolution of the discussion was reviewing the clobber list in
-> the glibc source. For a historical reason in the glibc source, the
-> kernel must restore all registers before returning to the userspace
-> (except for rax, rcx and r11).
-> 
-> Link: https://lore.kernel.org/lkml/alpine.LSU.2.20.2110131601000.26294@wotan.suse.de/
-> Link: https://gitlab.com/x86-psABIs/x86-64-ABI/-/merge_requests/25
-> 
-> This adds info about registers on exit.
-> 
-> Cc: Andy Lutomirski <luto@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Michael Matz <matz@suse.de>
-> Cc: "H.J. Lu" <hjl.tools@gmail.com>
-> Cc: Willy Tarreau <w@1wt.eu>
-> Cc: x86-ml <x86@kernel.org>
-> Cc: lkml <linux-kernel@vger.kernel.org>
-> Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-> Signed-off-by: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-> ---
-> 
-> Quoted the full comment in that file after patched, so it's easier to
-> review:
-> /*
->   * 64-bit SYSCALL instruction entry. Up to 6 arguments in registers.
->   *
->   * This is the only entry point used for 64-bit system calls.  The
->   * hardware interface is reasonably well designed and the register to
->   * argument mapping Linux uses fits well with the registers that are
->   * available when SYSCALL is used.
->   *
->   * SYSCALL instructions can be found inlined in libc implementations as
->   * well as some other programs and libraries.  There are also a handful
->   * of SYSCALL instructions in the vDSO used, for example, as a
->   * clock_gettimeofday fallback.
->   *
->   * 64-bit SYSCALL saves rip to rcx, clears rflags.RF, then saves rflags to r11,
->   * then loads new ss, cs, and rip from previously programmed MSRs.
->   * rflags gets masked by a value from another MSR (so CLD and CLAC
->   * are not needed). SYSCALL does not save anything on the stack
->   * and does not change rsp.
->   *
->   * Registers on entry:
->   * rax  system call number
->   * rcx  return address
->   * r11  saved rflags (note: r11 is callee-clobbered register in C ABI)
->   * rdi  arg0
->   * rsi  arg1
->   * rdx  arg2
->   * r10  arg3 (needs to be moved to rcx to conform to C ABI)
->   * r8   arg4
->   * r9   arg5
->   * (note: r12-r15, rbp, rbx are callee-preserved in C ABI)
->   *
->   * Only called from user space.
->   *
->   * Registers on exit:
->   * rax  syscall return value
->   * rcx  return address
->   * r11  rflags
->   *
->   * For a historical reason in the glibc source, the kernel must restore all
->   * registers except the rax (syscall return value) before returning to the
->   * userspace.
->   *
->   * In other words, with respect to the userspace, when the kernel returns
->   * to the userspace, only 3 registers are clobbered, they are rax, rcx,
->   * and r11.
->   *
->   * When user can change pt_regs->foo always force IRET. That is because
->   * it deals with uncanonical addresses better. SYSRET has trouble
->   * with them due to bugs in both AMD and Intel CPUs.
->   */
-> 
-> ---
-> 
->   arch/x86/entry/entry_64.S | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
-> 
-> diff --git a/arch/x86/entry/entry_64.S b/arch/x86/entry/entry_64.S
-> index e432dd075291..1111fff2e05f 100644
-> --- a/arch/x86/entry/entry_64.S
-> +++ b/arch/x86/entry/entry_64.S
-> @@ -79,6 +79,19 @@
->    *
->    * Only called from user space.
->    *
-> + * Registers on exit:
-> + * rax  syscall return value
-> + * rcx  return address
-> + * r11  rflags
-> + *
-> + * For a historical reason in the glibc source, the kernel must restore all
-> + * registers except the rax (syscall return value) before returning to the
-> + * userspace.
-> + *
-> + * In other words, with respect to the userspace, when the kernel returns
-> + * to the userspace, only 3 registers are clobbered, they are rax, rcx,
-> + * and r11.
-> + *
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--===============2368526876020072864==
+Content-Language: en-US
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------S0MaOf4czMBu0L1g6p8RczRv"
 
-I would say this much more concisely:
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------S0MaOf4czMBu0L1g6p8RczRv
+Content-Type: multipart/mixed; boundary="------------mYuysVt05c8ZcM1WrKYlRuzx";
+ protected-headers="v1"
+From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
+Cc: x86-ml <x86@kernel.org>, lkml <linux-kernel@vger.kernel.org>,
+ GNU/Weeb Mailing List <gwml@gnuweeb.org>, Michael Matz <matz@suse.de>,
+ "H.J. Lu" <hjl.tools@gmail.com>, Willy Tarreau <w@1wt.eu>
+Message-ID: <6d10d7e4-8af4-5398-7c08-8d111d1179ee@gnuweeb.org>
+Subject: Re: [PATCH v1 2/3] x86/entry/64: Add info about registers on exit
+References: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
+ <20220107235210.1339168-3-ammarfaizi2@gnuweeb.org>
+ <5d1a9dff-6319-14a6-ad81-97350a6849af@kernel.org>
+In-Reply-To: <5d1a9dff-6319-14a6-ad81-97350a6849af@kernel.org>
 
-The Linux kernel preserves all registers (even C callee-clobbered 
-registers) except for rax, rcx and r11 across system calls, and existing 
-user code relies on this behavior.
+--------------mYuysVt05c8ZcM1WrKYlRuzx
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
->    * When user can change pt_regs->foo always force IRET. That is because
->    * it deals with uncanonical addresses better. SYSRET has trouble
->    * with them due to bugs in both AMD and Intel CPUs.
-> 
+T24gMS84LzIyIDc6MDMgQU0sIEFuZHkgTHV0b21pcnNraSB3cm90ZToNCj4gT24gMS83LzIy
+IDE1OjUyLCBBbW1hciBGYWl6aSB3cm90ZToNCj4+IFRoZXJlIHdhcyBhIGNvbnRyb3ZlcnNp
+YWwgZGlzY3Vzc2lvbiBhYm91dCB0aGUgd29yZGluZyBpbiB0aGUgU3lzdGVtDQo+PiBWIEFC
+SSBkb2N1bWVudCByZWdhcmRpbmcgd2hhdCByZWdpc3RlcnMgdGhlIGtlcm5lbCBpcyBhbGxv
+d2VkIHRvDQo+PiBjbG9iYmVyIHdoZW4gdGhlIHVzZXJzcGFjZSBleGVjdXRlcyBzeXNjYWxs
+Lg0KPj4NCj4+IFRoZSByZXNvbHV0aW9uIG9mIHRoZSBkaXNjdXNzaW9uIHdhcyByZXZpZXdp
+bmcgdGhlIGNsb2JiZXIgbGlzdCBpbg0KPj4gdGhlIGdsaWJjIHNvdXJjZS4gRm9yIGEgaGlz
+dG9yaWNhbCByZWFzb24gaW4gdGhlIGdsaWJjIHNvdXJjZSwgdGhlDQo+PiBrZXJuZWwgbXVz
+dCByZXN0b3JlIGFsbCByZWdpc3RlcnMgYmVmb3JlIHJldHVybmluZyB0byB0aGUgdXNlcnNw
+YWNlDQo+PiAoZXhjZXB0IGZvciByYXgsIHJjeCBhbmQgcjExKS4NCj4+DQo+PiBMaW5rOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sL2FscGluZS5MU1UuMi4yMC4yMTEwMTMxNjAx
+MDAwLjI2Mjk0QHdvdGFuLnN1c2UuZGUvDQo+PiBMaW5rOiBodHRwczovL2dpdGxhYi5jb20v
+eDg2LXBzQUJJcy94ODYtNjQtQUJJLy0vbWVyZ2VfcmVxdWVzdHMvMjUNCj4+DQo+PiBUaGlz
+IGFkZHMgaW5mbyBhYm91dCByZWdpc3RlcnMgb24gZXhpdC4NCj4+DQo+PiBDYzogQW5keSBM
+dXRvbWlyc2tpIDxsdXRvQGtlcm5lbC5vcmc+DQo+PiBDYzogVGhvbWFzIEdsZWl4bmVyIDx0
+Z2x4QGxpbnV0cm9uaXguZGU+DQo+PiBDYzogSW5nbyBNb2xuYXIgPG1pbmdvQHJlZGhhdC5j
+b20+DQo+PiBDYzogQm9yaXNsYXYgUGV0a292IDxicEBhbGllbjguZGU+DQo+PiBDYzogRGF2
+ZSBIYW5zZW4gPGRhdmUuaGFuc2VuQGxpbnV4LmludGVsLmNvbT4NCj4+IENjOiAiSC4gUGV0
+ZXIgQW52aW4iIDxocGFAenl0b3IuY29tPg0KPj4gQ2M6IE1pY2hhZWwgTWF0eiA8bWF0ekBz
+dXNlLmRlPg0KPj4gQ2M6ICJILkouIEx1IiA8aGpsLnRvb2xzQGdtYWlsLmNvbT4NCj4+IENj
+OiBXaWxseSBUYXJyZWF1IDx3QDF3dC5ldT4NCj4+IENjOiB4ODYtbWwgPHg4NkBrZXJuZWwu
+b3JnPg0KPj4gQ2M6IGxrbWwgPGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+DQo+PiBD
+YzogR05VL1dlZWIgTWFpbGluZyBMaXN0IDxnd21sQGdudXdlZWIub3JnPg0KPj4gU2lnbmVk
+LW9mZi1ieTogQW1tYXIgRmFpemkgPGFtbWFyZmFpemkyQGdudXdlZWIub3JnPg0KPj4gLS0t
+DQpbLi4uXQ0KPj4gZGlmZiAtLWdpdCBhL2FyY2gveDg2L2VudHJ5L2VudHJ5XzY0LlMgYi9h
+cmNoL3g4Ni9lbnRyeS9lbnRyeV82NC5TDQo+PiBpbmRleCBlNDMyZGQwNzUyOTEuLjExMTFm
+ZmYyZTA1ZiAxMDA2NDQNCj4+IC0tLSBhL2FyY2gveDg2L2VudHJ5L2VudHJ5XzY0LlMNCj4+
+ICsrKyBiL2FyY2gveDg2L2VudHJ5L2VudHJ5XzY0LlMNCj4+IEBAIC03OSw2ICs3OSwxOSBA
+QA0KPj4gICAgKg0KPj4gICAgKiBPbmx5IGNhbGxlZCBmcm9tIHVzZXIgc3BhY2UuDQo+PiAg
+ICAqDQo+PiArICogUmVnaXN0ZXJzIG9uIGV4aXQ6DQo+PiArICogcmF4ICBzeXNjYWxsIHJl
+dHVybiB2YWx1ZQ0KPj4gKyAqIHJjeCAgcmV0dXJuIGFkZHJlc3MNCj4+ICsgKiByMTEgIHJm
+bGFncw0KPj4gKyAqDQo+PiArICogRm9yIGEgaGlzdG9yaWNhbCByZWFzb24gaW4gdGhlIGds
+aWJjIHNvdXJjZSwgdGhlIGtlcm5lbCBtdXN0IHJlc3RvcmUgYWxsDQo+PiArICogcmVnaXN0
+ZXJzIGV4Y2VwdCB0aGUgcmF4IChzeXNjYWxsIHJldHVybiB2YWx1ZSkgYmVmb3JlIHJldHVy
+bmluZyB0byB0aGUNCj4+ICsgKiB1c2Vyc3BhY2UuDQo+PiArICoNCj4+ICsgKiBJbiBvdGhl
+ciB3b3Jkcywgd2l0aCByZXNwZWN0IHRvIHRoZSB1c2Vyc3BhY2UsIHdoZW4gdGhlIGtlcm5l
+bCByZXR1cm5zDQo+PiArICogdG8gdGhlIHVzZXJzcGFjZSwgb25seSAzIHJlZ2lzdGVycyBh
+cmUgY2xvYmJlcmVkLCB0aGV5IGFyZSByYXgsIHJjeCwNCj4+ICsgKiBhbmQgcjExLg0KPj4g
+KyAqDQo+IA0KPiBJIHdvdWxkIHNheSB0aGlzIG11Y2ggbW9yZSBjb25jaXNlbHk6DQo+IA0K
+PiBUaGUgTGludXgga2VybmVsIHByZXNlcnZlcyBhbGwgcmVnaXN0ZXJzIChldmVuIEMgY2Fs
+bGVlLWNsb2JiZXJlZA0KPiByZWdpc3RlcnMpIGV4Y2VwdCBmb3IgcmF4LCByY3ggYW5kIHIx
+MSBhY3Jvc3Mgc3lzdGVtIGNhbGxzLCBhbmQNCj4gZXhpc3RpbmcgdXNlciBjb2RlIHJlbGll
+cyBvbiB0aGlzIGJlaGF2aW9yLg0KDQpBZ3JlZSwgSSB3aWxsIHRha2UgdGhhdCBhcyBTdWdn
+ZXN0ZWQtYnkgaW4gdGhlIHYyLg0KDQotLSANCkFtbWFyIEZhaXppDQoNCg==
+
+--------------mYuysVt05c8ZcM1WrKYlRuzx--
+
+--------------S0MaOf4czMBu0L1g6p8RczRv
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsB5BAABCAAjFiEE6JNybcjkwN47ogEHNk+6NP8XCksFAmHY3CIFAwAAAAAACgkQNk+6NP8XCkth
+4Qf/RF4cx4FfzB07Ou2xw7JaPoCo/QTqSi+eyRJ3NCgjfxoJRtSITCEnGFLien21SioRRQHT3wV3
+oJ/L8i0t29Ew+VCImFYdLo0LnSGUiR1ggE6MW7rFAe8LbAyU/B301h3lZqijFzVkdk+5NzPeGsjB
+zLlVEKJX9xzQPySzaC5gejChdT4pTM1c2b/wz6pSDejwPsqIz1H/rizC0tA/g8sDTCtQUP9MOhXE
+IFZ3KduGNoz0UrUtyDc757TVxoO+DUIsNaahDLKI1UMkZrimmA3pPc9jY9I7utgiZG6myI3o1hoD
+07rbv/2NTg0TJ2CFO+quewoGXqrVNJ7LhfqFs63k4w==
+=diYx
+-----END PGP SIGNATURE-----
+
+--------------S0MaOf4czMBu0L1g6p8RczRv--
+
+--===============2368526876020072864==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 -- 
 GWML mailing list
 GWML@gnuweeb.org
 https://gwml.gnuweeb.org/listinfo/gwml
+
+--===============2368526876020072864==--
