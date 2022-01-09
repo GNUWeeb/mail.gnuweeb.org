@@ -2,55 +2,61 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id jPZuDf3c2GEPTgQAav/0+A
+	id ovqmKakR22H6jAQAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Sat, 08 Jan 2022 00:38:21 +0000
+	for <sprite@gnuweeb.org>; Sun, 09 Jan 2022 16:47:37 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 720ABC2061;
-	Sat,  8 Jan 2022 00:38:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
-	s=default; t=1641602299;
-	bh=ERUTmXv5zRb4h5rDhc34kbIwedkfXoKQXwgK4L9xhow=;
-	h=Date:Subject:To:References:From:In-Reply-To:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Reply-To:Cc:From;
-	b=HGSb/6wkNzwr+8Jiz4fkux944RPQwgbxcBI7yWJmMqBBqw/lNwO4Ub6n3nPvpv/gH
-	 8o5YwISEUp5f6WG3ekxb0OhZA6hBtB7AnNbJMWkVE2o1VLZyz8TqplOaXDok+zqVKp
-	 v0FIWuftXMYiQNLGzI9A8e0lwXKgXDOSuOVR7/q2lDICXcmQkIXIiSjRnS02LWssVL
-	 Bs523zfzZo6HrUqPJArlO0QpPMbyxjsVRYrAp3F1HAIVDlrg4IM0SOdW/hstvpm7jq
-	 1Gc1HmznzFThC3AiEJgO9py5p/+5YJsFBg3Gcwz7f2AlgWOLQpGKZgTNm0GiXNkyWr
-	 szm2bdYlUF0xQ==
+	by gnuweeb.org (Postfix) with ESMTP id 55C63C2A2C;
+	Sun,  9 Jan 2022 16:47:36 +0000 (UTC)
+Authentication-Results: gnuweeb.org;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=kernel-dk.20210112.gappssmtp.com header.i=@kernel-dk.20210112.gappssmtp.com header.a=rsa-sha256 header.s=20210112 header.b=tTCcfQ3w;
+	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from [192.168.88.87] (unknown [36.68.70.227])
- by gnuweeb.org (Postfix) with ESMTPSA id 0D191C17CF;
- Sat,  8 Jan 2022 00:38:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=gnuweeb.org;
- s=default; t=1641602298;
- bh=/KNQJzMgZTLMa/7/wZMA3Jrbqcb11OqF1X54yfheD+s=;
- h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=ChEBo8NhyDhV4LRoLLfDLB3etxkddPKLDZORNe2ou1avKqmyIr1LBTZQDc9jmbVlK
- XjC1W79jVAyd4bHJ/IJZrOl0G5y6DEqPywNCNMIcs7VQg9urd1rL1NLoDFUKhDo4kB
- PD03/rIoN1o5G8JFygmp+omI4p3Ubl2UQDa4P5BCHNyo3LLRWOW/obScLBASvwhhXM
- +AGNrF220XNTq7VbngvTroh8WdHwm0yN3jQ2I0uIKvqReFaD87GmiIv9sWCXOQ7QvS
- OSb/VxbqmEmA5fu93jOWOcwkGuA5k/Bym8hwxi1gGn0UdPlRmlQxlo5gz9d+7vSIff
- MNkmDXb3Ksy6Q==
-Message-ID: <0c2aed26-fa46-592c-7fab-209929246215@gnuweeb.org>
-Date: Sat, 8 Jan 2022 07:38:16 +0700
+Received: from mail-il1-f169.google.com (mail-il1-f169.google.com
+ [209.85.166.169]) by gnuweeb.org (Postfix) with ESMTPS id 197E4C163B
+ for <gwml@gnuweeb.org>; Sun,  9 Jan 2022 16:47:34 +0000 (UTC)
+Received: by mail-il1-f169.google.com with SMTP id b1so9356224ilj.2
+ for <gwml@gnuweeb.org>; Sun, 09 Jan 2022 08:47:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=kernel-dk.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:in-reply-to:references:subject:message-id:date
+ :mime-version:content-transfer-encoding;
+ bh=xWI3vNvmJfkrk5zSMMt3m4H8NBhpSTby79+KRMrIVro=;
+ b=tTCcfQ3wUNKqEYSJ9hV+mo0+y/rj6IlemkWzjotqMkznRlVmfJvV84Sqm63cu3Jbz2
+ 1zffd7b1HsctsXx3LxpZ2v4Hg9gKa5JTDJ+rCiEygv076Q2BJ3atIInp5rTpzVIqBPnQ
+ lnXz6+F5E7bNRxYZKaPyl97CM64oY2Ac6vXcAHemCEkSonz0qbuQeiyrQSrjAmLYVr87
+ uv6isgv5uLP+UoTzpHXCGVM7iTvg+Z6iQAmpAatofz+AdTLsV/6nZyL9rb6rGwC5EomS
+ shoFji/9ZXDKEWWT8IUJQ6/Iz++4apR5zIhdmN/BAn9EnBKQ1zrdJ6Vjg2ZRm+TmWJJn
+ lgMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:in-reply-to:references:subject
+ :message-id:date:mime-version:content-transfer-encoding;
+ bh=xWI3vNvmJfkrk5zSMMt3m4H8NBhpSTby79+KRMrIVro=;
+ b=n2tvjYzmwpdqGb6Vzf3bDA0tVE5wuLup9AdwdJIPWagIxnDh8CeneLRpaW1n6dxMBv
+ jr5K/PVFpex75yuoHrTb+NLXBXmREcHkJECt7hcAF8r5tr1CCjoHNiFB8UHUF7TFylBc
+ 2MYZ2e1OuWHAI0Vryd8Bh0rV/l4JQ8o0x/WugLkx+RRSvFiGpFHiKwcMzyDKWQV4B4PS
+ 7FvFW6r63xw3CK8khoHSoJEnWjWH3gftdYyv1qWe4QXYBJNVhjPYugbRLzqhoXFJz9m/
+ XpIHkC/IEpm31FggtcN3TvsoKOlu67MLoP0kDd6qtF8oMaNdNCYh/nAkR+ByQypsQht9
+ DiXg==
+X-Gm-Message-State: AOAM532O3Y0XsqzU90pGpZzLYMlGqzcMlHlWdPCTOTF38IVdWow5oHff
+ s1SE3p2vE62PAo3E9KY/HcS4+g==
+X-Google-Smtp-Source: ABdhPJykikycN3zW/Nq4TrdDL2iDS6cvHhZXqzgLY5rS7vpDWVxnYs8pnnu4lp5MFstYan62jrTEMw==
+X-Received: by 2002:a92:d34d:: with SMTP id a13mr7838543ilh.266.1641746851830; 
+ Sun, 09 Jan 2022 08:47:31 -0800 (PST)
+Received: from [192.168.1.116] ([66.219.217.159])
+ by smtp.gmail.com with ESMTPSA id v5sm2773135ilu.77.2022.01.09.08.47.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 09 Jan 2022 08:47:31 -0800 (PST)
+From: Jens Axboe <axboe@kernel.dk>
+To: Ammar Faizi <ammarfaizi2@gnuweeb.org>
+In-Reply-To: <20220107130218.1238910-1-ammarfaizi2@gnuweeb.org>
+References: <20220107130218.1238910-1-ammarfaizi2@gnuweeb.org>
+Subject: Re: [PATCH liburing 0/3] Fix undefined behavior, acessing dead object
+Message-Id: <164174685029.72168.15306294752052885000.b4-ty@kernel.dk>
+Date: Sun, 09 Jan 2022 09:47:30 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.1
-Subject: Re: [PATCH v1 3/3] Documentation: x86-64: Document registers on entry
- and exit
-Content-Language: en-US
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
-References: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
- <20220107235210.1339168-4-ammarfaizi2@gnuweeb.org>
- <37ce01e8-43eb-7eff-9667-745e17cdd65f@kernel.org>
-From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-In-Reply-To: <37ce01e8-43eb-7eff-9667-745e17cdd65f@kernel.org>
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,105 +69,38 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: "H.J. Lu" <hjl.tools@gmail.com>, Michael Matz <matz@suse.de>,
- GNU/Weeb Mailing List <gwml@gnuweeb.org>, Jonathan Corbet <corbet@lwn.net>,
- x86-ml <x86@kernel.org>, lkml <linux-kernel@vger.kernel.org>,
- Willy Tarreau <w@1wt.eu>
-Content-Type: multipart/mixed; boundary="===============7384393367047260311=="
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>,
+ io-uring Mailing List <io-uring@vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---===============7384393367047260311==
-Content-Language: en-US
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------mVo46IyjywYmTzFrEMp0VtgO"
+On Fri, 7 Jan 2022 20:02:15 +0700, Ammar Faizi wrote:
+> This series fixes undefined behavior caused by accessing local
+> variables that have been out of their scope.
+> 
+> FWIW, compile the following code with gcc (Ubuntu 11.2.0-7ubuntu2) 11.2.0:
+> ```
+> #include <stdio.h>
+> 
+> [...]
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------mVo46IyjywYmTzFrEMp0VtgO
-Content-Type: multipart/mixed; boundary="------------T08QWyQbpif3qW9jGxyMI00y";
- protected-headers="v1"
-From: Ammar Faizi <ammarfaizi2@gnuweeb.org>
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>
-Cc: x86-ml <x86@kernel.org>, lkml <linux-kernel@vger.kernel.org>,
- GNU/Weeb Mailing List <gwml@gnuweeb.org>, Michael Matz <matz@suse.de>,
- "H.J. Lu" <hjl.tools@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
- Willy Tarreau <w@1wt.eu>
-Message-ID: <0c2aed26-fa46-592c-7fab-209929246215@gnuweeb.org>
-Subject: Re: [PATCH v1 3/3] Documentation: x86-64: Document registers on entry
- and exit
-References: <20220107235210.1339168-1-ammarfaizi2@gnuweeb.org>
- <20220107235210.1339168-4-ammarfaizi2@gnuweeb.org>
- <37ce01e8-43eb-7eff-9667-745e17cdd65f@kernel.org>
-In-Reply-To: <37ce01e8-43eb-7eff-9667-745e17cdd65f@kernel.org>
+Applied, thanks!
 
---------------T08QWyQbpif3qW9jGxyMI00y
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+[1/3] test/socket-rw-eagain: Fix UB, accessing dead object
+      commit: 5ee4feeac88d42c8c4cadee1f242279ff5fc0277
+[2/3] test/socket-rw: Fix UB, accessing dead object
+      commit: e5bb9f3e65f0e18132b27ba0322e2419d87f4f92
+[3/3] test/socket-rw-offset: Fix UB, accessing dead object
+      commit: 3f10277e6412d56cb52424d07f685128112498fa
 
-T24gMS84LzIyIDc6MDIgQU0sIEFuZHkgTHV0b21pcnNraSB3cm90ZToNCj4gT24gMS83LzIy
-IDE1OjUyLCBBbW1hciBGYWl6aSB3cm90ZToNCj4+IFRoZXJlIHdhcyBhIGNvbnRyb3ZlcnNp
-YWwgZGlzY3Vzc2lvbiBhYm91dCB0aGUgd29yZGluZyBpbiB0aGUgU3lzdGVtDQo+PiBWIEFC
-SSBkb2N1bWVudCByZWdhcmRpbmcgd2hhdCByZWdpc3RlcnMgdGhlIGtlcm5lbCBpcyBhbGxv
-d2VkIHRvDQo+PiBjbG9iYmVyIHdoZW4gdGhlIHVzZXJzcGFjZSBleGVjdXRlcyBzeXNjYWxs
-Lg0KPj4NCj4+IFRoZSByZXNvbHV0aW9uIG9mIHRoZSBkaXNjdXNzaW9uIHdhcyByZXZpZXdp
-bmcgdGhlIGNsb2JiZXIgbGlzdCBpbg0KPj4gdGhlIGdsaWJjIHNvdXJjZS4gRm9yIGEgaGlz
-dG9yaWNhbCByZWFzb24gaW4gdGhlIGdsaWJjIHNvdXJjZSwgdGhlDQo+PiBrZXJuZWwgbXVz
-dCByZXN0b3JlIGFsbCByZWdpc3RlcnMgYmVmb3JlIHJldHVybmluZyB0byB0aGUgdXNlcnNw
-YWNlDQo+PiAoZXhjZXB0IGZvciByYXgsIHJjeCBhbmQgcjExKS4NCj4+DQpbLi4uXQ0KPj4g
-ZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24veDg2L2VudHJ5XzY0LnJzdCBiL0RvY3VtZW50
-YXRpb24veDg2L2VudHJ5XzY0LnJzdA0KPj4gaW5kZXggZTQzM2UwOGY3MDE4Li4zZjIwMDdl
-MmE5MzggMTAwNjQ0DQo+PiAtLS0gYS9Eb2N1bWVudGF0aW9uL3g4Ni9lbnRyeV82NC5yc3QN
-Cj4+ICsrKyBiL0RvY3VtZW50YXRpb24veDg2L2VudHJ5XzY0LnJzdA0KPj4gQEAgLTEwOCwz
-ICsxMDgsNTAgQEAgV2UgdHJ5IHRvIG9ubHkgdXNlIElTVCBlbnRyaWVzIGFuZCB0aGUgcGFy
-YW5vaWQgZW50cnkgY29kZSBmb3IgdmVjdG9ycw0KPj4gICB0aGF0IGFic29sdXRlbHkgbmVl
-ZCB0aGUgbW9yZSBleHBlbnNpdmUgY2hlY2sgZm9yIHRoZSBHUyBiYXNlIC0gYW5kIHdlDQo+
-PiAgIGdlbmVyYXRlIGFsbCAnbm9ybWFsJyBlbnRyeSBwb2ludHMgd2l0aCB0aGUgcmVndWxh
-ciAoZmFzdGVyKSBwYXJhbm9pZD0wDQo+PiAgIHZhcmlhbnQuDQo+PiArDQo+PiArDQo+PiAr
-UmVnaXN0ZXJzIG9uIGVudHJ5Og0KPj4gKy0tLS0tLS0tLS0tLS0tLS0tLS0NCj4NCj4gVGhp
-cyBpcyBTWVNDQUxMNjQgcmVnaXN0ZXJzIG9uIGVudHJ5LCBub3QgZ2VuZXJhbCByZWdpc3Rl
-cnMgb24gZW50cnkuDQo+IEFsc28sIHRoaXMgaGFzIGxpdHRsZSB0byBkbyB3aXRoIHRoZSBl
-bnRyeSBsb2dpYywgc28gaXQgcHJvYmFibHkNCj4gZG9lc24ndCBiZWxvbmcgaW4gdGhpcyBm
-aWxlLg0KDQpBaCByaWdodCwgSSBzaG91bGQgYmUgbW9yZSBzcGVjaWZpYyBzYXlpbmcgaXQn
-cyBmb3Igc3lzY2FsbDY0IGVudHJ5DQphcyB0aGVyZSBhcmUgNiBlbnRyaWVzIG1lbnRpb25l
-ZCBpbiB0aGlzIGRvY3VtZW50Lg0KDQpTaG91bGQgc3lzY2FsbDY0IGVudHJ5IHRvcGljIGJl
-IGRvY3VtZW50ZWQ/IElmIG5vdCBJIHdpbGwgZHJvcCBpdCwNCm90aGVyd2lzZSBzdWdnZXN0
-IG1lIGEgcGxhY2UgZm9yIGl0Lg0KDQpJIHRoaW5rIHdlIGNhbiBkb2N1bWVudCBpdCBoZXJl
-LCBidXQgaXQgbmVlZHMgdG8gYmUgbW9yZSBzcGVjaWZpYw0Kc2F5aW5nIGl0J3MgZm9yIHN5
-c2NhbGw2NCBlbnRyeS4NCg0KSm9uYXRoYW4/DQoNCi0tIA0KQW1tYXIgRmFpemkNCg==
+Best regards,
+-- 
+Jens Axboe
 
---------------T08QWyQbpif3qW9jGxyMI00y--
-
---------------mVo46IyjywYmTzFrEMp0VtgO
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEE6JNybcjkwN47ogEHNk+6NP8XCksFAmHY3PgFAwAAAAAACgkQNk+6NP8XCkvZ
-6wgAp0q7W/RcM0KF7qZFj523QK4ruSGG4hCa7kMgDy4L7KrFNjIpdp2nWsPuQeXxzwvjsgx+zUIq
-DRpEZvHdvyZZRqqVCq0zdFMUyepm6k4o9lchKxOC4EOCMriSGBM/d09aE/tBLWTLT0gG4LyLXcBt
-bVk69B+sWj9Dx3RK7m4gx7s7nrRWWzLqqbTNg8LfJGYZftQx1DjagfmPtfH8S42k3a5fFO/a9Ih0
-JXc3N2l/7CbrMGsGJ3d+cmaVpKWM/Z2RpAkvFLYcKtIqYw2YVCJDf8HqD7OY6kllcJRpc8kZ8wkz
-Dauxpm2B114Pgl+CW6Z1Ya4JMs+nlL3LTglWpSUfcA==
-=bErJ
------END PGP SIGNATURE-----
-
---------------mVo46IyjywYmTzFrEMp0VtgO--
-
---===============7384393367047260311==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 -- 
 GWML mailing list
 GWML@gnuweeb.org
 https://gwml.gnuweeb.org/listinfo/gwml
-
---===============7384393367047260311==--
