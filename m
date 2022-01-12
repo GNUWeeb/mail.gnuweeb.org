@@ -2,50 +2,50 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id PCgmBuAR3mFF8gQAav/0+A
+	id I+KmLbEi32GeFgUAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Tue, 11 Jan 2022 23:25:20 +0000
+	for <sprite@gnuweeb.org>; Wed, 12 Jan 2022 18:49:21 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 0E7AFC2A8E;
-	Tue, 11 Jan 2022 23:25:18 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id D4DB5C2A8F;
+	Wed, 12 Jan 2022 18:49:19 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AkPXTdHk;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ng8u/6KH;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from mga04.intel.com (mga04.intel.com [192.55.52.120])
- by gnuweeb.org (Postfix) with ESMTPS id 6BEBEC29AB
- for <gwml@gnuweeb.org>; Tue, 11 Jan 2022 23:25:15 +0000 (UTC)
+Received: from mga01.intel.com (mga01.intel.com [192.55.52.88])
+ by gnuweeb.org (Postfix) with ESMTPS id 07F7EC166C
+ for <gwml@gnuweeb.org>; Wed, 12 Jan 2022 18:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1641943516; x=1673479516;
+ t=1642013356; x=1673549356;
  h=date:from:to:cc:subject:message-id:mime-version;
- bh=kwDBkjEpef/ttCiZVTm2X/+pvqmURt+LORrmkKCXvsQ=;
- b=AkPXTdHkAt2NFlC5kGLUgVeaccSRJizwDFfdXOh8icygzx+0ex5M9uf4
- FkCTA2IIoFncEllpwFjMVdMoAc1n3Y95PKAfKwu+2TlQVD2YXBL39P6kq
- U+GLkxrxNS0/MPSuJ7RsFZYuGxFqgmP0rVhLd+ratKPe9G0Z+6qs8wPQ/
- 4dkOU45JA83bzEvkitISZsAKYUvtyD8TujQ2vd/gFk535ylDsb9Zl1eJ1
- wO+WCjmYTonP6IAqfwgULrnNvGvrDa++DX+xgzIFjGFgNlX558h/1jHP7
- wFV8i0+cmxEEINROXpPxMTnAH7MK27hmeF+sWXgJYCPX7yDZVzfa2jtAY g==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10224"; a="242428335"
-X-IronPort-AV: E=Sophos;i="5.88,281,1635231600"; d="scan'208";a="242428335"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
- by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Jan 2022 15:24:54 -0800
+ bh=P8rim4q0I6ulB+Ywv2t0GgbvDOgoQUtrXFzLeGezyTs=;
+ b=ng8u/6KHhVZTLR9sB2ynFypcyzQTT7f6EU6FvD8ueHs17OvHVPNAyHCJ
+ L+GvQLOCJdidrkSJtAXNQLkHSqyR7EdnqCNlLM5sVDVZoyvDVq6GHG/1U
+ I/YpD66bkH7iTgQxV6jz3MqKK0uakh2Iw9hMddCrnv8+moYgu3CjpFLMq
+ 4284sZQ74n9OxS/1dy1uRISPDWJTHz2bTekV6zj37KOSPygBra8uusrDd
+ xgyR/ZrDn8Y2ogAuS7xKnsMgjiGscfi1/gH4iMARTk4MifgKNtM5PsW8W
+ wEDy+l/DmmQ7RAAWTjlCi/BzH/hdJ71Kxg3WLosZeGh8LRWJg38i+EMuC w==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10225"; a="268168171"
+X-IronPort-AV: E=Sophos;i="5.88,282,1635231600"; d="scan'208";a="268168171"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+ by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 12 Jan 2022 10:43:09 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.88,281,1635231600"; d="scan'208";a="691170274"
+X-IronPort-AV: E=Sophos;i="5.88,282,1635231600"; d="scan'208";a="515611386"
 Received: from lkp-server01.sh.intel.com (HELO 276f1b88eecb) ([10.239.97.150])
- by orsmga005.jf.intel.com with ESMTP; 11 Jan 2022 15:24:52 -0800
+ by orsmga007.jf.intel.com with ESMTP; 12 Jan 2022 10:43:08 -0800
 Received: from kbuild by 276f1b88eecb with local (Exim 4.92)
  (envelope-from <lkp@intel.com>)
- id 1n7QVX-0005KV-Ne; Tue, 11 Jan 2022 23:24:51 +0000
-Date: Wed, 12 Jan 2022 07:24:46 +0800
+ id 1n7iaR-0006Et-Ab; Wed, 12 Jan 2022 18:43:07 +0000
+Date: Thu, 13 Jan 2022 02:42:50 +0800
 From: kernel test robot <lkp@intel.com>
-To: Paul Lawrence <paullawrence@google.com>
-Subject: [ammarfaizi2-block:google/android/kernel/common/android13-5.10
- 9999/9999] fs/fuse/dir.c:1579:44: error: no member named 'backing_inode' in
- 'struct fuse_inode'
-Message-ID: <202201120452.MMoH70oo-lkp@intel.com>
+To: Seevalamuthu Mariappan <quic_seevalam@quicinc.com>
+Subject: [ammarfaizi2-block:kvalo/ath/pending 255/273]
+ drivers/net/wireless/ath/ath11k/wmi.c:7833:39: error: 'struct ath11k' has no
+ member named 'debug'
+Message-ID: <202201130245.W7Ps705H-lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
@@ -61,130 +61,98 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, llvm@lists.linux.dev,
- kbuild-all@lists.01.org, linux-kernel@vger.kernel.org
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, kbuild-all@lists.01.org,
+ linux-kernel@vger.kernel.org, Kalle Valo <quic_kvalo@quicinc.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-tree:   https://github.com/ammarfaizi2/linux-block google/android/kernel/common/android13-5.10
-head:   34957d1e9236e27df4fc1e4cfbbaf271271f05ff
-commit: 34957d1e9236e27df4fc1e4cfbbaf271271f05ff [9999/9999] ANDROID: fuse-bpf: Fix perms on readdir
-config: arm-randconfig-c002-20220111 (https://download.01.org/0day-ci/archive/20220112/202201120452.MMoH70oo-lkp@intel.com/config)
-compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 244dd2913a43a200f5a6544d424cdc37b771028b)
+tree:   https://github.com/ammarfaizi2/linux-block kvalo/ath/pending
+head:   061c4062835233faef6961a898155015fc5e0631
+commit: 3af45eb104584443956572fa9d2a332123816b37 [255/273] ath11k: Add debugfs interface to configure firmware debug log level
+config: xtensa-randconfig-r024-20220112 (https://download.01.org/0day-ci/archive/20220113/202201130245.W7Ps705H-lkp@intel.com/config)
+compiler: xtensa-linux-gcc (GCC) 11.2.0
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        # install arm cross compiling tool for clang build
-        # apt-get install binutils-arm-linux-gnueabi
-        # https://github.com/ammarfaizi2/linux-block/commit/34957d1e9236e27df4fc1e4cfbbaf271271f05ff
+        # https://github.com/ammarfaizi2/linux-block/commit/3af45eb104584443956572fa9d2a332123816b37
         git remote add ammarfaizi2-block https://github.com/ammarfaizi2/linux-block
-        git fetch --no-tags ammarfaizi2-block google/android/kernel/common/android13-5.10
-        git checkout 34957d1e9236e27df4fc1e4cfbbaf271271f05ff
+        git fetch --no-tags ammarfaizi2-block kvalo/ath/pending
+        git checkout 3af45eb104584443956572fa9d2a332123816b37
         # save the config file to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 ARCH=arm 
+        mkdir build_dir
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=xtensa SHELL=/bin/bash drivers/net/wireless/ath/ath11k/
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from fs/fuse/dir.c:9:
-   In file included from fs/fuse/fuse_i.h:16:
-   In file included from include/linux/filter.h:21:
-   In file included from include/linux/if_vlan.h:10:
-   In file included from include/linux/netdevice.h:42:
-   In file included from include/net/netprio_cgroup.h:11:
-   In file included from include/linux/cgroup.h:29:
-   include/linux/cgroup-defs.h:505:16: warning: field 'cgrp' with variable sized type 'struct cgroup' not at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-type-not-at-end]
-           struct cgroup cgrp;
-                         ^
->> fs/fuse/dir.c:1579:44: error: no member named 'backing_inode' in 'struct fuse_inode'
-           } else if (!(mask & MAY_NOT_BLOCK) && fi->backing_inode) {
-                                                 ~~  ^
-   1 warning and 1 error generated.
+   drivers/net/wireless/ath/ath11k/wmi.c: In function 'ath11k_wmi_fw_dbglog_cfg':
+>> drivers/net/wireless/ath/ath11k/wmi.c:7833:39: error: 'struct ath11k' has no member named 'debug'
+    7833 |                 memcpy(tlv->value, &ar->debug.module_id_bitmap,
+         |                                       ^~
+   drivers/net/wireless/ath/ath11k/wmi.c:7836:27: error: 'struct ath11k' has no member named 'debug'
+    7836 |                 memset(&ar->debug.module_id_bitmap, 0,
+         |                           ^~
 
 
-vim +1579 fs/fuse/dir.c
+vim +7833 drivers/net/wireless/ath/ath11k/wmi.c
 
-  1508	
-  1509	/*
-  1510	 * Check permission.  The two basic access models of FUSE are:
-  1511	 *
-  1512	 * 1) Local access checking ('default_permissions' mount option) based
-  1513	 * on file mode.  This is the plain old disk filesystem permission
-  1514	 * modell.
-  1515	 *
-  1516	 * 2) "Remote" access checking, where server is responsible for
-  1517	 * checking permission in each inode operation.  An exception to this
-  1518	 * is if ->permission() was invoked from sys_access() in which case an
-  1519	 * access request is sent.  Execute permission is still checked
-  1520	 * locally based on file mode.
-  1521	 */
-  1522	static int fuse_permission(struct inode *inode, int mask)
-  1523	{
-  1524		struct fuse_conn *fc = get_fuse_conn(inode);
-  1525		bool refreshed = false;
-  1526		int err = 0;
-  1527		struct fuse_inode *fi = get_fuse_inode(inode);
-  1528	
-  1529		if (fuse_is_bad(inode))
-  1530			return -EIO;
-  1531	
-  1532		if (!fuse_allow_current_process(fc))
-  1533			return -EACCES;
-  1534	
-  1535		/*
-  1536		 * If attributes are needed, refresh them before proceeding
-  1537		 */
-  1538		if (fc->default_permissions ||
-  1539		    ((mask & MAY_EXEC) && S_ISREG(inode->i_mode))) {
-  1540			u32 perm_mask = STATX_MODE | STATX_UID | STATX_GID;
-  1541	
-  1542			if (perm_mask & READ_ONCE(fi->inval_mask) ||
-  1543			    time_before64(fi->i_time, get_jiffies_64())) {
-  1544				refreshed = true;
-  1545	
-  1546				err = fuse_perm_getattr(inode, mask);
-  1547				if (err)
-  1548					return err;
-  1549			}
-  1550		}
-  1551	
-  1552		if (fc->default_permissions) {
-  1553			err = generic_permission(inode, mask);
-  1554	
-  1555			/* If permission is denied, try to refresh file
-  1556			   attributes.  This is also needed, because the root
-  1557			   node will at first have no permissions */
-  1558			if (err == -EACCES && !refreshed) {
-  1559				err = fuse_perm_getattr(inode, mask);
-  1560				if (!err)
-  1561					err = generic_permission(inode, mask);
-  1562			}
-  1563	
-  1564			/* Note: the opposite of the above test does not
-  1565			   exist.  So if permissions are revoked this won't be
-  1566			   noticed immediately, only after the attribute
-  1567			   timeout has expired */
-  1568		} else if (mask & (MAY_ACCESS | MAY_CHDIR)) {
-  1569			err = fuse_access(inode, mask);
-  1570		} else if ((mask & MAY_EXEC) && S_ISREG(inode->i_mode)) {
-  1571			if (!(inode->i_mode & S_IXUGO)) {
-  1572				if (refreshed)
-  1573					return -EACCES;
-  1574	
-  1575				err = fuse_perm_getattr(inode, mask);
-  1576				if (!err && !(inode->i_mode & S_IXUGO))
-  1577					return -EACCES;
-  1578			}
-> 1579		} else if (!(mask & MAY_NOT_BLOCK) && fi->backing_inode) {
-  1580			err = fuse_access(inode, mask);
-  1581		}
-  1582		return err;
-  1583	}
-  1584	
+  7800	
+  7801	int ath11k_wmi_fw_dbglog_cfg(struct ath11k *ar, struct ath11k_fw_dbglog *dbglog)
+  7802	{
+  7803		struct ath11k_pdev_wmi *wmi = ar->wmi;
+  7804		struct wmi_debug_log_config_cmd_fixed_param *cmd;
+  7805		struct sk_buff *skb;
+  7806		struct wmi_tlv *tlv;
+  7807		int ret, len;
+  7808	
+  7809		len = sizeof(*cmd) + TLV_HDR_SIZE + (MAX_MODULE_ID_BITMAP_WORDS * sizeof(u32));
+  7810		skb = ath11k_wmi_alloc_skb(wmi->wmi_ab, len);
+  7811		if (!skb)
+  7812			return -ENOMEM;
+  7813	
+  7814		cmd = (struct wmi_debug_log_config_cmd_fixed_param *)skb->data;
+  7815		cmd->tlv_header = FIELD_PREP(WMI_TLV_TAG, WMI_TAG_DEBUG_LOG_CONFIG_CMD) |
+  7816				  FIELD_PREP(WMI_TLV_LEN, sizeof(*cmd) - TLV_HDR_SIZE);
+  7817		cmd->dbg_log_param = dbglog->param;
+  7818	
+  7819		tlv = (struct wmi_tlv *)((u8 *)cmd + sizeof(*cmd));
+  7820		tlv->header = FIELD_PREP(WMI_TLV_TAG, WMI_TAG_ARRAY_UINT32) |
+  7821			      FIELD_PREP(WMI_TLV_LEN, MAX_MODULE_ID_BITMAP_WORDS * sizeof(u32));
+  7822	
+  7823		switch (dbglog->param) {
+  7824		case WMI_DEBUG_LOG_PARAM_LOG_LEVEL:
+  7825		case WMI_DEBUG_LOG_PARAM_VDEV_ENABLE:
+  7826		case WMI_DEBUG_LOG_PARAM_VDEV_DISABLE:
+  7827		case WMI_DEBUG_LOG_PARAM_VDEV_ENABLE_BITMAP:
+  7828			cmd->value = dbglog->value;
+  7829			break;
+  7830		case WMI_DEBUG_LOG_PARAM_MOD_ENABLE_BITMAP:
+  7831		case WMI_DEBUG_LOG_PARAM_WOW_MOD_ENABLE_BITMAP:
+  7832			cmd->value = dbglog->value;
+> 7833			memcpy(tlv->value, &ar->debug.module_id_bitmap,
+  7834			       MAX_MODULE_ID_BITMAP_WORDS * sizeof(u32));
+  7835			/* clear current config to be used for next user config */
+  7836			memset(&ar->debug.module_id_bitmap, 0,
+  7837			       MAX_MODULE_ID_BITMAP_WORDS * sizeof(u32));
+  7838			break;
+  7839		default:
+  7840			dev_kfree_skb(skb);
+  7841			return -EINVAL;
+  7842		}
+  7843	
+  7844		ret = ath11k_wmi_cmd_send(wmi, skb, WMI_DBGLOG_CFG_CMDID);
+  7845		if (ret) {
+  7846			ath11k_warn(ar->ab,
+  7847				    "failed to send WMI_DBGLOG_CFG_CMDID\n");
+  7848			dev_kfree_skb(skb);
+  7849		}
+  7850		return ret;
+  7851	}
+  7852	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
