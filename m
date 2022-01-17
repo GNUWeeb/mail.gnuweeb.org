@@ -2,50 +2,50 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id fCUJBlfY5WEU5gUAav/0+A
+	id 4LuYAkrk5WFa5wUAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Mon, 17 Jan 2022 20:57:59 +0000
+	for <sprite@gnuweeb.org>; Mon, 17 Jan 2022 21:48:58 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 8EAA7C1685;
-	Mon, 17 Jan 2022 20:57:57 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id B9BF9C16A3;
+	Mon, 17 Jan 2022 21:48:56 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hLfT//DH;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hPBI4vUe;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from mga11.intel.com (mga11.intel.com [192.55.52.93])
- by gnuweeb.org (Postfix) with ESMTPS id 9E48EBFC2B
- for <gwml@gnuweeb.org>; Mon, 17 Jan 2022 20:57:53 +0000 (UTC)
+Received: from mga05.intel.com (mga05.intel.com [192.55.52.43])
+ by gnuweeb.org (Postfix) with ESMTPS id 45036C1685
+ for <gwml@gnuweeb.org>; Mon, 17 Jan 2022 21:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1642453073; x=1673989073;
+ t=1642456134; x=1673992134;
  h=date:from:to:cc:subject:message-id:mime-version;
- bh=Ze1TtS9EWwk598oqZ++lM0WsAz2TsJLsrHKqp+Xs6NQ=;
- b=hLfT//DHdMvplSuDxt+9NCGy7ti8vBgYV9N0nDqvwieMrv+8CKUbPskc
- W+fKDPdTbGY5PBVXMGImz/74h8LG99aPJzt0JWTWweKxocWUFxFvd0hEP
- bcg94yr2hrTSkFde+zE20+5610FrxqC3kzFLq7Q9TjO5DqzgZTfMYXuRE
- rIw6xikQVZxo6HkVk+SmMDdggGN8+ZnQ2Q/Gaf93Y4DL+oZDQtmfcdXcr
- 1cC5jz/OR3kbtZfeMGPEVKgCuQ104i2mMyll08uBgXYmtuH/25SRPifYL
- BJ0Oj4jDgom206/6CPqNVkZ4RW3f9ec3ml3Wmz/zkz5n675+hrQ1q+GX5 Q==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10230"; a="242250877"
-X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="242250877"
+ bh=DBeO6aDiIEQG/4PRcF+TRJQpRxMi0Jc+fiRJum1lmsQ=;
+ b=hPBI4vUeQRrs4507ggADtfAQpQJGIKh9UIvToXGjAIRNVLd8wSX7e29W
+ AvxjS7le1ubsezZY8fOQN/ceJ/Ykeu7ZqJiWWZnjmutGPPQGTx5yG4Mvl
+ w/2MDCWJtK+gZmxV3RCZvIi7ThiFIU5KCq7E4j3FDBiG6pekN57mWbSC8
+ hF6kH6nbXzJkereVlXdUn/Ot3v25wyYDP48nbpAk+UDxXh3LH5q+NyksJ
+ 8FwB5dWzIBQZV1saXtpD2UFkTLQJdIflXPnEBCoPljBGsui/za6JhkCh+
+ Bxmr7RBMl2lfMtT9IByhHzF0rA4lN8Flf4y1MfEwLlSwgNtqapjBXu5OF g==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10230"; a="331046617"
+X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="331046617"
 Received: from orsmga006.jf.intel.com ([10.7.209.51])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 17 Jan 2022 12:57:51 -0800
+ by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 17 Jan 2022 13:48:51 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="476760990"
+X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="476768406"
 Received: from lkp-server01.sh.intel.com (HELO 276f1b88eecb) ([10.239.97.150])
- by orsmga006.jf.intel.com with ESMTP; 17 Jan 2022 12:57:49 -0800
+ by orsmga006.jf.intel.com with ESMTP; 17 Jan 2022 13:48:49 -0800
 Received: from kbuild by 276f1b88eecb with local (Exim 4.92)
  (envelope-from <lkp@intel.com>)
- id 1n9Z4W-000Brv-HR; Mon, 17 Jan 2022 20:57:48 +0000
-Date: Tue, 18 Jan 2022 04:57:32 +0800
+ id 1n9Zrt-000BtY-Au; Mon, 17 Jan 2022 21:48:49 +0000
+Date: Tue, 18 Jan 2022 05:48:20 +0800
 From: kernel test robot <lkp@intel.com>
-To: Manikanta Pubbisetty <quic_mpubbise@quicinc.com>
-Subject: [ammarfaizi2-block:kvalo/ath/pending 283/294]
- drivers/net/wireless/ath/ath11k/pci_cmn.c:185:10: warning: variable 'val' is
- used uninitialized whenever 'if' condition is false
-Message-ID: <202201180419.pxOIAhwJ-lkp@intel.com>
+To: David Howells <dhowells@redhat.com>
+Subject: [ammarfaizi2-block:dhowells/linux-fs/netfs-lib 14/24]
+ fs/netfs/read_helper.c:979:14: warning: variable 'folio' is uninitialized
+ when used here
+Message-ID: <202201180514.gVYTloyy-lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
@@ -62,96 +62,88 @@ List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
 Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, llvm@lists.linux.dev,
- kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
- Kalle Valo <quic_kvalo@quicinc.com>
+ kbuild-all@lists.01.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-tree:   https://github.com/ammarfaizi2/linux-block kvalo/ath/pending
-head:   8415824bf3ea5c313f15b902497cd2834c01e78e
-commit: f38b44f68cd13a37d90c62863250c16b951e202e [283/294] ath11k: Add register access logic for WCN6750
-config: arm64-randconfig-r011-20220116 (https://download.01.org/0day-ci/archive/20220118/202201180419.pxOIAhwJ-lkp@intel.com/config)
+tree:   https://github.com/ammarfaizi2/linux-block dhowells/linux-fs/netfs-lib
+head:   e450b62f32df4384c141a6a382811b3fe5723bad
+commit: e6b340ed3634bb80396afb564c499eebdeff601f [14/24] netfs: Use a buffer in netfs_read_request and add pages to it
+config: x86_64-randconfig-a001-20220117 (https://download.01.org/0day-ci/archive/20220118/202201180514.gVYTloyy-lkp@intel.com/config)
 compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 5f782d25a742302d25ef3c8b84b54f7483c2deb9)
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        # install arm64 cross compiling tool for clang build
-        # apt-get install binutils-aarch64-linux-gnu
-        # https://github.com/ammarfaizi2/linux-block/commit/f38b44f68cd13a37d90c62863250c16b951e202e
+        # https://github.com/ammarfaizi2/linux-block/commit/e6b340ed3634bb80396afb564c499eebdeff601f
         git remote add ammarfaizi2-block https://github.com/ammarfaizi2/linux-block
-        git fetch --no-tags ammarfaizi2-block kvalo/ath/pending
-        git checkout f38b44f68cd13a37d90c62863250c16b951e202e
+        git fetch --no-tags ammarfaizi2-block dhowells/linux-fs/netfs-lib
+        git checkout e6b340ed3634bb80396afb564c499eebdeff601f
         # save the config file to linux build tree
         mkdir build_dir
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=arm64 SHELL=/bin/bash drivers/net/wireless/ath/ath11k/
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=x86_64 SHELL=/bin/bash fs/netfs/
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> drivers/net/wireless/ath/ath11k/pci_cmn.c:185:10: warning: variable 'val' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-                   } else if (ab->bus_params.ops.window_read32) {
-                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/compiler.h:56:28: note: expanded from macro 'if'
-   #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
-                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/compiler.h:58:30: note: expanded from macro '__trace_if_var'
-   #define __trace_if_var(cond) (__builtin_constant_p(cond) ? (cond) : __trace_if_value(cond))
-                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/net/wireless/ath/ath11k/pci_cmn.c:195:9: note: uninitialized use occurs here
-           return val;
-                  ^~~
-   drivers/net/wireless/ath/ath11k/pci_cmn.c:185:10: note: remove the 'if' if its condition is always true
-                   } else if (ab->bus_params.ops.window_read32) {
-                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/compiler.h:56:23: note: expanded from macro 'if'
-   #define if(cond, ...) if ( __trace_if_var( !!(cond , ## __VA_ARGS__) ) )
-                         ^
-   drivers/net/wireless/ath/ath11k/pci_cmn.c:168:9: note: initialize the variable 'val' to silence this warning
-           u32 val, window_start;
-                  ^
-                   = 0
+>> fs/netfs/read_helper.c:979:14: warning: variable 'folio' is uninitialized when used here [-Wuninitialized]
+                           folio_put(folio);
+                                     ^~~~~
+   fs/netfs/read_helper.c:928:21: note: initialize the variable 'folio' to silence this warning
+           struct folio *folio;
+                              ^
+                               = NULL
    1 warning generated.
 
 
-vim +185 drivers/net/wireless/ath/ath11k/pci_cmn.c
+vim +/folio +979 fs/netfs/read_helper.c
 
-   165	
-   166	u32 ath11k_pci_read32(struct ath11k_base *ab, u32 offset)
-   167	{
-   168		u32 val, window_start;
-   169	
-   170		/* for offset beyond BAR + 4K - 32, may
-   171		 * need to wakeup the device to access.
-   172		 */
-   173		if (test_bit(ATH11K_FLAG_DEVICE_INIT_DONE, &ab->dev_flags) &&
-   174		    offset >= ATH11K_PCI_ACCESS_ALWAYS_OFF &&
-   175		    ab->bus_params.ops.wakeup)
-   176			ab->bus_params.ops.wakeup(ab);
-   177	
-   178		if (offset < ATH11K_PCI_WINDOW_START) {
-   179			val = ioread32(ab->mem + offset);
-   180		} else {
-   181			if (ab->bus_params.static_window_map) {
-   182				window_start = ath11k_pci_get_window_start(ab, offset);
-   183				val = ioread32(ab->mem + window_start +
-   184					       (offset & ATH11K_PCI_WINDOW_RANGE_MASK));
- > 185			} else if (ab->bus_params.ops.window_read32) {
-   186				val = ab->bus_params.ops.window_read32(ab, offset);
-   187			}
-   188		}
-   189	
-   190		if (test_bit(ATH11K_FLAG_DEVICE_INIT_DONE, &ab->dev_flags) &&
-   191		    offset >= ATH11K_PCI_ACCESS_ALWAYS_OFF &&
-   192		    ab->bus_params.ops.release)
-   193			ab->bus_params.ops.release(ab);
-   194	
-   195		return val;
-   196	}
-   197	
+   943	
+   944		ret = netfs_rreq_add_folios_to_buffer(rreq, want_index, have_index - 1,
+   945						      gfp_mask);
+   946		if (ret < 0)
+   947			return ret;
+   948		have_folios += have_index - want_index;
+   949	
+   950		ret = netfs_rreq_add_folios_to_buffer(rreq, have_index + have_folios,
+   951						      want_index + want_folios - 1,
+   952						      gfp_mask);
+   953		if (ret < 0)
+   954			return ret;
+   955	
+   956		/* Transfer the folios proposed by the VM into the buffer and take refs
+   957		 * on them.  The locks will be dropped in netfs_rreq_unlock().
+   958		 */
+   959		if (ractl) {
+   960			while ((folio = readahead_folio(ractl))) {
+   961				folio_get(folio);
+   962				if (folio == keep)
+   963					folio_get(folio);
+   964				ret = xa_insert_set_mark(&rreq->buffer,
+   965							 folio_index(folio), folio,
+   966							 XA_MARK_0, gfp_mask);
+   967				if (ret < 0) {
+   968					if (folio != keep)
+   969						folio_unlock(folio);
+   970					folio_put(folio);
+   971					return ret;
+   972				}
+   973			}
+   974		} else {
+   975			folio_get(keep);
+   976			ret = xa_insert_set_mark(&rreq->buffer, keep->index, keep,
+   977						 XA_MARK_0, gfp_mask);
+   978			if (ret < 0) {
+ > 979				folio_put(folio);
+   980				return ret;
+   981			}
+   982		}
+   983		return 0;
+   984	}
+   985	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
