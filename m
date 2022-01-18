@@ -2,50 +2,50 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id AJvDMvIA5mGu6wUAav/0+A
+	id eGd2Hd0f5mHn7wUAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Mon, 17 Jan 2022 23:51:14 +0000
+	for <sprite@gnuweeb.org>; Tue, 18 Jan 2022 02:03:09 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 76000C2AA7;
-	Mon, 17 Jan 2022 23:51:13 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 44C26C2ACA;
+	Tue, 18 Jan 2022 02:03:07 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YQ2C9E0V;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LkF+tsK0;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from mga11.intel.com (mga11.intel.com [192.55.52.93])
- by gnuweeb.org (Postfix) with ESMTPS id 098F4C165E
- for <gwml@gnuweeb.org>; Mon, 17 Jan 2022 23:51:09 +0000 (UTC)
+Received: from mga07.intel.com (mga07.intel.com [134.134.136.100])
+ by gnuweeb.org (Postfix) with ESMTPS id 2933AC1718
+ for <gwml@gnuweeb.org>; Tue, 18 Jan 2022 02:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1642463470; x=1673999470;
+ t=1642471382; x=1674007382;
  h=date:from:to:cc:subject:message-id:mime-version;
- bh=W/OuCgoqu37a7VgbzR2DZsid0yUDKtKBAyBhCX5zKGg=;
- b=YQ2C9E0VUgSZUrSb1Dnecg0JFbs02zON4JUWjGGybq42vKMdJkX3hvDk
- mLLWymvuUHID5katXePHhru3OitZerQ58/NjOuyHdysotvZmevTWBhBzI
- tVIbDez2Uyg+FFpLS49hwBZ4TRqHsDcvbtKkMjSuEyPqK9kj6rnv/FRl2
- bO8em9dny3iClwkvel3WQSURH0/aZ/D+5bNXnDrwhPeijzQYVWeYUTs5N
- AjjjCZo5RWeQDIOmTGqhFIJ6eBk93wk5rO3/kOrwk8bVOV6GBNFEqO7RP
- Spc3QaalSUf83X4AO6rS8nWEJ2HtOhwL27svu4ATBkZfsYXeh7KXt2Nwy Q==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10230"; a="242265758"
-X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="242265758"
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 17 Jan 2022 15:50:56 -0800
+ bh=DO60SYZK55LqY+iI/tKbOiKvluu3V1PlqmIp6apEQP4=;
+ b=LkF+tsK0UT2k5eDwJUR4DcPt5PNXAAfvyw9q4XOyAHc4y4+AWHkHEf95
+ 9BMRBvbeQDd1eL+5sb1f/Y1DXnC/w51omcKKoVngolb8qXaXzjD3aq0/G
+ UPZfOlVTso0kpj65oJFpliYHxTjgTTwvxgfvzmg4TTKvp78V5sfHvnmzn
+ B4Rqbp8XIcdC+oK5FvDaijhjE26f6Xh9LsKvcz9OYzn7V1+kmhqO0xMxX
+ YTXD5M36T1xKDVFReHjKh5fLEelf/bTN2O55Uch15ipLNoKdMfkQSGlku
+ dYmUJ4TBrvNYlE7P3S4L+Sxw3BTwYWoetDyCnv3u6vuPbJ2teoIt5/wiF g==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10230"; a="308058285"
+X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="308058285"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+ by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 17 Jan 2022 18:02:59 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="560491132"
+X-IronPort-AV: E=Sophos;i="5.88,296,1635231600"; d="scan'208";a="693233113"
 Received: from lkp-server01.sh.intel.com (HELO 276f1b88eecb) ([10.239.97.150])
- by orsmga001.jf.intel.com with ESMTP; 17 Jan 2022 15:50:54 -0800
+ by orsmga005.jf.intel.com with ESMTP; 17 Jan 2022 18:02:57 -0800
 Received: from kbuild by 276f1b88eecb with local (Exim 4.92)
  (envelope-from <lkp@intel.com>)
- id 1n9bm1-000ByZ-TG; Mon, 17 Jan 2022 23:50:53 +0000
-Date: Tue, 18 Jan 2022 07:50:07 +0800
+ id 1n9dpo-000C3K-N6; Tue, 18 Jan 2022 02:02:56 +0000
+Date: Tue, 18 Jan 2022 10:02:00 +0800
 From: kernel test robot <lkp@intel.com>
-To: David Howells <dhowells@redhat.com>
-Subject: [ammarfaizi2-block:dhowells/linux-fs/netfs-lib 21/24]
- fs/netfs/read_helper.c:971:14: warning: variable 'folio' is uninitialized
- when used here
-Message-ID: <202201180713.iy4mum5Q-lkp@intel.com>
+To: Will Deacon <will@kernel.org>
+Subject: [ammarfaizi2-block:google/android/kernel/common/android13-5.15
+ 2757/2766] arch/arm64/kvm/arm.c:2011:46: error: 'smccc_trng_available'
+ undeclared
+Message-ID: <202201181042.DbgIXpRm-lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
@@ -61,100 +61,76 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, llvm@lists.linux.dev,
- kbuild-all@lists.01.org, linux-kernel@vger.kernel.org
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, kbuild-all@lists.01.org,
+ linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
-tree:   https://github.com/ammarfaizi2/linux-block dhowells/linux-fs/netfs-lib
-head:   e450b62f32df4384c141a6a382811b3fe5723bad
-commit: 814cca7df840c441b1ac007bcb3eb8bfaeacb13f [21/24] cifs: Support fscache rewrite
-config: arm-s3c2410_defconfig (https://download.01.org/0day-ci/archive/20220118/202201180713.iy4mum5Q-lkp@intel.com/config)
-compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 5f782d25a742302d25ef3c8b84b54f7483c2deb9)
+tree:   https://github.com/ammarfaizi2/linux-block google/android/kernel/common/android13-5.15
+head:   9c25e5d6f58362a8ff78327664a2e3c2a538009f
+commit: 888643ea37b504cb32afdd6430698d1e92a79a71 [2757/2766] ANDROID: KVM: arm64: relay entropy requests from protected guests directly to secure
+config: arm64-buildonly-randconfig-r006-20220116 (https://download.01.org/0day-ci/archive/20220118/202201181042.DbgIXpRm-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 11.2.0
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        # install arm cross compiling tool for clang build
-        # apt-get install binutils-arm-linux-gnueabi
-        # https://github.com/ammarfaizi2/linux-block/commit/814cca7df840c441b1ac007bcb3eb8bfaeacb13f
+        # https://github.com/ammarfaizi2/linux-block/commit/888643ea37b504cb32afdd6430698d1e92a79a71
         git remote add ammarfaizi2-block https://github.com/ammarfaizi2/linux-block
-        git fetch --no-tags ammarfaizi2-block dhowells/linux-fs/netfs-lib
-        git checkout 814cca7df840c441b1ac007bcb3eb8bfaeacb13f
+        git fetch --no-tags ammarfaizi2-block google/android/kernel/common/android13-5.15
+        git checkout 888643ea37b504cb32afdd6430698d1e92a79a71
         # save the config file to linux build tree
         mkdir build_dir
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=arm SHELL=/bin/bash fs/netfs/
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=arm64 SHELL=/bin/bash
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> fs/netfs/read_helper.c:971:14: warning: variable 'folio' is uninitialized when used here [-Wuninitialized]
-                           folio_put(folio);
-                                     ^~~~~
-   fs/netfs/read_helper.c:920:21: note: initialize the variable 'folio' to silence this warning
-           struct folio *folio;
-                              ^
-                               = NULL
-   fs/netfs/read_helper.c:1267:7: error: implicit declaration of function 'netfs_is_cache_enabled' [-Werror,-Wimplicit-function-declaration]
-           if (!netfs_is_cache_enabled(ctx) &&
-                ^
-   1 warning and 1 error generated.
+   arch/arm64/kvm/arm.c: In function 'kvm_hyp_init_protection':
+>> arch/arm64/kvm/arm.c:2011:46: error: 'smccc_trng_available' undeclared (first use in this function)
+    2011 |         kvm_nvhe_sym(smccc_trng_available) = smccc_trng_available;
+         |                                              ^~~~~~~~~~~~~~~~~~~~
+   arch/arm64/kvm/arm.c:2011:46: note: each undeclared identifier is reported only once for each function it appears in
 
 
-vim +/folio +971 fs/netfs/read_helper.c
+vim +/smccc_trng_available +2011 arch/arm64/kvm/arm.c
 
-e6b340ed3634bb David Howells 2021-07-09  935  
-e6b340ed3634bb David Howells 2021-07-09  936  	ret = netfs_rreq_add_folios_to_buffer(rreq, want_index, have_index - 1,
-e6b340ed3634bb David Howells 2021-07-09  937  					      gfp_mask);
-e6b340ed3634bb David Howells 2021-07-09  938  	if (ret < 0)
-e6b340ed3634bb David Howells 2021-07-09  939  		return ret;
-e6b340ed3634bb David Howells 2021-07-09  940  	have_folios += have_index - want_index;
-e6b340ed3634bb David Howells 2021-07-09  941  
-e6b340ed3634bb David Howells 2021-07-09  942  	ret = netfs_rreq_add_folios_to_buffer(rreq, have_index + have_folios,
-e6b340ed3634bb David Howells 2021-07-09  943  					      want_index + want_folios - 1,
-e6b340ed3634bb David Howells 2021-07-09  944  					      gfp_mask);
-e6b340ed3634bb David Howells 2021-07-09  945  	if (ret < 0)
-e6b340ed3634bb David Howells 2021-07-09  946  		return ret;
-e6b340ed3634bb David Howells 2021-07-09  947  
-e6b340ed3634bb David Howells 2021-07-09  948  	/* Transfer the folios proposed by the VM into the buffer and take refs
-e6b340ed3634bb David Howells 2021-07-09  949  	 * on them.  The locks will be dropped in netfs_rreq_unlock().
-e6b340ed3634bb David Howells 2021-07-09  950  	 */
-e6b340ed3634bb David Howells 2021-07-09  951  	if (ractl) {
-e6b340ed3634bb David Howells 2021-07-09  952  		while ((folio = readahead_folio(ractl))) {
-e6b340ed3634bb David Howells 2021-07-09  953  			folio_get(folio);
-e6b340ed3634bb David Howells 2021-07-09  954  			if (folio == keep)
-e6b340ed3634bb David Howells 2021-07-09  955  				folio_get(folio);
-e6b340ed3634bb David Howells 2021-07-09  956  			ret = xa_insert_set_mark(&rreq->buffer,
-e6b340ed3634bb David Howells 2021-07-09  957  						 folio_index(folio), folio,
-e6b340ed3634bb David Howells 2021-07-09  958  						 XA_MARK_0, gfp_mask);
-e6b340ed3634bb David Howells 2021-07-09  959  			if (ret < 0) {
-e6b340ed3634bb David Howells 2021-07-09  960  				if (folio != keep)
-e6b340ed3634bb David Howells 2021-07-09  961  					folio_unlock(folio);
-e6b340ed3634bb David Howells 2021-07-09  962  				folio_put(folio);
-e6b340ed3634bb David Howells 2021-07-09  963  				return ret;
-e6b340ed3634bb David Howells 2021-07-09  964  			}
-e6b340ed3634bb David Howells 2021-07-09  965  		}
-e6b340ed3634bb David Howells 2021-07-09  966  	} else {
-e6b340ed3634bb David Howells 2021-07-09  967  		folio_get(keep);
-e6b340ed3634bb David Howells 2021-07-09  968  		ret = xa_insert_set_mark(&rreq->buffer, keep->index, keep,
-e6b340ed3634bb David Howells 2021-07-09  969  					 XA_MARK_0, gfp_mask);
-e6b340ed3634bb David Howells 2021-07-09  970  		if (ret < 0) {
-e6b340ed3634bb David Howells 2021-07-09 @971  			folio_put(folio);
-e6b340ed3634bb David Howells 2021-07-09  972  			return ret;
-e6b340ed3634bb David Howells 2021-07-09  973  		}
-e6b340ed3634bb David Howells 2021-07-09  974  	}
-e6b340ed3634bb David Howells 2021-07-09  975  	return 0;
-e6b340ed3634bb David Howells 2021-07-09  976  }
-e6b340ed3634bb David Howells 2021-07-09  977  
-
-:::::: The code at line 971 was first introduced by commit
-:::::: e6b340ed3634bb80396afb564c499eebdeff601f netfs: Use a buffer in netfs_read_request and add pages to it
-
-:::::: TO: David Howells <dhowells@redhat.com>
-:::::: CC: David Howells <dhowells@redhat.com>
+  1997	
+  1998	static int kvm_hyp_init_protection(u32 hyp_va_bits)
+  1999	{
+  2000		void *addr = phys_to_virt(hyp_mem_base);
+  2001		int ret;
+  2002	
+  2003		kvm_nvhe_sym(id_aa64pfr0_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
+  2004		kvm_nvhe_sym(id_aa64pfr1_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1);
+  2005		kvm_nvhe_sym(id_aa64isar0_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64ISAR0_EL1);
+  2006		kvm_nvhe_sym(id_aa64isar1_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64ISAR1_EL1);
+  2007		kvm_nvhe_sym(id_aa64mmfr0_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+  2008		kvm_nvhe_sym(id_aa64mmfr1_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
+  2009		kvm_nvhe_sym(id_aa64mmfr2_el1_sys_val) = read_sanitised_ftr_reg(SYS_ID_AA64MMFR2_EL1);
+  2010		kvm_nvhe_sym(__icache_flags) = __icache_flags;
+> 2011		kvm_nvhe_sym(smccc_trng_available) = smccc_trng_available;
+  2012	
+  2013		ret = create_hyp_mappings(addr, addr + hyp_mem_size, PAGE_HYP);
+  2014		if (ret)
+  2015			return ret;
+  2016	
+  2017		ret = init_stage2_iommu();
+  2018		if (ret < 0)
+  2019			return ret;
+  2020	
+  2021		ret = do_pkvm_init(hyp_va_bits, (enum kvm_iommu_driver)ret);
+  2022		if (ret)
+  2023			return ret;
+  2024	
+  2025		free_hyp_pgds();
+  2026	
+  2027		return 0;
+  2028	}
+  2029	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
