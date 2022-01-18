@@ -2,49 +2,49 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id eWBrNBYF52EaDAYAav/0+A
+	id qHohIKIT52GUDQYAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Tue, 18 Jan 2022 18:21:10 +0000
+	for <sprite@gnuweeb.org>; Tue, 18 Jan 2022 19:23:14 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 5E01DC1601;
-	Tue, 18 Jan 2022 18:21:09 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 3416DC1601;
+	Tue, 18 Jan 2022 19:23:13 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nExwGGuw;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=iEbTMLgj;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from mga11.intel.com (mga11.intel.com [192.55.52.93])
- by gnuweeb.org (Postfix) with ESMTPS id 99CCBBEF28
- for <gwml@gnuweeb.org>; Tue, 18 Jan 2022 18:21:07 +0000 (UTC)
+Received: from mga17.intel.com (mga17.intel.com [192.55.52.151])
+ by gnuweeb.org (Postfix) with ESMTPS id 0F902C1601
+ for <gwml@gnuweeb.org>; Tue, 18 Jan 2022 19:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1642530067; x=1674066067;
+ t=1642533791; x=1674069791;
  h=date:from:to:cc:subject:message-id:mime-version;
- bh=EdNqGv3xnFii2TmxzYZKP/EMaaoub73SmUvUqBfCqpo=;
- b=nExwGGuw4fAHO5TryUCKtrEPPuI8wGQJDYWzNbDv0FeFqdmC/u+Pn9T4
- KmR/YxRO+D4h37AAnsMdBj3o08Au8CLn71g+T5k62FsEoOhHNydC3U3aL
- m5wallC9QXvlLtW2RsBBYIz+Z6Hu0kAhTv1BweVjHzKfHv6BRySMLV92z
- JAqG0M/VjbpQMrRf2eMdSCpa6liCo1TEDGMCIHvJNNHtiX1TlX4mo7uaw
- zDQrEhq1rRv6W3YoS59xUz09AF+bv0BuP9zPUWUj6vcKp0l0M44D1r6h9
- PjwXe4RhjuPiwPJryrE6FFZP37NWzJ54LjkosAtOsy9exdI8Znl3MaMcp A==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10230"; a="242445231"
-X-IronPort-AV: E=Sophos;i="5.88,297,1635231600"; d="scan'208";a="242445231"
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Jan 2022 10:21:05 -0800
+ bh=fam4jN08KIoBl1JR2iTduOH2dhjyiiVlYfvy4wb1B8c=;
+ b=iEbTMLgjGTo9nGEkY6YfmWun+Tsi2psKIQwjYsWzEC4yX3zfQ/zsQQ8d
+ YN9MpkiLTWsRZ3QDvEJoOMJXD9aI3aM0f9MjK3lcBGs4P/EnRfJkg+Wke
+ HLyx4zgQPig5mbDe8v1YlIMxmZH7S7ayRWrqGWPyj/L7xe/oif++aPquK
+ hlhFFIFhRQWNOlqDjpYRNnS435HlUjwye54Xbm5CnOeBoiIgg+TBp7TGZ
+ LP2qRbVXN0yXytLAj4obJ9YB1aUamU1jrFYLWSgotxC5oxiLYIkEuc5tj
+ Cm27FKgAik1JID/+xCcvI9DNCBPJXoua6lfZdTP/tafmBXrLTQh1oQkLY g==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10230"; a="225570955"
+X-IronPort-AV: E=Sophos;i="5.88,297,1635231600"; d="scan'208";a="225570955"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 18 Jan 2022 11:23:07 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.88,297,1635231600"; d="scan'208";a="477079482"
+X-IronPort-AV: E=Sophos;i="5.88,297,1635231600"; d="scan'208";a="625612298"
 Received: from lkp-server01.sh.intel.com (HELO 276f1b88eecb) ([10.239.97.150])
- by orsmga006.jf.intel.com with ESMTP; 18 Jan 2022 10:21:04 -0800
+ by orsmga004.jf.intel.com with ESMTP; 18 Jan 2022 11:23:06 -0800
 Received: from kbuild by 276f1b88eecb with local (Exim 4.92)
  (envelope-from <lkp@intel.com>)
- id 1n9t6N-000CpV-Dr; Tue, 18 Jan 2022 18:21:03 +0000
-Date: Wed, 19 Jan 2022 02:20:58 +0800
+ id 1n9u4P-000Ct0-Es; Tue, 18 Jan 2022 19:23:05 +0000
+Date: Wed, 19 Jan 2022 03:22:20 +0800
 From: kernel test robot <lkp@intel.com>
 To: David Howells <dhowells@redhat.com>
-Subject: [ammarfaizi2-block:dhowells/linux-fs/netfs-lib 19/23] ERROR:
- modpost: "netfs_invalidatepage" [fs/cifs/cifs.ko] undefined!
-Message-ID: <202201190252.29bOuDYN-lkp@intel.com>
+Subject: [ammarfaizi2-block:dhowells/linux-fs/netfs-lib 19/23] ld:
+ fs/cifs/file.o:undefined reference to `netfs_invalidatepage'
+Message-ID: <202201190316.hRrB5y0R-lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
@@ -70,26 +70,26 @@ Sender: "GWML" <gwml-bounces@gnuweeb.org>
 tree:   https://github.com/ammarfaizi2/linux-block dhowells/linux-fs/netfs-lib
 head:   e229088c2bc0ba29fdff1bc737506aed6ec50581
 commit: eab3170e20c001ee23073a8705db22713b529c21 [19/23] netfs: Provide invalidatepage and releasepage calls
-config: parisc-defconfig (https://download.01.org/0day-ci/archive/20220119/202201190252.29bOuDYN-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 11.2.0
+config: x86_64-kexec (https://download.01.org/0day-ci/archive/20220119/202201190316.hRrB5y0R-lkp@intel.com/config)
+compiler: gcc-9 (Debian 9.3.0-22) 9.3.0
 reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
         # https://github.com/ammarfaizi2/linux-block/commit/eab3170e20c001ee23073a8705db22713b529c21
         git remote add ammarfaizi2-block https://github.com/ammarfaizi2/linux-block
         git fetch --no-tags ammarfaizi2-block dhowells/linux-fs/netfs-lib
         git checkout eab3170e20c001ee23073a8705db22713b529c21
         # save the config file to linux build tree
         mkdir build_dir
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.2.0 make.cross O=build_dir ARCH=parisc SHELL=/bin/bash
+        make W=1 O=build_dir ARCH=x86_64 SHELL=/bin/bash
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>, old ones prefixed by <<):
+All errors (new ones prefixed by >>):
 
-ERROR: modpost: "netfs_releasepage" [fs/cifs/cifs.ko] undefined!
->> ERROR: modpost: "netfs_invalidatepage" [fs/cifs/cifs.ko] undefined!
+>> ld: fs/cifs/file.o:(.rodata+0x288): undefined reference to `netfs_invalidatepage'
+>> ld: fs/cifs/file.o:(.rodata+0x290): undefined reference to `netfs_releasepage'
+   ld: fs/cifs/file.o:(.rodata+0x348): undefined reference to `netfs_invalidatepage'
+   ld: fs/cifs/file.o:(.rodata+0x350): undefined reference to `netfs_releasepage'
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
