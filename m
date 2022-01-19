@@ -2,52 +2,53 @@ Return-Path: <gwml-bounces@gnuweeb.org>
 Delivered-To: sprite@gnuweeb.org
 Received: from gnuweeb.org
 	by gnuweeb with LMTP
-	id IP0XKmuG52FVGwYAav/0+A
+	id neqbGyGI52GtHAYAav/0+A
 	(envelope-from <gwml-bounces@gnuweeb.org>)
-	for <sprite@gnuweeb.org>; Wed, 19 Jan 2022 03:32:59 +0000
+	for <sprite@gnuweeb.org>; Wed, 19 Jan 2022 03:40:17 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by gnuweeb.org (Postfix) with ESMTP id 8D48EC2AEB;
-	Wed, 19 Jan 2022 03:32:57 +0000 (UTC)
+	by gnuweeb.org (Postfix) with ESMTP id 5C492C1660;
+	Wed, 19 Jan 2022 03:40:15 +0000 (UTC)
 Authentication-Results: gnuweeb.org;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=af6BE4q3;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E4NxDxqV;
 	dkim-atps=neutral
 X-Original-To: gwml@gnuweeb.org
 Delivered-To: gwml@gnuweeb.org
-Received: from mga11.intel.com (mga11.intel.com [192.55.52.93])
- by gnuweeb.org (Postfix) with ESMTPS id 8FC96C2AA3
- for <gwml@gnuweeb.org>; Wed, 19 Jan 2022 03:32:45 +0000 (UTC)
+Received: from mga17.intel.com (mga17.intel.com [192.55.52.151])
+ by gnuweeb.org (Postfix) with ESMTPS id A306FC0087
+ for <gwml@gnuweeb.org>; Wed, 19 Jan 2022 03:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1642563166; x=1674099166;
- h=date:from:to:cc:subject:message-id:mime-version;
- bh=NWb6o10YkMR7sZLMPrRdvgZA0dRx9dnvTEsr5v2wEKM=;
- b=af6BE4q3gm12vZqjEAmFQW6B1FVs14Enq7T3DzIK15svXrRxxZKMMuQ8
- 0rmqsFKfaFj2puY6WhMV1LJtaSTqIuhkExpYRjucffj/EimDBjCBvalUZ
- hY2LIfZ60xiPFuyqpiPA2VaT+hzxIXQov9AxKxtns5s/iHkHYBFcuqehx
- ksoDSqOMZJ9gxVVVsvvIOd8fEU9SzUXrvB4n7+A4hS1Jq+Mz7YnHhaW9A
- mQQL3wQfYnCmiNvNv8wv3axvJf6sxHLAgP5+WsyybYpP3yoViT4MjaDMo
- lpOZawtNAyz80U0Z9eSSHjQmRPNFcFahpdIR0SB15RlrL01WAujiHpYnb w==;
-X-IronPort-AV: E=McAfee;i="6200,9189,10231"; a="242535779"
-X-IronPort-AV: E=Sophos;i="5.88,298,1635231600"; d="scan'208";a="242535779"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Jan 2022 19:32:17 -0800
+ t=1642563609; x=1674099609;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=qAUdyOMpjLXgFKoF0QifDorI3aMIdOzmR0SvIvEQHwA=;
+ b=E4NxDxqV00uAG05flt6C3UY+d+nJyZgBCX2VaDRoBBycQyXndN9BC3XE
+ puHZCaHNCYlqwp4v0bLpE8Q5U8myPkrYbXWYsniqaMDL3qteeuuZC/3fC
+ brAYzzPPAbfLhbJJnDw/qIk04QWidcxiWaStaUZjY87wD7fMManhbA+mM
+ 4xzhOlfiuN32SDs5Zp9BKRPcFuVpe2IjvuzX8CEdw0HkOWN9wfFoF4yVK
+ Fd2tHNuSW/GgI53FRM4SJmIofbGszSqPFUb5238SG39RUkJoDceJivv2B
+ zzAkEeJBR6meXsmYSXvWd1MFBWRbD55DLjJdTPuft99m7HEooeV21Z8YX g==;
+X-IronPort-AV: E=McAfee;i="6200,9189,10231"; a="225647438"
+X-IronPort-AV: E=Sophos;i="5.88,298,1635231600"; d="scan'208";a="225647438"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 18 Jan 2022 19:39:17 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.88,298,1635231600"; d="scan'208";a="595267684"
+X-IronPort-AV: E=Sophos;i="5.88,298,1635231600"; d="scan'208";a="625735673"
 Received: from lkp-server01.sh.intel.com (HELO 276f1b88eecb) ([10.239.97.150])
- by fmsmga004.fm.intel.com with ESMTP; 18 Jan 2022 19:32:15 -0800
+ by orsmga004.jf.intel.com with ESMTP; 18 Jan 2022 19:39:15 -0800
 Received: from kbuild by 276f1b88eecb with local (Exim 4.92)
  (envelope-from <lkp@intel.com>)
- id 1nA1hm-000DCi-TM; Wed, 19 Jan 2022 03:32:14 +0000
-Date: Wed, 19 Jan 2022 11:31:22 +0800
+ id 1nA1oZ-000DDD-4k; Wed, 19 Jan 2022 03:39:15 +0000
+Date: Wed, 19 Jan 2022 11:38:36 +0800
 From: kernel test robot <lkp@intel.com>
 To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: [ammarfaizi2-block:palmer/linux/riscv-sv48 7/9] WARNING: modpost:
- vmlinux.o(.text+0xb1ae): Section mismatch in reference from the function
- pt_ops_set_early() to the function .init.text:alloc_pte_early()
-Message-ID: <202201191139.HXrwZv5w-lkp@intel.com>
+Subject: [PATCH] riscv: fix boolconv.cocci warnings
+Message-ID: <20220119033836.GA4900@68f8e94b87ce>
+References: <202201191124.6Gmmz1ir-lkp@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
+In-Reply-To: <202201191124.6Gmmz1ir-lkp@intel.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: gwml@gnuweeb.org
 X-Mailman-Version: 2.1.29
@@ -61,58 +62,51 @@ List-Help: <mailto:gwml-request@gnuweeb.org?subject=help>
 List-Subscribe: <https://gwml.gnuweeb.org/listinfo/gwml>,
  <mailto:gwml-request@gnuweeb.org?subject=subscribe>
 Reply-To: GNU/Weeb Mailing List <gwml@gnuweeb.org>
-Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, llvm@lists.linux.dev,
- kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@rivosinc.com>
+Cc: GNU/Weeb Mailing List <gwml@gnuweeb.org>, kbuild-all@lists.01.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Errors-To: gwml-bounces@gnuweeb.org
 Sender: "GWML" <gwml-bounces@gnuweeb.org>
 
+From: kernel test robot <lkp@intel.com>
+
+arch/riscv/mm/init.c:48:11-16: WARNING: conversion to bool not needed here
+
+ Remove unneeded conversion to bool
+
+Semantic patch information:
+ Relational and logical operators evaluate to bool,
+ explicit conversion is overly verbose and unneeded.
+
+Generated by: scripts/coccinelle/misc/boolconv.cocci
+
+CC: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: kernel test robot <lkp@intel.com>
+---
+
 tree:   https://github.com/ammarfaizi2/linux-block palmer/linux/riscv-sv48
 head:   d87f3297c62644624bcb8efcb519a2e28d684b45
 commit: dee563c628683ce1fab7d0267ad96fc7d8503965 [7/9] riscv: Implement sv48 support
-config: riscv-randconfig-r042-20220116 (https://download.01.org/0day-ci/archive/20220119/202201191139.HXrwZv5w-lkp@intel.com/config)
-compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project c10cbb243cafc0cf42c3e922cb29183279444432)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install riscv cross compiling tool for clang build
-        # apt-get install binutils-riscv64-linux-gnu
-        # https://github.com/ammarfaizi2/linux-block/commit/dee563c628683ce1fab7d0267ad96fc7d8503965
-        git remote add ammarfaizi2-block https://github.com/ammarfaizi2/linux-block
-        git fetch --no-tags ammarfaizi2-block palmer/linux/riscv-sv48
-        git checkout dee563c628683ce1fab7d0267ad96fc7d8503965
-        # save the config file to linux build tree
-        mkdir build_dir
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash
+:::::: branch date: 8 hours ago
+:::::: commit date: 8 hours ago
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+ init.c |    3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-All warnings (new ones prefixed by >>, old ones prefixed by <<):
-
->> WARNING: modpost: vmlinux.o(.text+0xb1ae): Section mismatch in reference from the function pt_ops_set_early() to the function .init.text:alloc_pte_early()
-The function pt_ops_set_early() references
-the function __init alloc_pte_early().
-This is often because pt_ops_set_early lacks a __init
-annotation or the annotation of alloc_pte_early is wrong.
---
->> WARNING: modpost: vmlinux.o(.text+0xb1f8): Section mismatch in reference from the function pt_ops_set_late() to the function .init.text:alloc_pte_late()
-The function pt_ops_set_late() references
-the function __init alloc_pte_late().
-This is often because pt_ops_set_late lacks a __init
-annotation or the annotation of alloc_pte_late is wrong.
-
-Note: the below error/warnings can be found in parent commit:
-<< WARNING: modpost: vmlinux.o(.text+0xb1ae): Section mismatch in reference from the function pt_ops_set_early() to the variable .init.data:_pt_ops.1
-<< WARNING: modpost: vmlinux.o(.text+0xb208): Section mismatch in reference from the function pt_ops_set_late() to the variable .init.data:_pt_ops.1
-<< WARNING: modpost: vmlinux.o(.text+0xb1ae): Section mismatch in reference from the function pt_ops_set_early() to the variable .init.data:_pt_ops.1
-<< WARNING: modpost: vmlinux.o(.text+0xb208): Section mismatch in reference from the function pt_ops_set_late() to the variable .init.data:_pt_ops.1
-
----
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -44,8 +44,7 @@ u64 satp_mode = SATP_MODE_32;
+ #endif
+ EXPORT_SYMBOL(satp_mode);
+ 
+-bool pgtable_l4_enabled = IS_ENABLED(CONFIG_64BIT) && !IS_ENABLED(CONFIG_XIP_KERNEL) ?
+-				true : false;
++bool pgtable_l4_enabled = IS_ENABLED(CONFIG_64BIT) && !IS_ENABLED(CONFIG_XIP_KERNEL);
+ EXPORT_SYMBOL(pgtable_l4_enabled);
+ 
+ phys_addr_t phys_ram_base __ro_after_init;
 -- 
 GWML mailing list
 GWML@gnuweeb.org
