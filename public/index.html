@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GNU/Weeb Mail Login</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.00"/>
+<script type="text/javascript" src="assets/js/api.js"></script>
+<style>
+.main-cage {
+	text-align: center;
+}
+.login-form-cage {
+	display: inline-block;
+	text-align: left;
+	padding: 50px 25px 50px 25px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin-top: 185px;
+}
+.login-button {
+	margin-top: 30px;
+	padding: 10px 20px 10px 20px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<div class="main-cage">
+		<div class="login-form-cage">
+			<h1>GNU/Weeb Mail Login</h1>
+			<form action="login.php" method="POST" id="login-form">
+				<table>
+					<tbody>
+						<tr><td>Email or Username</td><td>:</td><td><input type="text" name="user" required/></td></tr>
+						<tr><td>Password</td><td>:</td><td><input type="password" name="pass" required/></td></tr>
+						<tr><td colspan="3" align="center"><button class="login-button" type="submit">Login</button></td></tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+gwm_redirect_if_authorized();
+let fr = document.getElementById("login-form");
+fr.onsubmit = function(e) {
+	e.preventDefault();
+	let user = fr.user.value;
+	let pass = fr.pass.value;
+	gwm_fn_login(user, pass);
+};
+</script>
+</html>

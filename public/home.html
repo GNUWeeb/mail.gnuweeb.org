@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>GNU/Weeb Mail</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.00"/>
+<script type="text/javascript" src="assets/js/api.js"></script>
+<style>
+body {
+	font-family: Arial, sans-serif;
+}
+.main-cage {
+	text-align: center;
+	margin: 0 auto;
+}
+.form-cage table {
+	text-align: left;
+}
+.form-cage {
+	display: inline-block;
+	text-align: center;
+	padding: 30px 25px 50px 25px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin-top: 20px;
+	max-width: 500px;
+}
+.cg-btn {
+	margin-top: 20px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+	<div class="main-cage">
+		<a href="javascript:gwm_do_logout();">
+			<button class="cg-btn">Logout</button>
+		</a>
+		<h1>GNU/Weeb Mail Dashboard</h1>
+		<h2>Welcome <span id="uinfo_full_name"></span></h2>
+		<h2>This is an emergency page to change your password. It's still under development.</h2>
+		<div class="form-cage">
+			<form action="javascript:void(0);" method="POST" id="change_pass_form">
+				<h1>Change Password</h1>
+				<table>
+					<tbody>
+						<tr><td>Current	Password</td><td>:</td><td><input type="password" name="cur_pass" required/></td></tr>
+						<tr><td>New Password</td><td>:</td><td><input type="password" name="new_pass" required/></td></tr>
+						<tr><td>Retype New Password</td><td>:</td><td><input type="password" name="retyped_new_pass" required/></td></tr>
+						<tr><td colspan="3" align="center"><button type="submit" class="cg-btn">Change Password</button></td></tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<h2>If you lose your password, contact @ammarfaizi2 on @GNUWeeb Telegram.</h2>
+		<h2>Web Client: <a style="color: blue;" target="_blank" href="roundcube">Roundcube</a></h2>
+		<h2>Mail Client Config</h2>
+		<div style="width: 400px;border: 1px solid #000; padding: 10px; margin: 0 auto;">
+<pre style="text-align: left;">
+[Incoming]
+Server: mail1.gnuweeb.org
+Protocol: IMAP
+Port: 143
+SSL: STARTTLS
+Auth: Normal Password
+
+[Outgoing]
+Server: mail1.gnuweeb.org
+Protocol: SMTP
+Port: 587
+SSL: STARTTLS
+Auth: Normal Password
+</pre>
+	</div>
+	<div style="margin-bottom:200px;"></div>
+	</div>
+</body>
+<script>
+gwm_redirect_if_not_authorized();
+let u = gwm_get_user_info();
+function gid(id) { return document.getElementById(id); }
+function escape_html(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+gid("uinfo_full_name").innerHTML = escape_html(u.full_name);
+let fr = gid("change_pass_form");
+fr.onsubmit = function() {
+	let cur_pass = fr.cur_pass.value;
+	let new_pass = fr.new_pass.value;
+	let retyped_new_pass = fr.retyped_new_pass.value;
+	if (new_pass !== retyped_new_pass) {
+		alert("New password and retyped new password does not match!");
+		return false;
+	}
+	
+	gwm_fn_change_pass(cur_pass, new_pass);
+};
+</script>
+</html>
