@@ -32,6 +32,7 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
+    "svelte-copy": "^2.0.0",
     "svelte-sonner": "^0.3.28",
     "sveltekit-superforms": "^2.22.1",
     "tailwind-merge": "^2.6.0",
@@ -46,7 +47,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
-    "tailwindcss-animate": "^1.0.7",
-    "axios": "^1.7.9"
+    "axios": "^1.7.9",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
