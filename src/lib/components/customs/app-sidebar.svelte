@@ -3,7 +3,7 @@
   import Separator from "$components/ui/separator/separator.svelte";
   import * as Sidebar from "$lib/components/ui/sidebar";
   import { useAuth } from "$lib/hooks/auth.svelte";
-  import { LogOut, Mails } from "lucide-svelte";
+  import { LogOut, Mails, SquareArrowOutUpRight } from "lucide-svelte";
   import type { ComponentProps } from "svelte";
   import { goto } from "$app/navigation";
   import Button from "$components/ui/button/button.svelte";
@@ -11,6 +11,7 @@
   import { page } from "$app/state";
   import { crossfade } from "svelte/transition";
   import { cubicInOut } from "svelte/easing";
+  import IconRoundcube from "$components/icons/icon-roundcube.svelte";
 
   let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();
 
@@ -87,6 +88,25 @@
               </Sidebar.MenuButton>
             </Sidebar.MenuItem>
           {/each}
+          <Sidebar.MenuItem>
+            <Sidebar.MenuButton>
+              {#snippet child({ props })}
+                {@const className = props.class as string}
+                <a
+                  href="https://mail.gnuweeb.org/roundcube/"
+                  {...props}
+                  class={cn("group/roundcube", className)}
+                  target="_blank"
+                >
+                  <IconRoundcube />
+                  <span>Roundcube</span>
+                  <SquareArrowOutUpRight
+                    class="!size-3 transition-transform group-hover/roundcube:!scale-125"
+                  />
+                </a>
+              {/snippet}
+            </Sidebar.MenuButton>
+          </Sidebar.MenuItem>
         </Sidebar.Menu>
       </Sidebar.GroupContent>
     </Sidebar.Group>
