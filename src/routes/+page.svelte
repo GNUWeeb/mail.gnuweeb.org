@@ -7,7 +7,7 @@
   import InputPassword from "$components/ui/input/input-password.svelte";
   import { useAuth } from "$lib/hooks/auth.svelte";
   import http from "$lib/hooks/http.svelte";
-  import { loginSchema } from "$lib/schemas/login";
+  import { loginSchema } from "$lib/schemas/login-schema.js";
   import * as typing from "$typings";
   import { onMount } from "svelte";
   import { superForm, setError, setMessage } from "sveltekit-superforms";
