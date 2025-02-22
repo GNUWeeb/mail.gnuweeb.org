@@ -7,6 +7,7 @@ export interface Navigations {
   description?: string;
   icon?: typeof IconType;
   url: string;
+  disabled?: boolean;
 }
 
 export interface LabelAndValue {
