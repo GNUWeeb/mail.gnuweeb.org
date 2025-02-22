@@ -1,24 +1,14 @@
-import type { AxiosRequestConfig, AxiosResponse } from "axios";
-import type { RecordString } from "./common";
 import type { User } from "./credential";
 
-interface ResponseInterface<Data> {
+export interface ResponseAPI<Data> {
   code: number;
-  res?: Data;
+  res?: Data & { renew_token?: RenewTokenResponse };
 }
 
-type ResponseAPI<ArrayType = null> = ResponseInterface<ArrayType>;
-
-export type UseHttpProps<Response, Formatter> = AxiosRequestConfig & {
-  action: string;
-  payload?: RecordString;
-  isFormData?: boolean;
-  beforeExecute?: () => boolean;
-  onComplete?: (resp: AxiosResponse<ResponseAPI<Response>>) => void;
-  formatter?: (data: Formatter | null, resp: AxiosResponse<ResponseAPI<Response>> | null) => void;
-  onError?: (data: ResponseAPI<Response>, msg?: string | null) => void;
-  onFinally?: () => void;
-};
+export interface RenewTokenResponse {
+  token: strign;
+  token_exp_at: number;
+}
 
 export interface LoginResponse {
   token: string;

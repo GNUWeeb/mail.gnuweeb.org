@@ -6,9 +6,10 @@
   import { Input } from "$components/ui/input";
   import InputPassword from "$components/ui/input/input-password.svelte";
   import { useAuth } from "$lib/hooks/auth.svelte";
-  import { useHttp } from "$lib/hooks/http.svelte";
+  import http from "$lib/hooks/http.svelte";
   import { loginSchema } from "$lib/schemas/login";
-  import type { LoginResponse, User } from "$typings";
+  import * as typing from "$typings";
+  import { onMount } from "svelte";
   import { superForm, setError, setMessage } from "sveltekit-superforms";
   import { zod } from "sveltekit-superforms/adapters";
 
@@ -21,38 +22,35 @@
     validators: zod(loginSchema),
 
     async onUpdate({ form }) {
-      const http = useHttp<LoginResponse, User>({
-        action: "login",
+      const res = await http<typing.LoginResponse>({
+        params: { action: "login" },
         method: "POST",
-
-        payload: {
+        data: {
           user: form.data.username_or_email,
           pass: form.data.password
-        },
-
-        formatter(data, resp) {
-          data = resp?.data.res?.user_info!;
-        },
-
-        onComplete(resp) {
-          auth.save(resp.data.res!);
-        },
-
-        onError(_, errorMessage) {
-          setError(form, "username_or_email", "");
-          setError(form, "password", "");
-          setMessage(form, errorMessage);
         }
       });
 
-      await http.execute();
+      if (res.status === 200) {
+        auth.save(res.data.res!);
+      } else {
+        setError(form, "username_or_email", "");
+        setError(form, "password", "");
+        setMessage(form, res.data.res);
+      }
     }
   });
 
   const isError = () => Boolean($errors.username_or_email && $errors.password);
   const isValid = () => Boolean($formData.username_or_email && $formData.password);
+  const isCredentialInvalid = () => Boolean(data.isInvalidCreds && +data.isInvalidCreds);
 
   const { form: formData, errors, message, submitting, constraints, enhance } = form;
+
+  onMount(() => {
+    if (!isCredentialInvalid()) return;
+    localStorage.removeItem("gwm_invalid_creds");
+  });
 </script>
 
 <div class="mx-auto flex min-h-screen w-full items-center justify-center px-3 py-2">
@@ -62,9 +60,15 @@
         <Card.Title class="text-2xl">GNU/Weeb Mail Login</Card.Title>
         <Card.Description>Proceed login to manager your email account</Card.Description>
 
-        {#if isError()}
+        {#if isError() && !isCredentialInvalid()}
           <span class="text-sm font-medium text-destructive">
             {$message}
+          </span>
+        {/if}
+
+        {#if !isError() && isCredentialInvalid()}
+          <span class="text-sm font-medium text-destructive">
+            Invalid credential, please login again.
           </span>
         {/if}
       </Card.Header>

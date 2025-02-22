@@ -1,5 +1,5 @@
 import type { RecordString, Navigations, LabelAndValue, MailConfig } from "./common";
-import type { UseHttpProps, LoginResponse } from "./http";
+import type { ResponseAPI, LoginResponse, RenewTokenResponse } from "./http";
 import type { User } from "./credential";
 
 export type {
@@ -7,7 +7,8 @@ export type {
   Navigations,
   LabelAndValue,
   MailConfig,
-  UseHttpProps,
+  ResponseAPI,
+  RenewTokenResponse,
   LoginResponse,
   User
 };
