@@ -7,11 +7,8 @@ import { redirect } from "@sveltejs/kit";
 
 export const load: PageLoad = async () => {
   const auth = useAuth();
-
   if (auth.isValid()) return redirect(307, "/home");
 
-  const data = { email: "", password: "" };
-  const form = await superValidate(data, zod(loginSchema));
-
+  const form = await superValidate(zod(loginSchema));
   return { form };
 };
