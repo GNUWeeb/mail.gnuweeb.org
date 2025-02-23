@@ -3,15 +3,25 @@
   import Separator from "$components/ui/separator/separator.svelte";
   import * as Sidebar from "$lib/components/ui/sidebar";
   import { useAuth } from "$lib/hooks/auth.svelte";
-  import { LogOut, Mails } from "lucide-svelte";
+  import { LogOut, Mails, SquareArrowOutUpRight } from "lucide-svelte";
   import type { ComponentProps } from "svelte";
   import { goto } from "$app/navigation";
-    import Button from "$components/ui/button/button.svelte";
+  import Button from "$components/ui/button/button.svelte";
+  import { cn } from "$utils";
+  import { page } from "$app/state";
+  import { crossfade } from "svelte/transition";
+  import { cubicInOut } from "svelte/easing";
+  import IconRoundcube from "$components/icons/icon-roundcube.svelte";
 
   let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();
 
   const auth = useAuth();
   const sidebar = Sidebar.useSidebar();
+
+  const [send, receive] = crossfade({
+    duration: 250,
+    easing: cubicInOut
+  });
 
   const handleNavigationMobile = () => {
     if (!sidebar.isMobile) return;
@@ -49,23 +59,65 @@
         <Sidebar.Menu>
           {#each navigations as item (item.name)}
             <Sidebar.MenuItem>
-              <Sidebar.MenuButton>
+              {@const isActive = page.url.pathname.startsWith(item.url)}
+              <Sidebar.MenuButton {isActive} class="relative">
                 {#snippet child({ props })}
-                  <a href={item.url} onclick={handleNavigationMobile} {...props}>
+                  {@const className = props.class as string}
+                  <a
+                    href={item.url}
+                    onclick={handleNavigationMobile}
+                    {...props}
+                    class={cn("relative z-10", className)}
+                  >
                     <item.icon />
                     <span>{item.name}</span>
                   </a>
+                  {#if isActive}
+                    <!-- svelte-ignore element_invalid_self_closing_tag -->
+                    <div
+                      class={cn(
+                        "absolute inset-0 rounded-md bg-sidebar-accent",
+                        isActive &&
+                          "overflow-hidden before:absolute before:left-0 before:h-full before:w-0.5 before:bg-foreground"
+                      )}
+                      in:send={{ key: "active-sidebar-tab" }}
+                      out:receive={{ key: "active-sidebar-tab" }}
+                    />
+                  {/if}
                 {/snippet}
               </Sidebar.MenuButton>
             </Sidebar.MenuItem>
           {/each}
+          <Sidebar.MenuItem>
+            <Sidebar.MenuButton>
+              {#snippet child({ props })}
+                {@const className = props.class as string}
+                <a
+                  href="https://mail.gnuweeb.org/roundcube/"
+                  {...props}
+                  class={cn("group/roundcube", className)}
+                  target="_blank"
+                >
+                  <IconRoundcube />
+                  <span>Roundcube</span>
+                  <SquareArrowOutUpRight
+                    class="!size-3 transition-transform group-hover/roundcube:!scale-125"
+                  />
+                </a>
+              {/snippet}
+            </Sidebar.MenuButton>
+          </Sidebar.MenuItem>
         </Sidebar.Menu>
       </Sidebar.GroupContent>
     </Sidebar.Group>
   </Sidebar.Content>
   <Sidebar.Footer>
     <Sidebar.Menu>
-      <Button variant="destructive" onclick={handleLogout} class="flex justify-start items-center w-full">
+      <Button
+        variant="destructive"
+        onclick={handleLogout}
+        class="flex w-full items-center justify-start"
+      >
         <LogOut />
         <span>Logout</span>
       </Button>

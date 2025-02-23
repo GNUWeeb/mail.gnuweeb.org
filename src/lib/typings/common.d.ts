@@ -4,8 +4,10 @@ export type RecordString = Record<string, string>;
 
 export interface Navigations {
   name: string;
+  description?: string;
   icon?: typeof IconType;
   url: string;
+  disabled?: boolean;
 }
 
 export interface LabelAndValue {

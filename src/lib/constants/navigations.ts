@@ -13,3 +13,16 @@ export const navigations: typing.Navigations[] = [
     url: "/settings"
   }
 ] as const;
+
+export const settingsNav: typing.Navigations[] = [
+  {
+    name: "Profile",
+    description: "Manage your profile.",
+    url: "/settings/profile"
+  },
+  {
+    name: "Account",
+    description: "Manage your account credentials.",
+    url: "/settings/account"
+  }
+];
