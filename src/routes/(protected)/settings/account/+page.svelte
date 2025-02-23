@@ -49,6 +49,7 @@
   );
 </script>
 
+<h1>Change Password</h1><hr/>
 <form use:enhance class="space-y-5">
   <Form.Field {form} name="cur_pass">
     <Form.Control>
