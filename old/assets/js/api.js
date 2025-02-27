@@ -146,7 +146,12 @@ function gwm_fn_change_password(cb, cur_pass, new_pass, retype_new_pass)
 
 function gwm_fn_set_user_info(cb, data)
 {
-	gwm_api_set_user_info(cb, data);
+	let callback = function (j) {
+		alert(j.res);
+		if (cb)
+			cb(j);
+	};
+	gwm_api_set_user_info(callback, data);
 }
 
 function gwm_fn_logout()
@@ -213,4 +218,22 @@ function gwm_auth_redirect_if_not_authorized()
 
 	gwm_auth_renew_session();
 	return false;
+}
+
+function gwm_api_delete_user_photo(cb)
+{
+	gwm_exec_api({
+		method: "GET",
+		url: GWM_API_URL + "delete_user_photo",
+		token: LS.getItem("gwm_token"),
+		callback: cb
+	});
+}
+
+function gwm_fn_delete_user_photo(cb)
+{
+	if (!confirm("Are you sure you want to delete your photo?"))
+		return;
+
+	gwm_api_delete_user_photo(cb);
 }

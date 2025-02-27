@@ -17,11 +17,14 @@
 		<tbody>
 			<tr>
 				<td align="center" colspan="3">
-					<div id="photo_box"></div>
+					<div id="del_photo" style="margin-bottom: 20px;"><a href="javascript:void();">Delete Photo</a></div>
+					<div id="photo_box">
+						<img src="assets/default_profile.png" id="photo_obj">
+					</div>
 				</td>
 			</tr>
 			<tr>
-				<td>Upload Photo</td>
+				<td>Upload New Photo</td>
 				<td>:</td>
 				<td><input type="file" name="photo" id="uform_photo"/></td>
 			</tr>
@@ -95,6 +98,13 @@
 	width: 200px;
 	height: 200px;
 	border: 1px solid #000;
+	border-radius: 100%;
+	margin-bottom: 50px;
+}
+#photo_obj {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
 }
 #frcg {
 	margin: 0 auto;
@@ -114,6 +124,20 @@
 }
 </style>
 <script>
+function delete_photo_click_callback()
+{
+	gwm_fn_delete_user_photo(function (j) {
+		gwm_auth_renew_session(function () {
+			form_uinfo_set_inputs(gwm_auth_get_user());
+		});
+
+		if (j.code === 200) {
+			gid("photo_obj").src = "assets/default_profile.png";
+			dp.style.display = "none";
+		}
+	});
+}
+
 function form_uinfo_set_inputs(u)
 {
 	gid("uform_full_name").value = u.full_name;
@@ -124,6 +148,19 @@ function form_uinfo_set_inputs(u)
 	gid("uform_telegram_username").value = u.socials.telegram_username;
 	gid("uform_twitter_username").value = u.socials.twitter_username;
 	gid("uform_discord_username").value = u.socials.discord_username;
+
+	if (u.photo)
+		gid("photo_obj").src = u.photo;
+
+	let dp = gid("del_photo");
+	if (u.photo) {
+		dp.style.display = "block";
+		dp.onclick = function() {
+			delete_photo_click_callback();
+		};
+	} else {
+		dp.style.display = "none";
+	}
 }
 
 function main()
@@ -144,11 +181,12 @@ function main()
 		e.preventDefault();
 		let fd = new FormData(uform);
 		gwm_fn_set_user_info(function (j) {
+			toggle_disable_inputs(uform, false);
 			gwm_auth_renew_session(function () {
-				toggle_disable_inputs(uform, false);
-				let u = gwm_auth_get_user();
-				form_uinfo_set_inputs(u);
+				form_uinfo_set_inputs(gwm_auth_get_user());
 			});
+			if (j.code === 200)
+				photo.value = "";
 		}, fd);
 		toggle_disable_inputs(uform, true);
 	});
