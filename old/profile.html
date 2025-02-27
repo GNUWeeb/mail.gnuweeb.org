@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GNU/Weeb Mail Login</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.00"/>
+<script type="text/javascript" src="assets/js/api.js"></script>
+</head>
+<body>
+<center><a href="/home.html"><h1>Back to Home</h1></a></center>
+<div id="frcg">
+	<form method="POST" id="uform" enctype="application/x-www-form-urlencoded">
+	<table>
+		<thead>
+			<tr colspan="3"><td></td></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td align="center" colspan="3">
+					<div id="photo_box"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Upload Photo</td>
+				<td>:</td>
+				<td><input type="file" name="photo" id="uform_photo"/></td>
+			</tr>
+			<tr>
+				<td>Full Name</td>
+				<td>:</td>
+				<td><input type="text" name="full_name" id="uform_full_name" required/></td>
+			</tr>
+			<tr>
+				<td>External Email</td>
+				<td>:</td>
+				<td><input type="email" name="ext_email" id="uform_ext_email" required/></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td>:</td>
+				<td>
+					<select name="gender" id="uform_gender" required>
+						<option value=""></option>
+						<option value="m">Male</option>
+						<option value="f">Female</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<!-- Username cannot be changed, so disable the input. -->
+				<td>Username</td>
+				<td>:</td>
+				<td><input type="text" name="username" disabled="1" id="uform_username"/></td>
+			</tr>
+			<tr>
+				<td>GitHub Username</td>
+				<td>:</td>
+				<td><input type="text" name="socials[github_username]" id="uform_github_username" required/></td>
+			</tr>
+			<tr>
+				<td>Telegram Username</td>
+				<td>:</td>
+				<td><input type="text" name="socials[telegram_username]" id="uform_telegram_username" required/></td>
+			</tr>
+			<tr>
+				<td>Twitter Username</td>
+				<td>:</td>
+				<td><input type="text" name="socials[twitter_username]" id="uform_twitter_username" required/></td>
+			</tr>
+			<tr>
+				<td>Discord Username</td>
+				<td>:</td>
+				<td><input type="text" name="socials[discord_username]" id="uform_discord_username" required/></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr><td colspan="3"><hr/></td></tr>
+			<tr>
+				<td>Enter your password</td>
+				<td>:</td>
+				<td><input type="password" name="password" required/></td>
+			</tr>
+			<tr><td colspan="3"><hr/></td></tr>
+			<tr>
+				<td align="center" colspan="3">
+					<button type="submit">Save</button>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	</form>
+</div>
+<style>
+#photo_box {
+	width: 200px;
+	height: 200px;
+	border: 1px solid #000;
+}
+#frcg {
+	margin: 0 auto;
+	margin-top: 100px;
+}
+#uform {
+	padding: 20px;
+	margin: 0 auto;
+	width: 800px;
+	border: 1px solid #000;
+}
+#uform table {
+	padding: 20px;
+	margin: 0 auto;
+	width: 500px;
+	border: 1px solid #000;
+}
+</style>
+<script>
+function form_uinfo_set_inputs(u)
+{
+	gid("uform_full_name").value = u.full_name;
+	gid("uform_ext_email").value = u.ext_email;
+	gid("uform_gender").value = u.gender;
+	gid("uform_username").value = u.username;
+	gid("uform_github_username").value = u.socials.github_username;
+	gid("uform_telegram_username").value = u.socials.telegram_username;
+	gid("uform_twitter_username").value = u.socials.twitter_username;
+	gid("uform_discord_username").value = u.socials.discord_username;
+}
+
+function main()
+{
+	if (gwm_auth_redirect_if_not_authorized())
+		return;
+
+	let u = gwm_auth_get_user();
+	if (!u) {
+		gwm_fn_logout();
+		return;
+	}
+
+	form_uinfo_set_inputs(u);
+	let photo = gid("uform_photo");
+	let uform = gid("uform");
+	uform.addEventListener("submit", function(e) {
+		e.preventDefault();
+		let fd = new FormData(uform);
+		gwm_fn_set_user_info(function (j) {
+			gwm_auth_renew_session(function () {
+				toggle_disable_inputs(uform, false);
+				let u = gwm_auth_get_user();
+				form_uinfo_set_inputs(u);
+			});
+		}, fd);
+		toggle_disable_inputs(uform, true);
+	});
+}
+main();
+</script>
+</body>
+</html>

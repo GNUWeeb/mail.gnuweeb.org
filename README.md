@@ -1,75 +1,111 @@
-# Mail Service for GNUWeeb
+<h1 align="center">
+  GNU/Weeb Mail
+</h1>
 
-## Requirements
-- PHP 7.4+
-- MySQL 5.5+
+<h2 id="table-of-contents">
+  Table of Contents
+</h2>
 
-## Setup Instructions (Ubuntu)
+- [Requirements](#requirements)
+- [How to Run](#how-to-run)
+- [How to Build](#how-to-build)
+- [Code Standards](#code-standards)
+- [How to Develop or Contribute](#how-to-develop)
+
+<h2 id="requirements">
+  Requirements
+</h2>
+
+- **NodeJS** version 18+,strongly recommended to use version 20+ as this project developed using **NodeJS** version 20+
+  [Download](https://nodejs.org/en/download)
+- **TypeScript** version 5, no need to download in your OS as this project will install the TypeScript only inside this project.
+- Code Editor, of course, we recommend using your favorite IDE, for example, [VS Code](https://code.visualstudio.com/download).
+- Svelte 5 Runes knowledge.
+
+<h2 id="how-to-run">
+  How to Run
+</h2>
+
 ```sh
-sudo apt-get install libphp7.4-embed php7.4 php7.4-bcmath php7.4-bz2 php7.4-cgi php7.4-cli php7.4-common php7.4-curl php7.4-dba php7.4-dev php7.4-enchant php7.4-gd php7.4-gmp php7.4-imap php7.4-interbase php7.4-intl php7.4-json php7.4-ldap php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-readline php7.4-snmp php7.4-soap php7.4-sybase php7.4-tidy php7.4-xml php7.4-xmlrpc php7.4-xsl php7.4-zip -y
-
-sudo apt-get install mysql-server -y;
-
-# Check your MySQL version number
-mysql --version;
-
-# Don't start mysql when boot (for local development only)
-sudo systemctl disable mysql;
-
-# Start mysql
-sudo systemctl start mysql;
-
-git clone https://github.com/GNUWeeb/mail.gnuweeb.org;
-cd mail.gnuweeb.org;
+# install all dependencies before running this project
+npm i
+npm run dev
 ```
 
-#### Setup (for MySQL 8)
-```sh
-# Edit <username> and <password> with anything you want.
-sudo mysql -e "CREATE USER IF NOT EXISTS '<username>'@'%' IDENTIFIED BY '<password>';";
-sudo mysql -e "SET PASSWORD FOR '<username>'@'%' = '<password>';";
-sudo mysql -e "GRANT ALL ON *.* TO '<username>'@'%';";
-sudo mysql -e "FLUSH PRIVILEGES;";
-sudo mysql -e "CREATE DATABASE gnuweeb;";
+<h2 id="how-to-build">
+  How to Build
+</h2>
 
-# Make sure you have cd'ed to mail.gnuweeb.org;
-sudo mysql gnuweeb < database.sql;
+```sh
+# install all dependencies before building this project
+npm i
+npm run build
 ```
 
+After build, the `dist` folder will be created, copy them to your own server, for example, [nginx](https://nginx.org/en/download.html).
 
-#### Setup (for MySQL 5.x and MariaDB)
+<h2 id="code-standards">
+Code Standards
+</h2>
+
+We use `LF` for each End of Line style and add empty newline for every End of File, you must setting all that in your IDE before contributing on this project.
+
+<h2 id="how-to-develop">
+How to Develop or Contribute
+</h2>
+
+<h3>Framework</h3>
+
+If you are new to **SvelteKit** using the **Svelte 5 Runes**, we recommend to learn the framework first, you can learn it [here](https://learn.svelte.dev) or just [read the docs](https://svelte.dev/docs/kit/introduction).
+
+<h3>Base Components</h3>
+
+We used [**shadcn-svelte**](https://www.shadcn-svelte.com/) for the base components, we strongly recommended to use it for now, if you want to add components, just go [here](https://www.shadcn-svelte.com/docs/components/accordion).
+This is how you add **shadcn-svelte** component
+
 ```sh
-# Edit <username> and <password> with anything you want.
-
-sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO '<username>'@'%' IDENTIFIED BY '<password>';";
-sudo mysql -e "FLUSH PRIVILEGES;";
-sudo mysql -e "CREATE DATABASE gnuweeb;";
-
-# Make sure you have cd'ed to mail.gnuweeb.org;
-sudo mysql gnuweeb < database.sql;
+npx shadcn-svelte@latest add <component-name>
 ```
 
-### After the database is ready
-```sh
-# Make sure you have cd'ed to mail.gnuweeb.org;
-cp -v config.example.php config.php;
+After installed **shadcn-svelte** component, it will generated in [$lib/components/ui](./src/lib/components/ui/), if you want to have a small edit.
 
-# Generate APP_KEY for config.php
-head -c 30 /dev/urandom | xxd -ps
+<h3>Custom Components</h3>
 
-# Fix the config file, adjust with your database username/password.
-vim config.php;
+If you want to create your own custom components you can create it in [$lib/components/customs](./src/lib/components/customs/).
 
-# Start the PHP server.
-php -S 0.0.0.0:8080 -t public/
-# And ready to develop!
-# Access from your browser http://127.0.0.1:8080
-```
+<h3>Static Files</h3>
 
+All static files were stored in [./static/](./static/).
 
-# Maintainer
-- Ammar Faizi (@ammarfaizi2)
+<h3>Page Routes</h3>
 
+All pages are created in [./src/routes](./src/routes/) and all protected routes (login required) are created in [./src/routes/(protected)](<./src/routes/(protected)/>).
 
-# License
-This project is licensed under the GNU GPL 2.0 license.
+<h3>Hooks Functions</h3>
+
+All hooks are created in [$lib/hooks](./src/lib/hooks/).
+
+<h3>Form Schemas</h3>
+
+All form schemas are created in [$lib/schemas](./src/lib/schemas/).
+
+<h3>Constants</h3>
+
+All constants data are created in [$constants](./src/lib/constants/).
+
+<h3>Typings</h3>
+
+All types are created in [$typings](./src/lib/typings/).
+
+<h3>Utilities</h3>
+
+All util or helper functions are created in [$utils](./src/lib/utilities/).
+
+<h3>Styling</h3>
+
+If you want to create styles or CSS that only affects inside its page or component just write it inside that file,
+if you want to create styles or CSS that affects globally you can write it in [./src/app.css](./src/app.css).
+
+<h3>Aliases</h3>
+
+You may add some import aliases, you can edit it in [svelte.config.js](./svelte.config.js), we used `$` as import alias, you must follow our standards to remain consistency.
