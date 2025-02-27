@@ -41,13 +41,17 @@
 	</div>
 </body>
 <script>
-gwm_redirect_if_authorized();
-let fr = document.getElementById("login-form");
-fr.onsubmit = function(e) {
-	e.preventDefault();
-	let user = fr.user.value;
-	let pass = fr.pass.value;
-	gwm_fn_login(user, pass);
-};
+function main()
+{
+	if (gwm_auth_redirect_if_authorized())
+		return;
+
+	let fr = gid("login-form");
+	fr.onsubmit = function(e) {
+		e.preventDefault();
+		gwm_fn_login(gwm_cb_login, fr.user.value, fr.pass.value);
+	};
+}
+main();
 </script>
 </html>

@@ -1,57 +1,83 @@
-
-const GWM_API_URL = "https://mail.gnuweeb.org/api.php?action=";
+const GWM_API_URL = "https://mail.gnuweeb.org/api2.php?action=";
 const LS = localStorage;
+
+function gid(i)
+{
+	return document.getElementById(i);
+}
+
+function escape_html(s)
+{
+	return s.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;");
+}
+
+function gwm_auth_get_token()
+{
+	return LS.getItem("gwm_token");
+}
 
 function gwm_exec_api(p)
 {
 	let xhr = new XMLHttpRequest();
 	xhr.open(p.method, p.url);
-	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.withCredentials = true;
+
+	if (p.ct === "json")
+		xhr.setRequestHeader("Content-Type", "application/json");
 
 	if (p.token)
 		xhr.setRequestHeader("Authorization", "Bearer " + p.token);
 
 	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4) {
-			if (p.callback)
-				p.callback(JSON.parse(xhr.responseText));
+		let res;
+
+		if (xhr.readyState !== 4)
+			return;
+
+		try {
+			res = JSON.parse(xhr.responseText);
+		} catch (e) {
+			res = xhr.responseText;
 		}
-	}
-	xhr.send(JSON.stringify(p.data));
+
+		if (p.callback)
+			p.callback(res, xhr);
+	};
+	xhr.send(p.data);
 }
 
-function gwm_api_get_user_info(tkn, cbk)
+function gwm_exec_api_multipart(p)
+{
+	p.ct = "multipart";
+	gwm_exec_api(p);
+}
+
+function gwm_exec_api_json(p)
+{
+	p.ct = "json";
+	p.data = JSON.stringify(p.data);
+	gwm_exec_api(p);
+}
+
+function gwm_api_get_user_info(cb)
 {
 	gwm_exec_api({
 		method: "GET",
-		url: GWM_API_URL + "get_user_info",
-		token: tkn,
-		callback: cbk
+		url: GWM_API_URL + "get_user_info&renew_token=1",
+		token: LS.getItem("gwm_token"),
+		callback: cb
 	});
 }
 
-function gwm_api_login(user, pass, cbk)
+function gwm_api_login(cb, user, pass)
 {
-	gwm_exec_api({
+	gwm_exec_api_json({
 		method: "POST",
 		url: GWM_API_URL + "login",
 		data: { user: user, pass: pass },
-		callback: cbk
-	});
-}
-
-function gwm_api_change_password(tkn, cur_pass, new_pass, cbk)
-{
-	gwm_exec_api({
-		method: "POST",
-		url: GWM_API_URL + "change_password",
-		token: tkn,
-		data: {
-			cur_pass: cur_pass,
-			new_pass: new_pass,
-			retype_new_pass: new_pass
-		},
-		callback: cbk
+		callback: cb
 	});
 }
 
@@ -70,71 +96,87 @@ function gwm_cb_login(j)
 	window.location.href = "/home.html";
 }
 
-function gwm_fn_login(user, pass)
+function gwm_fn_login(cb, user, pass)
 {
-	gwm_api_login(user, pass, gwm_cb_login);
+	gwm_api_login(cb, user, pass);
 }
 
-function gwm_cb_change_pass(j)
+function gwm_cb_change_password(j)
 {
-	if (j.code === 200) {
-		alert("Password changed successfully!");
-		window.location.href = "?";
-	} else {
-		alert("Failed to change password: " + JSON.stringify(j.res));
+	if (j.code !== 200) {
+		alert("Password change failed: " + JSON.stringify(j.res));
+		return false;
 	}
+
+	alert("Password changed successfully!");
+	return true;
 }
 
-function gwm_fn_change_pass(cur_pass, new_pass)
+function gwm_fn_change_password(cb, cur_pass, new_pass, retype_new_pass)
 {
-	let tkn = LS.getItem("gwm_token");
-	gwm_api_change_password(tkn, cur_pass, new_pass, gwm_cb_change_pass);
+	gwm_exec_api_json({
+		method: "POST",
+		url: GWM_API_URL + "change_password",
+		data: {
+			cur_pass: cur_pass,
+			new_pass: new_pass,
+			retype_new_pass: retype_new_pass
+		},
+		callback: cb,
+		token: gwm_auth_get_token()
+	});
 }
 
-function gwm_redirect_if_authorized()
-{
-	if (LS.getItem("gwm_token"))
-		window.location.href = "/home.html";
-}
-
-function gwm_do_logout()
+function gwm_fn_logout()
 {
 	LS.clear();
 	window.location.href = "/";
 }
 
-function gwm_gu_cb(j)
+function gwm_auth_get_user()
 {
-	if (j.code === 200) {
-		LS.setItem("gwm_uinfo", JSON.stringify(j.res));
-	} else {
-		alert("Your session has expired. Please login again.");
-		gwm_do_logout();
-	}
+	return JSON.parse(LS.getItem("gwm_uinfo"));
 }
 
-function gwm_redirect_if_not_authorized()
+function gwm_auth_redirect_if_authorized()
+{
+	if (LS.getItem("gwm_token")) {
+		window.location.href = "/home.html";
+		return true;
+	}
+
+	return false;
+}
+
+function gwm_auth_redirect_if_not_authorized()
 {
 	let tkn = LS.getItem("gwm_token");
 	let uio = LS.getItem("gwm_uinfo");
 	let tkn_exp_at = LS.getItem("gwm_token_exp_at");
 
 	if (!tkn || !uio) {
-		gwm_do_logout();
-		return;
+		gwm_fn_logout();
+		return true;
 	}
 
 	let unix = Math.round((new Date()).getTime() / 1000);
 	if (unix >= tkn_exp_at) {
 		alert("Your session has expired. Please login again.");
-		gwm_do_logout();
-		return;
+		gwm_fn_logout();
+		return true;
 	}
 
-	gwm_api_get_user_info(tkn, gwm_gu_cb);
-}
+	gwm_api_get_user_info(function(j) {
+		if (j.code !== 200) {
+			alert("Your session has expired. Please login again.");
+			gwm_fn_logout();
+			return;
+		}
 
-function gwm_get_user_info()
-{
-	return JSON.parse(LS.getItem("gwm_uinfo"));
+		let rt = j.res.renew_token;
+		LS.setItem("gwm_uinfo", JSON.stringify(j.res.user_info));
+		LS.setItem("gwm_token", rt.token);
+		LS.setItem("gwm_token_exp_at", rt.token_exp_at);
+	});
+	return false;
 }

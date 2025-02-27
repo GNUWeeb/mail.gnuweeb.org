@@ -37,7 +37,7 @@ body {
 </head>
 <body>
 	<div class="main-cage">
-		<a href="javascript:gwm_do_logout();">
+		<a href="javascript:gwm_fn_logout();">
 			<button class="cg-btn">Logout</button>
 		</a>
 		<h1>GNU/Weeb Mail Dashboard</h1>
@@ -50,7 +50,7 @@ body {
 					<tbody>
 						<tr><td>Current	Password</td><td>:</td><td><input type="password" name="cur_pass" required/></td></tr>
 						<tr><td>New Password</td><td>:</td><td><input type="password" name="new_pass" required/></td></tr>
-						<tr><td>Retype New Password</td><td>:</td><td><input type="password" name="retyped_new_pass" required/></td></tr>
+						<tr><td>Retype New Password</td><td>:</td><td><input type="password" name="retype_new_pass" required/></td></tr>
 						<tr><td colspan="3" align="center"><button type="submit" class="cg-btn">Change Password</button></td></tr>
 					</tbody>
 				</table>
@@ -80,23 +80,38 @@ Auth: Normal Password
 	</div>
 </body>
 <script>
-gwm_redirect_if_not_authorized();
-let u = gwm_get_user_info();
-function gid(id) { return document.getElementById(id); }
-function escape_html(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
-gid("uinfo_full_name").innerHTML = escape_html(u.full_name);
-let fr = gid("change_pass_form");
-fr.onsubmit = function() {
-	let cur_pass = fr.cur_pass.value;
-	let new_pass = fr.new_pass.value;
-	let retyped_new_pass = fr.retyped_new_pass.value;
-	if (new_pass !== retyped_new_pass) {
-		alert("New password and retyped new password does not match!");
-		return false;
-	}
-	
-	gwm_fn_change_pass(cur_pass, new_pass);
-};
+function toggle_disable_inputs(form, disable)
+{
+	for (let i = 0; i < form.length; i++)
+		form[i].disabled = disable;
+}
+
+function main()
+{
+	let u, cpf;
+
+	if (gwm_auth_redirect_if_not_authorized())
+		return;
+
+	u = gwm_auth_get_user();
+	gid("uinfo_full_name").innerText = escape_html(u.full_name);
+	cpf = gid("change_pass_form");
+	cpf.onsubmit = function(e) {
+		e.preventDefault();
+
+		toggle_disable_inputs(cpf, true);
+		let cb = function (j) {
+			toggle_disable_inputs(cpf, false);
+			if (gwm_cb_change_password(j))
+				cpf.reset();
+		};
+
+		gwm_fn_change_password(cb, cpf.cur_pass.value,
+				       cpf.new_pass.value,
+				       cpf.retype_new_pass.value);
+	};
+}
+main();
 </script>
 </html>
