@@ -43,6 +43,7 @@ body {
 		<h1>GNU/Weeb Mail Dashboard</h1>
 		<h2>Welcome <span id="uinfo_full_name"></span></h2>
 		<h2>This is an emergency page to change your password. It's still under development.</h2>
+		<h1><a href="profile.html">Open Profile</a></h1>
 		<div class="form-cage">
 			<form action="javascript:void(0);" method="POST" id="change_pass_form">
 				<h1>Change Password</h1>
@@ -80,13 +81,6 @@ Auth: Normal Password
 	</div>
 </body>
 <script>
-
-function toggle_disable_inputs(form, disable)
-{
-	for (let i = 0; i < form.length; i++)
-		form[i].disabled = disable;
-}
-
 function main()
 {
 	let u, cpf;
