@@ -1,4 +1,4 @@
-const GWM_API_URL = "https://mail.gnuweeb.org/api2.php?action=";
+const GWM_API_URL = "https://mail.gnuweeb.org/api.php?action=";
 const LS = localStorage;
 
 function gid(i)
@@ -110,7 +110,7 @@ function gwm_cb_login(j)
 	LS.setItem("gwm_token_exp_at", r.token_exp_at);
 	LS.setItem("gwm_uinfo", JSON.stringify(r.user_info));
 	alert("Login successful!");
-	window.location.href = "/home.html";
+	window.location.href = "home.html";
 }
 
 function gwm_fn_login(cb, user, pass)
@@ -157,7 +157,7 @@ function gwm_fn_set_user_info(cb, data)
 function gwm_fn_logout()
 {
 	LS.clear();
-	window.location.href = "/";
+	window.location.href = "index.html";
 }
 
 function gwm_auth_get_user()
@@ -168,7 +168,7 @@ function gwm_auth_get_user()
 function gwm_auth_redirect_if_authorized()
 {
 	if (LS.getItem("gwm_token")) {
-		window.location.href = "/home.html";
+		window.location.href = "home.html";
 		return true;
 	}
 
