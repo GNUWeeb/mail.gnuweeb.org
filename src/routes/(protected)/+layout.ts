@@ -16,6 +16,9 @@ export const load: LayoutLoad = async () => {
     params: { action: "get_user_info" }
   });
 
-  localStorage.setItem("gwm_uinfo", JSON.stringify(data.res?.user_info));
-  auth.refresh();
+  auth.save({
+    token: data.res?.renew_token?.token,
+    token_exp_at: data.res?.renew_token?.token_exp_at,
+    user_info: data.res?.user_info
+  });
 };

@@ -11,10 +11,11 @@ export const load: PageLoad = async () => {
   const data = {
     username: auth.user?.username,
     full_name: auth.user?.full_name,
-    gender: auth.user?.gender
+    ext_email: auth.user?.ext_email,
+    gender: auth.user?.gender,
+    socials: auth.user?.socials
   };
 
   const form = await superValidate(data, zod(profileSchema));
-
-  return { form };
+  return { form, avatar: auth.user?.photo };
 };
