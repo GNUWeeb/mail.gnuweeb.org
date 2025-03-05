@@ -45,10 +45,10 @@
   class="flex w-full max-w-5xl flex-col gap-y-8 lg:flex-row lg:justify-between lg:gap-x-8 lg:gap-y-0"
 >
   <div class="flex w-full justify-center lg:hidden">
-    <Form.Field {form} name="avatar">
+    <Form.Field {form} name="avatar" class="relative">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label for="avatar" class="relative cursor-pointer">
+          <Form.Label for="avatar" class="cursor-pointer">
             <Avatar.Root class="size-40">
               <Avatar.Image src={avatarImage} alt="@{auth.user?.username}" />
               <Avatar.Fallback class="text-xl">{getShortName()}</Avatar.Fallback>
@@ -137,10 +137,10 @@
   </div>
 
   <div class="hidden lg:block">
-    <Form.Field {form} name="avatar">
+    <Form.Field {form} name="avatar" class="relative">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label for="avatar" class="relative cursor-pointer">
+          <Form.Label for="avatar" class="cursor-pointer">
             <Avatar.Root class="lg:size-40 xl:size-52">
               <Avatar.Image src={avatarImage} alt="@{auth.user?.username}" />
               <Avatar.Fallback class="lg:text-xl xl:text-3xl">{getShortName()}</Avatar.Fallback>
