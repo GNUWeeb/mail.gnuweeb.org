@@ -8,7 +8,7 @@
   let { children } = $props();
 </script>
 
-<div class="space-y-6 pb-16 prose-h2:text-2xl prose-h3:text-lg">
+<div class="space-y-6 pb-16 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-lg">
   <div class="space-y-0.5">
     <h2 class="font-bold tracking-tight">Settings</h2>
     <p class="text-muted-foreground">Manage your account settings and set e-mail preferences.</p>
