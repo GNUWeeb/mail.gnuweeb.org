@@ -57,8 +57,8 @@
   <Card.Root class="w-full max-w-lg">
     <form method="POST" use:enhance>
       <Card.Header class="flex items-center justify-center space-y-1">
-        <Card.Title class="text-2xl">GNU/Weeb Mail Login</Card.Title>
-        <Card.Description>Proceed login to manager your email account</Card.Description>
+        <Card.Title class="text-xl text-center lg:text-2xl">GNU/Weeb Mail Login</Card.Title>
+        <Card.Description class="text-center">Proceed login to manage your email account</Card.Description>
 
         {#if isError() && !isCredentialInvalid()}
           <span class="text-sm font-medium text-destructive">

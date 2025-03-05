@@ -15,7 +15,7 @@
   bind:ref
   {src}
   {alt}
-  class={cn("aspect-square h-full w-full", className)}
+  class={cn("aspect-square h-full w-full object-cover", className)}
   draggable={false}
   {...restProps}
 />
