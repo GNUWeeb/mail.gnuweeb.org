@@ -19,7 +19,7 @@ export function useAuth() {
       return data.user_info;
     },
 
-    set token(newValue: string) {
+    set token(newValue) {
       data.token = newValue;
     },
 
@@ -28,11 +28,11 @@ export function useAuth() {
       data.user_info = JSON.parse(user!) as User;
     },
 
-    save(newData: LoginResponse) {
-      data = newData;
-      localStorage.setItem("gwm_token", newData.token);
-      localStorage.setItem("gwm_token_exp_at", newData.token_exp_at.toString());
-      localStorage.setItem("gwm_uinfo", JSON.stringify(newData.user_info));
+    save({ user_info, token, token_exp_at }: LoginResponse) {
+      data = { user_info, token, token_exp_at };
+      localStorage.setItem("gwm_token", token || "null");
+      localStorage.setItem("gwm_token_exp_at", token_exp_at!.toString() ?? "0");
+      localStorage.setItem("gwm_uinfo", JSON.stringify(user_info));
     },
 
     clear() {
