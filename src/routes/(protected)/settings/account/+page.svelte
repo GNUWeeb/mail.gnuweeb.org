@@ -8,6 +8,7 @@
   import Button from "$components/ui/button/button.svelte";
   import http from "$lib/hooks/http.svelte";
   import Separator from "$components/ui/separator/separator.svelte";
+  import Seo from "$components/customs/seo.svelte";
 
   let { data } = $props();
 
@@ -49,6 +50,8 @@
     Boolean($errors.cur_pass || $errors.new_pass || $errors.retype_new_pass)
   );
 </script>
+
+<Seo title="Account settings - GNU/Weeb Mail" description="Update your account." />
 
 <div class="space-y-3">
   <h2 class="text-center font-medium sm:text-start">Change Password</h2>
