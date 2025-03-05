@@ -3,7 +3,7 @@
   import { superForm } from "sveltekit-superforms";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { profileSchema } from "$lib/schemas/profile-schema";
-  import { Pencil } from "lucide-svelte";
+  import Pencil from "lucide-svelte/icons/pencil";
   import * as Avatar from "$lib/components/ui/avatar";
   import * as Form from "$lib/components/ui/form";
   import * as RadioGroup from "$lib/components/ui/radio-group";
@@ -18,7 +18,7 @@
 
   const form = superForm(data.form, {
     SPA: true,
-    validators: zodClient(profileSchema),
+    validators: zodClient(profileSchema)
   });
 
   const getShortName = () => {

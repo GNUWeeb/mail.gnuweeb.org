@@ -3,7 +3,9 @@
   import Separator from "$components/ui/separator/separator.svelte";
   import * as Sidebar from "$lib/components/ui/sidebar";
   import { useAuth } from "$lib/hooks/auth.svelte";
-  import { LogOut, Mails, SquareArrowOutUpRight } from "lucide-svelte";
+  import LogOut from "lucide-svelte/icons/log-out";
+  import Mails from "lucide-svelte/icons/mails";
+  import SquareArrowOutUpRight from "lucide-svelte/icons/square-arrow-out-up-right";
   import type { ComponentProps } from "svelte";
   import { goto } from "$app/navigation";
   import Button from "$components/ui/button/button.svelte";

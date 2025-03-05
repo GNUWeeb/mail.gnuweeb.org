@@ -3,7 +3,8 @@
   import type { HTMLInputAttributes } from "svelte/elements";
   import Input from "./input.svelte";
   import Button from "$components/ui/button/button.svelte";
-  import { EyeIcon, EyeOffIcon } from "lucide-svelte";
+  import EyeIcon from "lucide-svelte/icons/eye";
+  import EyeOffIcon from "lucide-svelte/icons/eye-off";
 
   let {
     ref = $bindable(null),
