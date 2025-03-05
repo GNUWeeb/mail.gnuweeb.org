@@ -11,6 +11,7 @@
 - [How to Build](#how-to-build)
 - [Code Standards](#code-standards)
 - [How to Develop or Contribute](#how-to-develop)
+- [API examples](#api-examples)
 
 <h2 id="requirements">
   Requirements
@@ -109,3 +110,9 @@ if you want to create styles or CSS that affects globally you can write it in [.
 <h3>Aliases</h3>
 
 You may add some import aliases, you can edit it in [svelte.config.js](./svelte.config.js), we used `$` as import alias, you must follow our standards to remain consistency.
+
+<h2 id="api-examples">
+API Examples
+</h2>
+
+You can view all API examples in our Postman workspace [here](https://gnuweeb.postman.co/workspace/GNU%252FWeeb~2805fbdd-376b-42de-8fe1-2a4cfa22ed3c/overview?ctx=updates).
