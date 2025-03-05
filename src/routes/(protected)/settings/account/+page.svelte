@@ -7,6 +7,7 @@
   import InputPassword from "$components/ui/input/input-password.svelte";
   import Button from "$components/ui/button/button.svelte";
   import http from "$lib/hooks/http.svelte";
+  import Separator from "$components/ui/separator/separator.svelte";
 
   let { data } = $props();
 
@@ -49,7 +50,10 @@
   );
 </script>
 
-<h1>Change Password</h1><hr/>
+<div class="space-y-3">
+  <h2 class="text-center font-medium sm:text-start">Change Password</h2>
+  <Separator />
+</div>
 <form use:enhance class="space-y-5">
   <Form.Field {form} name="cur_pass">
     <Form.Control>
