@@ -1,5 +1,6 @@
 <script lang="ts">
   import Loading from "$components/customs/loading.svelte";
+  import Seo from "$components/customs/seo.svelte";
   import { Button } from "$components/ui/button";
   import * as Card from "$components/ui/card";
   import * as Form from "$components/ui/form";
@@ -55,6 +56,8 @@
     localStorage.removeItem("gwm_invalid_creds");
   });
 </script>
+
+<Seo title="Login - GNU/Weeb Mail" description="Update your profile." />
 
 <div class="mx-auto flex min-h-screen w-full items-center justify-center px-3 py-2">
   <Card.Root class="w-full max-w-lg">

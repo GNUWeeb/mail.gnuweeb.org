@@ -21,6 +21,7 @@
   import * as typing from "$typings";
   import { toast } from "svelte-sonner";
   import InputPassword from "$components/ui/input/input-password.svelte";
+  import Seo from "$components/customs/seo.svelte";
 
   let { data } = $props();
   let showModalConfirmation = $state(false);
@@ -142,6 +143,8 @@
 
   const isError = $derived(Boolean($errors.full_name || $errors.ext_email || $errors.gender));
 </script>
+
+<Seo title="Your profile - GNU/Weeb Mail" description="Update your profile." />
 
 <Dialog.Root open={showModalConfirmation} onOpenChange={handleOpenModal}>
   <form use:enhance class="flex flex-col gap-5" enctype="multipart/form-data">
