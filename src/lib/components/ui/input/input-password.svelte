@@ -22,7 +22,7 @@
     type="button"
     variant="ghost"
     size="sm"
-    class="group absolute right-0 top-0 h-full !px-2 transition duration-200 hover:bg-transparent"
+    class="group absolute right-0 top-0 h-full !px-2 hover:bg-transparent"
     onclick={() => (showPassword = !showPassword)}
     disabled={btnDisabled}
   >
