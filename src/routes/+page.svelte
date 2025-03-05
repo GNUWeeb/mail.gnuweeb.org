@@ -1,5 +1,6 @@
 <script lang="ts">
   import Loading from "$components/customs/loading.svelte";
+  import Seo from "$components/customs/seo.svelte";
   import { Button } from "$components/ui/button";
   import * as Card from "$components/ui/card";
   import * as Form from "$components/ui/form";
@@ -22,7 +23,10 @@
     validators: zod(loginSchema),
 
     async onUpdate({ form }) {
-      const res = await http<typing.LoginResponse>({
+      const {
+        status,
+        data: { res }
+      } = await http<typing.LoginResponse>({
         params: { action: "login" },
         method: "POST",
         data: {
@@ -31,42 +35,46 @@
         }
       });
 
-      if (res.status === 200) {
-        auth.save(res.data.res!);
+      if (status === 200) {
+        auth.save(res as typing.LoginResponse);
       } else {
         setError(form, "username_or_email", "");
         setError(form, "password", "");
-        setMessage(form, res.data.res);
+        setMessage(form, res?.msg ?? "Invalid credential, please login again.");
       }
     }
   });
 
-  const isError = () => Boolean($errors.username_or_email && $errors.password);
-  const isValid = () => Boolean($formData.username_or_email && $formData.password);
-  const isCredentialInvalid = () => Boolean(data.isInvalidCreds && +data.isInvalidCreds);
-
   const { form: formData, errors, message, submitting, constraints, enhance } = form;
 
+  const isError = $derived(Boolean($errors.username_or_email && $errors.password));
+  const isValid = $derived(Boolean($formData.username_or_email && $formData.password));
+  const isCredentialInvalid = $derived(Boolean(data.isInvalidCreds && +data.isInvalidCreds));
+
   onMount(() => {
-    if (!isCredentialInvalid()) return;
+    if (!isCredentialInvalid) return;
     localStorage.removeItem("gwm_invalid_creds");
   });
 </script>
+
+<Seo title="Login - GNU/Weeb Mail" description="Update your profile." />
 
 <div class="mx-auto flex min-h-screen w-full items-center justify-center px-3 py-2">
   <Card.Root class="w-full max-w-lg">
     <form method="POST" use:enhance>
       <Card.Header class="flex items-center justify-center space-y-1">
-        <Card.Title class="text-2xl">GNU/Weeb Mail Login</Card.Title>
-        <Card.Description>Proceed login to manager your email account</Card.Description>
+        <Card.Title class="text-center text-xl lg:text-2xl">GNU/Weeb Mail Login</Card.Title>
+        <Card.Description class="text-center">
+          Proceed login to manage your email account
+        </Card.Description>
 
-        {#if isError() && !isCredentialInvalid()}
+        {#if isError && !isCredentialInvalid}
           <span class="text-sm font-medium text-destructive">
             {$message}
           </span>
         {/if}
 
-        {#if !isError() && isCredentialInvalid()}
+        {#if !isError && isCredentialInvalid}
           <span class="text-sm font-medium text-destructive">
             Invalid credential, please login again.
           </span>
@@ -113,7 +121,7 @@
         <Button
           type="submit"
           class="mt-3 flex w-full gap-x-2"
-          disabled={$submitting || !isValid() || isError()}
+          disabled={$submitting || !isValid || isError}
         >
           <span>Login</span>
           {#if $submitting}

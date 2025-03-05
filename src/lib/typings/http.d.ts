@@ -2,7 +2,10 @@ import type { User } from "./credential";
 
 export interface ResponseAPI<Data> {
   code: number;
-  res?: Data & { renew_token?: RenewTokenResponse };
+  res?: Data & {
+    msg: string;
+    renew_token?: RenewTokenResponse;
+  };
 }
 
 export interface RenewTokenResponse {
@@ -11,7 +14,7 @@ export interface RenewTokenResponse {
 }
 
 export interface LoginResponse {
-  token: string;
-  token_exp_at: number;
-  user_info?: User | null;
+  token?: string;
+  token_exp_at?: number;
+  user_info?: User;
 }

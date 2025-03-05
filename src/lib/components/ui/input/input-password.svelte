@@ -3,7 +3,8 @@
   import type { HTMLInputAttributes } from "svelte/elements";
   import Input from "./input.svelte";
   import Button from "$components/ui/button/button.svelte";
-  import { EyeIcon, EyeOffIcon } from "lucide-svelte";
+  import EyeIcon from "lucide-svelte/icons/eye";
+  import EyeOffIcon from "lucide-svelte/icons/eye-off";
 
   let {
     ref = $bindable(null),
@@ -21,7 +22,7 @@
     type="button"
     variant="ghost"
     size="sm"
-    class="group absolute right-0 top-0 h-full !px-2 transition duration-200 hover:bg-transparent"
+    class="group absolute right-0 top-0 h-full !px-2 hover:bg-transparent"
     onclick={() => (showPassword = !showPassword)}
     disabled={btnDisabled}
   >

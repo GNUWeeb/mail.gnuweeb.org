@@ -12,10 +12,13 @@ export const load: LayoutLoad = async () => {
     return redirect(307, "/");
   }
 
-  const { data } = await http<typing.User>({
+  const { data } = await http<{ user_info: typing.User }>({
     params: { action: "get_user_info" }
   });
 
-  localStorage.setItem("gwm_uinfo", JSON.stringify(data.res.user_info));
-  auth.refresh();
+  auth.save({
+    token: data.res?.renew_token?.token,
+    token_exp_at: data.res?.renew_token?.token_exp_at,
+    user_info: data.res?.user_info
+  });
 };

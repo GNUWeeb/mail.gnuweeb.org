@@ -1,3 +1,4 @@
+import { PUBLIC_BASE_URL } from "$env/static/public";
 import * as typing from "$typings";
 import axios from "axios";
 import type {
@@ -8,7 +9,7 @@ import type {
 } from "axios";
 
 const client = axios.create({
-  baseURL: "https://mail.gnuweeb.org/api.php"
+  baseURL: PUBLIC_BASE_URL
 });
 
 const http = async <T>(prop: AxiosRequestConfig) => {
