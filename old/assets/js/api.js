@@ -109,7 +109,7 @@ function gwm_cb_login(j)
 	LS.setItem("gwm_token", r.token);
 	LS.setItem("gwm_token_exp_at", r.token_exp_at);
 	LS.setItem("gwm_uinfo", JSON.stringify(r.user_info));
-	alert("Login successful!");
+	alert(j.msg);
 	window.location.href = "home.html";
 }
 
@@ -125,7 +125,7 @@ function gwm_cb_change_password(j)
 		return false;
 	}
 
-	alert("Password changed successfully!");
+	alert(j.res.msg);
 	return true;
 }
 
@@ -147,7 +147,7 @@ function gwm_fn_change_password(cb, cur_pass, new_pass, retype_new_pass)
 function gwm_fn_set_user_info(cb, data)
 {
 	let callback = function (j) {
-		alert(j.res);
+		alert(j.res.msg);
 		if (cb)
 			cb(j);
 	};
