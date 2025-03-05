@@ -1,9 +1,8 @@
 <script lang="ts">
   import { Separator } from "$lib/components/ui/separator";
-
-  import { settingsNav } from "$constants/navigations";
   import SettingsNavigation from "./(components)/settings-nav.svelte";
   import SettingsHeader from "./(components)/settings-header.svelte";
+  import { getSettingsNav } from "$utils";
 
   let { children } = $props();
 </script>
@@ -16,7 +15,7 @@
   <Separator class="my-6" />
   <div class="flex flex-col space-y-8 xl:flex-row xl:space-x-8 xl:space-y-0">
     <aside class="xl:w-[12%]">
-      <SettingsNavigation items={settingsNav} />
+      <SettingsNavigation items={getSettingsNav()} />
     </aside>
     <div class="flex-1">
       <div class="space-y-6">

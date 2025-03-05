@@ -4,12 +4,28 @@
   import { page } from "$app/state";
   import { navigations } from "$constants";
   import Separator from "$components/ui/separator/separator.svelte";
+  import * as typing from "$typings";
+
+  const getParentRoute = (
+    path: string,
+    items: typing.Navigations[],
+    routePath: typing.Navigations[] = []
+  ): typing.Navigations[] => {
+    for (const item of items) {
+      if (path === item.url) {
+        return [...routePath, item];
+      }
+
+      if (item.items) {
+        const foundPath = getParentRoute(path, item.items, [...routePath, item]);
+        if (foundPath.length) return foundPath;
+      }
+    }
+    return [];
+  };
 
   const getRouteName = () => {
-    const pathname = page.url.pathname;
-    const found = navigations.find((path) => path.url === pathname);
-
-    return found?.name ?? "";
+    return getParentRoute(page.url.pathname, navigations);
   };
 </script>
 
@@ -23,9 +39,18 @@
           <Breadcrumb.Link href="/">G/W Mail</Breadcrumb.Link>
         </Breadcrumb.Item>
         <Breadcrumb.Separator />
-        <Breadcrumb.Item class="select-none">
-          <Breadcrumb.Page>{getRouteName()}</Breadcrumb.Page>
-        </Breadcrumb.Item>
+        {#each getRouteName() as route, index (route.url)}
+          {#if index === getRouteName().length - 1}
+            <Breadcrumb.Item class="select-none">
+              <Breadcrumb.Page>{route.name}</Breadcrumb.Page>
+            </Breadcrumb.Item>
+          {:else}
+            <Breadcrumb.Item class="hidden md:block">
+              <Breadcrumb.Link href={route.url}>{route.name}</Breadcrumb.Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Separator />
+          {/if}
+        {/each}
       </Breadcrumb.List>
     </Breadcrumb.Root>
   </div>

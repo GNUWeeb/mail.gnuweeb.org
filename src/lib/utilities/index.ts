@@ -1,3 +1,4 @@
+import { getSettingsNav } from "./navigation";
 import { cn } from "./styling";
 
-export { cn };
+export { cn, getSettingsNav };
