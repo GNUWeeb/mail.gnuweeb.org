@@ -45,14 +45,14 @@
     }
   });
 
-  const isError = () => Boolean($errors.username_or_email && $errors.password);
-  const isValid = () => Boolean($formData.username_or_email && $formData.password);
-  const isCredentialInvalid = () => Boolean(data.isInvalidCreds && +data.isInvalidCreds);
-
   const { form: formData, errors, message, submitting, constraints, enhance } = form;
 
+  const isError = $derived(Boolean($errors.username_or_email && $errors.password));
+  const isValid = $derived(Boolean($formData.username_or_email && $formData.password));
+  const isCredentialInvalid = $derived(Boolean(data.isInvalidCreds && +data.isInvalidCreds));
+
   onMount(() => {
-    if (!isCredentialInvalid()) return;
+    if (!isCredentialInvalid) return;
     localStorage.removeItem("gwm_invalid_creds");
   });
 </script>
@@ -68,13 +68,13 @@
           Proceed login to manage your email account
         </Card.Description>
 
-        {#if isError() && !isCredentialInvalid()}
+        {#if isError && !isCredentialInvalid}
           <span class="text-sm font-medium text-destructive">
             {$message}
           </span>
         {/if}
 
-        {#if !isError() && isCredentialInvalid()}
+        {#if !isError && isCredentialInvalid}
           <span class="text-sm font-medium text-destructive">
             Invalid credential, please login again.
           </span>
@@ -121,7 +121,7 @@
         <Button
           type="submit"
           class="mt-3 flex w-full gap-x-2"
-          disabled={$submitting || !isValid() || isError()}
+          disabled={$submitting || !isValid || isError}
         >
           <span>Login</span>
           {#if $submitting}
