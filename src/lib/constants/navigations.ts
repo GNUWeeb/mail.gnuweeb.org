@@ -1,5 +1,6 @@
 import * as typing from "$typings";
-import { Home, Settings } from "lucide-svelte";
+import Home from "lucide-svelte/icons/home"
+import Settings from "lucide-svelte/icons/settings"
 
 export const navigations: typing.Navigations[] = [
   {
