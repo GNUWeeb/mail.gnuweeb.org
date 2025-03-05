@@ -8,6 +8,7 @@ export interface Navigations {
   icon?: typeof IconType;
   url: string;
   disabled?: boolean;
+  items?: Navigations[]
 }
 
 export interface LabelAndValue {
