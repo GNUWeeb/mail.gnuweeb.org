@@ -11,7 +11,7 @@ export const navigations: typing.Navigations[] = [
   {
     name: "Settings",
     icon: Settings,
-    url: "/settings",
+    url: "/settings/profile",
     items: [
       {
         name: "Profile",
