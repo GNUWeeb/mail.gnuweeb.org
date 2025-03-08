@@ -482,7 +482,7 @@
           <Dialog.Description>Confirm changes to your profile here.</Dialog.Description>
         </Dialog.Header>
 
-        <Form.Field {form} name="password" class="w-full">
+        <Form.Field {form} name="password" class="w-full pb-8 pt-5">
           <Form.Control>
             {#snippet children({ props })}
               <Form.Label for="password">Password</Form.Label>
