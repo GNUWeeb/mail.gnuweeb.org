@@ -105,7 +105,7 @@
 
   const auth = useAuth();
 
-  let avatarImg = $state(data.avatar);
+  let avatarImg = $state(auth.user?.photo);
   const avatar = $derived(avatarImg);
 
   const getShortName = () => {

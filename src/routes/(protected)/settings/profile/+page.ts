@@ -17,5 +17,5 @@ export const load: PageLoad = async () => {
   };
 
   const form = await superValidate(data, zod(profileSchema));
-  return { form, avatar: auth.user?.photo };
+  return { form };
 };
