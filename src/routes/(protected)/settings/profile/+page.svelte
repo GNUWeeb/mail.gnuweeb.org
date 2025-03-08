@@ -111,7 +111,7 @@
   const getShortName = () => {
     const fullName = auth.user?.full_name ?? "";
     const match = fullName.match(/\b(\w)/g) ?? [];
-    return match.slice(0, 2).join("");
+    return match.slice(0, 2).join("").toUpperCase();
   };
 
   const handleOpenModal = (e: boolean) => {
