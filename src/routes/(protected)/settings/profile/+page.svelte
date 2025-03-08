@@ -41,18 +41,10 @@
       formData.append("ext_email", form.data.ext_email);
       formData.append("gender", form.data.gender);
       formData.append("password", form.data.password);
-      if (form.data.socials.github_username) {
-        formData.append("socials[github_username]", form.data.socials.github_username);
-      }
-      if (form.data.socials.telegram_username) {
-        formData.append("socials[telegram_username]", form.data.socials.telegram_username);
-      }
-      if (form.data.socials.twitter_username) {
-        formData.append("socials[twitter_username]", form.data.socials.twitter_username);
-      }
-      if (form.data.socials.discord_username) {
-        formData.append("socials[discord_username]", form.data.socials.discord_username);
-      }
+      formData.append("socials[github_username]", form.data.socials.github_username);
+      formData.append("socials[telegram_username]", form.data.socials.telegram_username);
+      formData.append("socials[twitter_username]", form.data.socials.twitter_username);
+      formData.append("socials[discord_username]", form.data.socials.discord_username);
 
       const {
         data: { res },
@@ -434,17 +426,18 @@
           disabled={$submitting || !isSubmittable || isError}
           {...props}
         >
-          Update profile {isSubmittable}
+          Update profile
         </Button>
       {/snippet}
     </Dialog.Trigger>
 
     <Dialog.Content class="sm:max-w-[425px]">
-      <Dialog.Header>
-        <Dialog.Title>Update Profile Confirmation</Dialog.Title>
-        <Dialog.Description>Confirm changes to your profile here.</Dialog.Description>
-      </Dialog.Header>
-      <div>
+      <form use:enhance enctype="multipart/form-data">
+        <Dialog.Header>
+          <Dialog.Title>Update Profile Confirmation</Dialog.Title>
+          <Dialog.Description>Confirm changes to your profile here.</Dialog.Description>
+        </Dialog.Header>
+
         <Form.Field {form} name="password" class="w-full">
           <Form.Control>
             {#snippet children({ props })}
@@ -463,10 +456,11 @@
             {/snippet}
           </Form.Control>
         </Form.Field>
-      </div>
-      <Dialog.Footer>
-        <Button type="submit" onclick={handleSubmit}>Confirm</Button>
-      </Dialog.Footer>
+
+        <Dialog.Footer>
+          <Button type="submit" onclick={handleSubmit}>Confirm</Button>
+        </Dialog.Footer>
+      </form>
     </Dialog.Content>
   </form>
 </Dialog.Root>
