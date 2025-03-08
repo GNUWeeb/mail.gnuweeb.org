@@ -24,7 +24,6 @@
   import Seo from "$components/customs/seo.svelte";
 
   let { data } = $props();
-  let showModalConfirmation = $state(false);
 
   const form = superForm(data.form, {
     SPA: true,
@@ -101,6 +100,9 @@
   const auth = useAuth();
 
   let avatarImg = $state(auth.user?.photo);
+  let openEditAvatar = $state(false);
+  let showModalConfirmation = $state(false);
+
   const avatar = $derived(avatarImg);
 
   const getShortName = () => {
@@ -130,6 +132,34 @@
   const handleSubmit = () => {
     submit();
     handleOpenModal(false);
+  };
+
+  const deleteAvatar = async () => {
+    openEditAvatar = false;
+
+    if (!auth.user?.photo) {
+      // delete draft avatar
+      avatarImg = "";
+      $formData.photo = null;
+      return;
+    }
+
+    const {
+      data: { res },
+      status
+    } = await http<typing.ResponseAPI<{}>>({
+      params: { action: "delete_user_photo" },
+      method: "GET"
+    });
+
+    if (status === 200) {
+      avatarImg = "";
+      $formData.photo = null;
+
+      toast.info("Success delete profile picture", {
+        description: res?.msg
+      });
+    }
   };
 
   const isSubmittable = $derived(
@@ -162,7 +192,7 @@
                     {/if}
                   </Avatar.Fallback>
                 </Avatar.Root>
-                <Popover.Root>
+                <Popover.Root open={openEditAvatar} onOpenChange={(e) => (openEditAvatar = e)}>
                   <Popover.Trigger
                     class="absolute bottom-3 left-0 flex h-max w-max items-center gap-x-1 rounded-lg border border-input bg-background px-2 py-1 hover:bg-accent hover:text-accent-foreground"
                   >
@@ -174,16 +204,20 @@
                       <Form.Label
                         for="photo"
                         class="w-full cursor-pointer rounded-md px-2 py-1.5 text-start text-xs"
+                        onclick={() => (openEditAvatar = false)}
                       >
                         Upload...
                       </Form.Label>
                     </Button>
-                    <Button
-                      variant="ghost"
-                      class="flex h-max w-full justify-start px-2 py-1.5 text-xs"
-                    >
-                      Delete
-                    </Button>
+                    {#if avatar || $formData.photo}
+                      <Button
+                        onclick={deleteAvatar}
+                        variant="ghost"
+                        class="flex h-max w-full justify-start px-2 py-1.5 text-xs text-destructive hover:text-destructive"
+                      >
+                        Delete
+                      </Button>
+                    {/if}
                   </Popover.Content>
                 </Popover.Root>
               </Form.Label>
@@ -380,7 +414,7 @@
                     {/if}
                   </Avatar.Fallback>
                 </Avatar.Root>
-                <Popover.Root>
+                <Popover.Root open={openEditAvatar} onOpenChange={(e) => (openEditAvatar = e)}>
                   <Popover.Trigger
                     class="absolute bottom-3 left-0 flex h-max w-max items-center gap-x-1 rounded-lg border border-input bg-background px-2 py-1 hover:bg-accent hover:text-accent-foreground xl:left-2.5"
                   >
@@ -388,7 +422,11 @@
                     <span class="text-xs font-medium">Edit</span>
                   </Popover.Trigger>
                   <Popover.Content class="flex max-w-[8rem] flex-col gap-y-1 p-1 text-sm">
-                    <Button variant="ghost" class="h-max w-full px-0 py-0">
+                    <Button
+                      variant="ghost"
+                      class="h-max w-full px-0 py-0"
+                      onclick={() => (openEditAvatar = false)}
+                    >
                       <Form.Label
                         for="photo"
                         class="w-full cursor-pointer rounded-md px-2 py-1.5 text-start text-xs"
@@ -396,12 +434,15 @@
                         Upload...
                       </Form.Label>
                     </Button>
-                    <Button
-                      variant="ghost"
-                      class="flex h-max w-full justify-start px-2 py-1.5 text-xs"
-                    >
-                      Delete
-                    </Button>
+                    {#if avatar || $formData.photo}
+                      <Button
+                        onclick={deleteAvatar}
+                        variant="ghost"
+                        class="flex h-max w-full justify-start px-2 py-1.5 text-xs text-destructive hover:text-destructive"
+                      >
+                        Delete
+                      </Button>
+                    {/if}
                   </Popover.Content>
                 </Popover.Root>
               </Form.Label>
