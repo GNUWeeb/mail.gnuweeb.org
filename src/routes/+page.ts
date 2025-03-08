@@ -11,6 +11,8 @@ export const load: PageLoad = async () => {
 
   if (auth.isValid()) return redirect(307, "/home");
 
+  auth.refresh();
+
   const form = await superValidate(zod(loginSchema));
   return { form, isInvalidCreds };
 };

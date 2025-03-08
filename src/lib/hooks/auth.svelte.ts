@@ -5,6 +5,17 @@ let data = $state<LoginResponse>({
   token_exp_at: 0
 });
 
+const getUserFromLocalStorage = () => {
+  const user = localStorage.getItem("gwm_uinfo");
+  if (!user) return undefined;
+
+  try {
+    return JSON.parse(user) as User;
+  } catch {
+    return undefined;
+  }
+};
+
 export function useAuth() {
   return {
     get token() {
@@ -24,8 +35,12 @@ export function useAuth() {
     },
 
     refresh() {
-      const user = localStorage.getItem("gwm_uinfo");
-      data.user_info = JSON.parse(user!) as User;
+      const token = localStorage.getItem("gwm_token");
+      const token_exp_at = Number(localStorage.getItem("gwm_token_exp_at"));
+
+      data.user_info = getUserFromLocalStorage();
+      data.token = token!;
+      data.token_exp_at = token_exp_at;
     },
 
     save({ user_info, token, token_exp_at }: LoginResponse) {
@@ -42,15 +57,16 @@ export function useAuth() {
     },
 
     isValid() {
+      const user = getUserFromLocalStorage();
       const token = localStorage.getItem("gwm_token");
-      const user = localStorage.getItem("gwm_uinfo");
+      const expLs = localStorage.getItem("gwm_token_exp_at");
 
-      if (!token || !user) {
+      if (!token || !user || !expLs) {
         this.clear();
         return false;
       }
 
-      const exp = Number(localStorage.getItem("gwm_token_exp_at"));
+      const exp = Number(expLs);
       const unix = Math.round(new Date().getTime() / 1000);
 
       if (unix >= exp) {

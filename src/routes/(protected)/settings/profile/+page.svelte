@@ -24,7 +24,6 @@
   import Seo from "$components/customs/seo.svelte";
 
   let { data } = $props();
-  let showModalConfirmation = $state(false);
 
   const form = superForm(data.form, {
     SPA: true,
@@ -41,18 +40,10 @@
       formData.append("ext_email", form.data.ext_email);
       formData.append("gender", form.data.gender);
       formData.append("password", form.data.password);
-      if (form.data.socials.github_username) {
-        formData.append("socials[github_username]", form.data.socials.github_username);
-      }
-      if (form.data.socials.telegram_username) {
-        formData.append("socials[telegram_username]", form.data.socials.telegram_username);
-      }
-      if (form.data.socials.twitter_username) {
-        formData.append("socials[twitter_username]", form.data.socials.twitter_username);
-      }
-      if (form.data.socials.discord_username) {
-        formData.append("socials[discord_username]", form.data.socials.discord_username);
-      }
+      formData.append("socials[github_username]", form.data.socials.github_username);
+      formData.append("socials[telegram_username]", form.data.socials.telegram_username);
+      formData.append("socials[twitter_username]", form.data.socials.twitter_username);
+      formData.append("socials[discord_username]", form.data.socials.discord_username);
 
       const {
         data: { res },
@@ -73,6 +64,9 @@
           token_exp_at: data.res?.renew_token?.token_exp_at,
           user_info: data.res?.user_info
         });
+
+        // reset password input onSuccess.
+        form.data.password = "";
 
         toast.info("Success update profile", {
           description: data.res?.msg ?? "Invalid credential, please login again."
@@ -105,13 +99,16 @@
 
   const auth = useAuth();
 
-  let avatarImg = $state(data.avatar);
+  let avatarImg = $state(auth.user?.photo);
+  let openEditAvatar = $state(false);
+  let showModalConfirmation = $state(false);
+
   const avatar = $derived(avatarImg);
 
   const getShortName = () => {
     const fullName = auth.user?.full_name ?? "";
     const match = fullName.match(/\b(\w)/g) ?? [];
-    return match.slice(0, 2).join("");
+    return match.slice(0, 2).join("").toUpperCase();
   };
 
   const handleOpenModal = (e: boolean) => {
@@ -135,6 +132,34 @@
   const handleSubmit = () => {
     submit();
     handleOpenModal(false);
+  };
+
+  const deleteAvatar = async () => {
+    openEditAvatar = false;
+
+    if (!auth.user?.photo) {
+      // delete draft avatar
+      avatarImg = "";
+      $formData.photo = null;
+      return;
+    }
+
+    const {
+      data: { res },
+      status
+    } = await http<typing.ResponseAPI<{}>>({
+      params: { action: "delete_user_photo" },
+      method: "GET"
+    });
+
+    if (status === 200) {
+      avatarImg = "";
+      $formData.photo = null;
+
+      toast.info("Success delete profile picture", {
+        description: res?.msg
+      });
+    }
   };
 
   const isSubmittable = $derived(
@@ -167,7 +192,7 @@
                     {/if}
                   </Avatar.Fallback>
                 </Avatar.Root>
-                <Popover.Root>
+                <Popover.Root open={openEditAvatar} onOpenChange={(e) => (openEditAvatar = e)}>
                   <Popover.Trigger
                     class="absolute bottom-3 left-0 flex h-max w-max items-center gap-x-1 rounded-lg border border-input bg-background px-2 py-1 hover:bg-accent hover:text-accent-foreground"
                   >
@@ -179,16 +204,20 @@
                       <Form.Label
                         for="photo"
                         class="w-full cursor-pointer rounded-md px-2 py-1.5 text-start text-xs"
+                        onclick={() => (openEditAvatar = false)}
                       >
                         Upload...
                       </Form.Label>
                     </Button>
-                    <Button
-                      variant="ghost"
-                      class="flex h-max w-full justify-start px-2 py-1.5 text-xs"
-                    >
-                      Delete
-                    </Button>
+                    {#if avatar || $formData.photo}
+                      <Button
+                        onclick={deleteAvatar}
+                        variant="ghost"
+                        class="flex h-max w-full justify-start px-2 py-1.5 text-xs text-destructive hover:text-destructive"
+                      >
+                        Delete
+                      </Button>
+                    {/if}
                   </Popover.Content>
                 </Popover.Root>
               </Form.Label>
@@ -385,7 +414,7 @@
                     {/if}
                   </Avatar.Fallback>
                 </Avatar.Root>
-                <Popover.Root>
+                <Popover.Root open={openEditAvatar} onOpenChange={(e) => (openEditAvatar = e)}>
                   <Popover.Trigger
                     class="absolute bottom-3 left-0 flex h-max w-max items-center gap-x-1 rounded-lg border border-input bg-background px-2 py-1 hover:bg-accent hover:text-accent-foreground xl:left-2.5"
                   >
@@ -393,7 +422,11 @@
                     <span class="text-xs font-medium">Edit</span>
                   </Popover.Trigger>
                   <Popover.Content class="flex max-w-[8rem] flex-col gap-y-1 p-1 text-sm">
-                    <Button variant="ghost" class="h-max w-full px-0 py-0">
+                    <Button
+                      variant="ghost"
+                      class="h-max w-full px-0 py-0"
+                      onclick={() => (openEditAvatar = false)}
+                    >
                       <Form.Label
                         for="photo"
                         class="w-full cursor-pointer rounded-md px-2 py-1.5 text-start text-xs"
@@ -401,12 +434,15 @@
                         Upload...
                       </Form.Label>
                     </Button>
-                    <Button
-                      variant="ghost"
-                      class="flex h-max w-full justify-start px-2 py-1.5 text-xs"
-                    >
-                      Delete
-                    </Button>
+                    {#if avatar || $formData.photo}
+                      <Button
+                        onclick={deleteAvatar}
+                        variant="ghost"
+                        class="flex h-max w-full justify-start px-2 py-1.5 text-xs text-destructive hover:text-destructive"
+                      >
+                        Delete
+                      </Button>
+                    {/if}
                   </Popover.Content>
                 </Popover.Root>
               </Form.Label>
@@ -434,18 +470,19 @@
           disabled={$submitting || !isSubmittable || isError}
           {...props}
         >
-          Update profile {isSubmittable}
+          Update profile
         </Button>
       {/snippet}
     </Dialog.Trigger>
 
     <Dialog.Content class="sm:max-w-[425px]">
-      <Dialog.Header>
-        <Dialog.Title>Update Profile Confirmation</Dialog.Title>
-        <Dialog.Description>Confirm changes to your profile here.</Dialog.Description>
-      </Dialog.Header>
-      <div>
-        <Form.Field {form} name="password" class="w-full">
+      <form use:enhance enctype="multipart/form-data">
+        <Dialog.Header>
+          <Dialog.Title>Update Profile Confirmation</Dialog.Title>
+          <Dialog.Description>Confirm changes to your profile here.</Dialog.Description>
+        </Dialog.Header>
+
+        <Form.Field {form} name="password" class="w-full pb-8 pt-5">
           <Form.Control>
             {#snippet children({ props })}
               <Form.Label for="password">Password</Form.Label>
@@ -463,10 +500,11 @@
             {/snippet}
           </Form.Control>
         </Form.Field>
-      </div>
-      <Dialog.Footer>
-        <Button type="submit" onclick={handleSubmit}>Confirm</Button>
-      </Dialog.Footer>
+
+        <Dialog.Footer>
+          <Button type="submit" onclick={handleSubmit}>Confirm</Button>
+        </Dialog.Footer>
+      </form>
     </Dialog.Content>
   </form>
 </Dialog.Root>

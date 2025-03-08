@@ -5,6 +5,10 @@
   import { mailConfig } from "$constants";
   import { toast } from "svelte-sonner";
   import { copyText } from "svelte-copy";
+  import { useAuth } from "$lib/hooks/auth.svelte";
+  import Seo from "$components/customs/seo.svelte";
+
+  const auth = useAuth();
 
   const copy = async (text: string) => {
     try {
@@ -17,6 +21,12 @@
     }
   };
 </script>
+
+<Seo
+  title="{auth.user?.full_name} ({auth.user?.username}) - GNU/Weeb Mail"
+  description="Configure your email client using this config"
+  image={auth.user?.photo}
+/>
 
 <div class="flex h-full w-full justify-center">
   <Card.Root>

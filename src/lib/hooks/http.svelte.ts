@@ -1,3 +1,4 @@
+import { goto } from "$app/navigation";
 import { PUBLIC_BASE_URL } from "$env/static/public";
 import * as typing from "$typings";
 import axios from "axios";
@@ -53,10 +54,11 @@ client.interceptors.response.use(
     const response = err.response as AxiosResponse<typing.ResponseAPI<typing.RenewTokenResponse>>;
     const status = response ? response.status : null;
 
-    if (status === 403 && response?.data) {
+    if (status !== 200) {
       localStorage.removeItem("gwm_token");
       localStorage.removeItem("gwm_token_exp_at");
       localStorage.removeItem("gwm_uinfo");
+      goto("/");
     }
 
     return response;

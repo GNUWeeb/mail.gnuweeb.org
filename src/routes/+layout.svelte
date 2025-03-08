@@ -7,4 +7,4 @@
 
 {@render children()}
 
-<Toaster />
+<Toaster position="bottom-center" richColors />

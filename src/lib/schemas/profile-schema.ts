@@ -13,10 +13,10 @@ export const profileSchema = z.object({
   ext_email: z.string().email("Invalid email format"),
   gender: z.enum(["m", "f"]),
   socials: z.object({
-    github_username: z.string().optional(),
-    telegram_username: z.string().optional(),
-    twitter_username: z.string().optional(),
-    discord_username: z.string().optional()
+    github_username: z.string().optional().default(""),
+    telegram_username: z.string().optional().default(""),
+    twitter_username: z.string().optional().default(""),
+    discord_username: z.string().optional().default("")
   }),
   password: z.string()
 });
