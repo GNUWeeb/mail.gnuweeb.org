@@ -9,12 +9,19 @@ export const load: LayoutLoad = async () => {
 
   if (!auth.isValid()) {
     localStorage.setItem("gwm_invalid_creds", String(1));
+    auth.clear();
     return redirect(307, "/");
   }
 
-  const { data } = await http<{ user_info: typing.User }>({
+  const { status, data } = await http<{ user_info: typing.User }>({
     params: { action: "get_user_info" }
   });
+
+  if (status !== 200) {
+    localStorage.setItem("gwm_invalid_creds", String(1));
+    auth.clear();
+    return redirect(307, "/");
+  }
 
   auth.save({
     token: data.res?.renew_token?.token,
