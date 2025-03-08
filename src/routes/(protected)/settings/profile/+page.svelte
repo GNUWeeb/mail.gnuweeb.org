@@ -66,6 +66,9 @@
           user_info: data.res?.user_info
         });
 
+        // reset password input onSuccess.
+        form.data.password = "";
+
         toast.info("Success update profile", {
           description: data.res?.msg ?? "Invalid credential, please login again."
         });
