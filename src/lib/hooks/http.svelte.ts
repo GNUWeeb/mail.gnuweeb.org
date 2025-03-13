@@ -54,7 +54,7 @@ client.interceptors.response.use(
     const response = err.response as AxiosResponse<typing.ResponseAPI<typing.RenewTokenResponse>>;
     const status = response ? response.status : null;
 
-    if (status !== 200) {
+    if (status === 401 && response.data.res?.msg === "Unauthorized") {
       localStorage.removeItem("gwm_token");
       localStorage.removeItem("gwm_token_exp_at");
       localStorage.removeItem("gwm_uinfo");
